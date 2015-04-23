@@ -50,7 +50,7 @@ namespace stupvau.Metier
             return name;
         }
 
-        public ArrayList getListPlayerCard()
+        public IList<PlayerCard> getListPlayerCard()
         {
             return listPlayerCard;
         }

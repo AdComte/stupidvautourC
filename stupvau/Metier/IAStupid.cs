@@ -13,7 +13,7 @@ namespace stupvau.Metier
     }
     public PlayerCard play() {
         Random i = new Random();
-        return base.getListPlayerCard().get(i.Next(number));
+        return base.getListPlayerCard()[i.Next(number)];
     }
     
     }

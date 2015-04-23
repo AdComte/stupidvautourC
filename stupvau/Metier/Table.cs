@@ -13,21 +13,24 @@ namespace stupvau.Metier
 
     private IList<PlayerCard> listPlayerCardsOnTable;
     private AnimalCard current;
-    private ArrayList stack;
-    private ArrayList listPlayer;
+    private IList<AnimalCard> stack;
+    private IList<Player> listPlayer;
 
-    public Table(ArrayList listPlayer) {
+    public Table(IList<Player> listPlayer)
+    {
         this.listPlayerCardsOnTable = new List<PlayerCard>();
-        this.stack = new ArrayList();
+        this.stack = new List<AnimalCard>();
         this.listPlayer = listPlayer;
 
     }
 
-    public ArrayList getListPlayerCardsOnTable() {
+    public IList<PlayerCard> getListPlayerCardsOnTable()
+    {
         return listPlayerCardsOnTable;
     }
 
-    public ArrayList getPlayerlist() {
+    public IList<Player> getPlayerlist()
+    {
         return listPlayer;
     }
 
@@ -85,7 +88,7 @@ namespace stupvau.Metier
     // TODO
     public void melangerAnimalCard() {
 
-        ArrayList pioche = new ArrayList();
+        IList<AnimalCard> pioche = new List<AnimalCard>();
 
         for (int i = 1; i < NB_VULTURE + 1; i++) {
             pioche.Add(new AnimalCard(i, true));
@@ -95,9 +98,12 @@ namespace stupvau.Metier
         }
         Random j = new Random();
 
-        ArrayList stackMelanger = new ArrayList();
+
+        IList<AnimalCard> stackMelanger = new List<AnimalCard>();
         while (pioche.Count > 0) {
-            stackMelanger.Add(pioche.Remove(j.Next(pioche.size())));
+            int i = j.Next(pioche.Count());
+            stackMelanger.Add(pioche[i]);
+            pioche.Remove(pioche[i]);
         }
         this.stack = stackMelanger;
     }
@@ -183,7 +189,8 @@ namespace stupvau.Metier
         return current;
     }
 
-    public ArrayList getStack() {
+    public IList<AnimalCard> getStack()
+    {
         return stack;
 
     }

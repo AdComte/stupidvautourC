@@ -2,19 +2,21 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Collections;
+using System.Object;
 
 namespace stupvau.Metier
 {
     class Game
     {
-    public final static int NB_CARDS = 15;
+    public sealed static int NB_CARDS = 15;
     //private int nbPlayer;
     private Table table;
     
     public Game(int nbPlayer) {
-        ArrayList<Player> listPlayer = new ArrayList<>();
+        ArrayList listPlayer = new ArrayList();
         for (int i = 0; i < nbPlayer - 1; i++) {
-            listPlayer.add(new IA_Stupid(i));
+            listPlayer.Add(new IAStupid(i));
         }
       //  listPlayer.add(new Human());
         this.table = new Table(listPlayer);
@@ -22,7 +24,7 @@ namespace stupvau.Metier
 
     // Le jeu
     public void GameLoop() {
-        System.out.println("***************************** Debut de la partie **************************************");
+        // // System.out.println("***************************** Debut de la partie **************************************");
         int turn = NB_CARDS;
        // this.table.deal(NB_CARDS);
         this.table.melangerAnimalCard();
@@ -33,11 +35,11 @@ namespace stupvau.Metier
         }        
         
         while (turn > 0) {
-            System.out.println("Début du tour" + turn);  ////////////////
+           // System.out.println("Début du tour" + turn);  ////////////////
             this.table.play();
             turn--;
         }
-        System.out.println("Le joueur numéro " + this.table.getPlayerHighestScore() + " a gagné ! Bravo à lui");
+       // System.out.println("Le joueur numéro " + this.table.getPlayerHighestScore() + " a gagné ! Bravo à lui");
     }
     }
 }

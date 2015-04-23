@@ -8,16 +8,16 @@ namespace stupvau.Metier
 {
     class Table
     {
-    public sealed static int NB_VULTURE = 5;
-    public sealed static int NB_MOUSE = 10;
+    public readonly static int NB_VULTURE = 5;
+    public readonly static int NB_MOUSE = 10;
 
-    private ArrayList listPlayerCardsOnTable;
+    private IList<PlayerCard> listPlayerCardsOnTable;
     private AnimalCard current;
     private ArrayList stack;
     private ArrayList listPlayer;
 
     public Table(ArrayList listPlayer) {
-        this.listPlayerCardsOnTable = new ArrayList();
+        this.listPlayerCardsOnTable = new List<PlayerCard>();
         this.stack = new ArrayList();
         this.listPlayer = listPlayer;
 

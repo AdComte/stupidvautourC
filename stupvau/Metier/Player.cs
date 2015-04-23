@@ -9,7 +9,7 @@ namespace stupvau.Metier
     class Player
     {
         private String name;
-        private ArrayList listPlayerCard;
+        private IList<PlayerCard> listPlayerCard;
         public static int number = 0;
         private int couleur;
         private int score;
@@ -22,7 +22,7 @@ namespace stupvau.Metier
 
         }
         public Player(int i) {
-        listPlayerCard = new ArrayList();
+        listPlayerCard = new List<PlayerCard>();
         this.couleur = i;
         this.score = 0;
     }

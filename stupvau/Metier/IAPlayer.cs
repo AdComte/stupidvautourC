@@ -8,7 +8,7 @@ namespace stupvau.Metier
     class IAPlayer : Player
     {
         
-    public IAPlayer (int i) : base() {
+    public IAPlayer (int i) : base(i) {
   //  super(i);
     }
 /**

@@ -575,7 +575,7 @@
             // 
             this.lbl_etat.AutoSize = true;
             this.lbl_etat.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_etat.Location = new System.Drawing.Point(372, 24);
+            this.lbl_etat.Location = new System.Drawing.Point(372, 35);
             this.lbl_etat.Name = "lbl_etat";
             this.lbl_etat.Size = new System.Drawing.Size(115, 25);
             this.lbl_etat.TabIndex = 18;

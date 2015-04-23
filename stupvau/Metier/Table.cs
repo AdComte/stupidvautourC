@@ -75,29 +75,29 @@ namespace stupvau.Metier
 
     public void deal() {
         for (int i = 1; i < NB_VULTURE + 1; i++) {
-            this.stack.add(new AnimalCard(i, true));
+            this.stack.Add(new AnimalCard(i, true));
         }
         for (int i = 1; i < NB_MOUSE + 1; i++) {
-            this.stack.add(new AnimalCard(i, false));
+            this.stack.Add(new AnimalCard(i, false));
         }
     }
 
     // TODO
     public void melangerAnimalCard() {
 
-        ArrayList<AnimalCard> pioche = new ArrayList();
+        ArrayList pioche = new ArrayList();
 
         for (int i = 1; i < NB_VULTURE + 1; i++) {
-            pioche.add(new AnimalCard(i, true));
+            pioche.Add(new AnimalCard(i, true));
         }
         for (int i = 1; i < NB_MOUSE + 1; i++) {
-            pioche.add(new AnimalCard(i, false));
+            pioche.Add(new AnimalCard(i, false));
         }
-        Random i = new Random();
+        Random j = new Random();
 
-        ArrayList<AnimalCard> stackMelanger = new ArrayList();
-        while (pioche.size() > 0) {
-            stackMelanger.add(pioche.remove(i.nextInt(pioche.size())));
+        ArrayList stackMelanger = new ArrayList();
+        while (pioche.Count > 0) {
+            stackMelanger.Add(pioche.Remove(j.Next(pioche.size())));
         }
         this.stack = stackMelanger;
     }
@@ -105,40 +105,40 @@ namespace stupvau.Metier
     //TODO : cas d'égalité
     public int win_round() //Renvoie le numéro du joueur gagnant ce coup ci
     {
-        ArrayList<PlayerCard> listCardGagnantes = new ArrayList<>();
+        ArrayList listCardGagnantes = new ArrayList();
         int max = 0, min = 15;
         if (this.current.getAnimal()) { //Si c'est un vautour
-            for (PlayerCard p : this.listPlayerCardsOnTable) {
+            foreach (PlayerCard p in this.listPlayerCardsOnTable) {
                 if (p.value < min) {//On enregistre qui a posé la valeur min
                     min = p.value;
-                    listCardGagnantes.clear();
-                    listCardGagnantes.add(p);
+                    listCardGagnantes.Clear();
+                    listCardGagnantes.Add(p);
                 } else if (p.value == min) {
-                    listCardGagnantes.add(p);
+                    listCardGagnantes.Add(p);
                 }
             }
         } else {    // Sinon si c'est une souris
-            for (PlayerCard p : this.listPlayerCardsOnTable) {
-                System.out.println(p.value);
+            foreach (PlayerCard p in this.listPlayerCardsOnTable) {
+               // System.out.println(p.value);
                 if (p.value > max)//On récupère le max et le joueur auquel il appartient
                 {
                     max = p.value;
-                    listCardGagnantes.clear();
-                    listCardGagnantes.add(p);
+                    listCardGagnantes.Clear();
+                    listCardGagnantes.Add(p);
                 } else if (p.value == max) {
-                    listCardGagnantes.add(p);
+                    listCardGagnantes.Add(p);
                 }
             }
         }
-        if (listCardGagnantes.size() == 1) {
-            System.out.println("Le joueur" + listCardGagnantes.get(0).getCouleur() + "gagne le round");
+        if (listCardGagnantes.Count == 1) {
+         //   System.out.println("Le joueur" + listCardGagnantes.get(0).getCouleur() + "gagne le round");
             return listCardGagnantes.get(0).getCouleur();
-        } else if (listCardGagnantes.size() == 0) {
+        } else if (listCardGagnantes.Count == 0) {
             return -1;
         } else {
 
-            while (listCardGagnantes.size() > 0) {
-                this.listPlayerCardsOnTable.remove(listCardGagnantes.remove(0));
+            while (listCardGagnantes.Count > 0) {
+                this.listPlayerCardsOnTable.Remove(listCardGagnantes.Remove(listCardGagnantes.));
             }
             return this.win_round();
         }
@@ -174,16 +174,16 @@ namespace stupvau.Metier
     // On défausse les cartes des joueurs sur le tapis
     // On retourne une nouvelle carte
     public void next_round() {
-        this.listPlayerCardsOnTable.clear();
+        this.listPlayerCardsOnTable.Clear();
         this.current = stack.get(0);
-        this.stack.remove(0);
+        this.stack.Remove(0);
     }
 
     public AnimalCard getCurrent() {
         return current;
     }
 
-    public ArrayList<AnimalCard> getStack() {
+    public ArrayList getStack() {
         return stack;
 
     }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,7 +9,7 @@ namespace stupvau.Metier
     class Player
     {
         private String name;
-        private ArrayList<PlayerCard> listPlayerCard;
+        private ArrayList listPlayerCard;
         public static int number = 0;
         private int couleur;
         private int score;
@@ -21,7 +22,7 @@ namespace stupvau.Metier
 
         }
         public Player(int i) {
-        listPlayerCard = new ArrayList<>();
+        listPlayerCard = new ArrayList();
         this.couleur = i;
         this.score = 0;
     }
@@ -30,7 +31,7 @@ namespace stupvau.Metier
         {
             for (int i = 1; i < nbCard + 1; i++)
             {
-                this.listPlayerCard.add(new PlayerCard(i, true, couleur));
+                this.listPlayerCard.Add(new PlayerCard(i, true, couleur));
             }
         }
 
@@ -49,7 +50,7 @@ namespace stupvau.Metier
             return name;
         }
 
-        public ArrayList<PlayerCard> getListPlayerCard()
+        public ArrayList getListPlayerCard()
         {
             return listPlayerCard;
         }

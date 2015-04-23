@@ -19,7 +19,7 @@ namespace stupvau.Metier
 private int getMaxValueOnPlayer (int cap)
 {
         int i=0, result=0;
-        boolean loop = true;
+        bool loop = true;
         if(cap>0)//Si une limite est définie
         {
             while (result<cap && loop)
@@ -36,7 +36,7 @@ private int getMaxValueOnPlayer (int cap)
         } 
         else
         {
-            for(PlayerCard P : this.getListPlayerCard())
+            for(PlayerCard P : base.getListPlayerCard())
             {
                 if (P.getValue()>result)
                 {

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Collections;
 
 namespace stupvau.Metier
 {
@@ -10,23 +11,23 @@ namespace stupvau.Metier
     public final static int NB_VULTURE = 5;
     public final static int NB_MOUSE = 10;
 
-    private ArrayList<PlayerCard> listPlayerCardsOnTable;
+    private ArrayList listPlayerCardsOnTable;
     private AnimalCard current;
-    private ArrayList<AnimalCard> stack;
-    private ArrayList<Player> listPlayer;
+    private ArrayList stack;
+    private ArrayList listPlayer;
 
-    public Table(ArrayList<Player> listPlayer) {
-        this.listPlayerCardsOnTable = new ArrayList<>();
-        this.stack = new ArrayList<>();
+    public Table(ArrayList listPlayer) {
+        this.listPlayerCardsOnTable = new ArrayList();
+        this.stack = new ArrayList();
         this.listPlayer = listPlayer;
 
     }
 
-    public ArrayList<PlayerCard> getListPlayerCardsOnTable() {
+    public ArrayList getListPlayerCardsOnTable() {
         return listPlayerCardsOnTable;
     }
 
-    public ArrayList<Player> getPlayerlist() {
+    public ArrayList getPlayerlist() {
         return listPlayer;
     }
 
@@ -43,7 +44,7 @@ namespace stupvau.Metier
         
         
         System.out.println("************************");        ///////////
-        for (Player p : this.listPlayer) {
+        foreach (Player p in this.listPlayer) {
             PlayerCard a = p.play();
             System.out.println("Valeur carte joueur :");        ///////////
             System.out.println(a.getValue());                   ///////////
@@ -54,7 +55,7 @@ namespace stupvau.Metier
         while (winnerRound == -1) {
             winnerRound = this.win_round();
         }
-        this.listPlayer.get(this.win_round()).setScore(point);
+        this.listPlayer.GetRange(this.win_round(), 1).ToArray().[0].setScore(point);
         System.out.println("Score mis à jour: "); /////////////////
         System.out.println(this.listPlayer.get(this.win_round()).getScore()); /////////////
         this.next_round();
@@ -63,7 +64,7 @@ namespace stupvau.Metier
     //Retourne le numéro du joueur au plus haut score
     public int getPlayerHighestScore() {
         int max = 0, winner = -1;
-        for (Player p : listPlayer) {
+        foreach (Player p in listPlayer) {
             if (p.getScore() > max) {
                 max = p.getScore();
                 winner = p.getCouleur();

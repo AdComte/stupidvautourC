@@ -8,8 +8,8 @@ namespace stupvau.Metier
 {
     class Table
     {
-    public final static int NB_VULTURE = 5;
-    public final static int NB_MOUSE = 10;
+    public sealed static int NB_VULTURE = 5;
+    public sealed static int NB_MOUSE = 10;
 
     private ArrayList listPlayerCardsOnTable;
     private AnimalCard current;
@@ -34,21 +34,21 @@ namespace stupvau.Metier
     // Fait jouer chaque joueur et met leur carte sur la table
     // Return : Tous les joueurs ont joué une carte sur la table
     public void play() {
-        System.out.println("Carte du stack : "); /////////////////
+  /*      System.out.println("Carte du stack : "); /////////////////
         System.out.println(this.current.getValue());     //////////////
-        System.out.println(this.current.getAnimal());     //////////////
+        System.out.println(this.current.getAnimal());     //////////////*/
         int point = this.getCurrent().getValue();
         if (this.getCurrent().getAnimal()) {
             point = point * -1;
         }
         
         
-        System.out.println("************************");        ///////////
+  //      System.out.println("************************");        ///////////
         foreach (Player p in this.listPlayer) {
             PlayerCard a = p.play();
-            System.out.println("Valeur carte joueur :");        ///////////
-            System.out.println(a.getValue());                   ///////////
-            this.listPlayerCardsOnTable.add(a);
+ //           System.out.println("Valeur carte joueur :");        ///////////
+ //           System.out.println(a.getValue());                   ///////////
+            this.listPlayerCardsOnTable.Add(a);
         }
         
         int winnerRound = this.win_round();
@@ -56,8 +56,8 @@ namespace stupvau.Metier
             winnerRound = this.win_round();
         }
         this.listPlayer.GetRange(this.win_round(), 1).ToArray().[0].setScore(point);
-        System.out.println("Score mis à jour: "); /////////////////
-        System.out.println(this.listPlayer.get(this.win_round()).getScore()); /////////////
+  //      System.out.println("Score mis à jour: "); /////////////////
+    //    System.out.println(this.listPlayer.get(this.win_round()).getScore()); /////////////
         this.next_round();
     }
 

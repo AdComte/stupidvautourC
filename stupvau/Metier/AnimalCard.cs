@@ -8,7 +8,7 @@ namespace stupvau.Metier
     class AnimalCard
     {
         private bool vulture;
-
+        //ee
         public AnimalCard(int number, bool vulture)
             : base()
         {

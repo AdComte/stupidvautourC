@@ -7,14 +7,13 @@ namespace stupvau.Metier
 {
     class IAStupid : Player
     {
-     public IAStupid (int i) : base()
+     public IAStupid (int i) : base(i)
     {
-        super(i);
-        super.setName("Stupid");
+        base.setName("Stupid");
     }
     public PlayerCard play() {
         Random i = new Random();
-        return base.getListPlayerCard().get(i.nextInt(number));
+        return base.getListPlayerCard().get(i.Next(number));
     }
     
     }

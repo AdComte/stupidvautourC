@@ -5,10 +5,10 @@ using System.Text;
 
 namespace stupvau.Metier
 {
-    class AnimalCard
+    class AnimalCard : Card
     {
         private bool vulture;
-
+        //ee
         public AnimalCard(int number, bool vulture)
             : base()
         {

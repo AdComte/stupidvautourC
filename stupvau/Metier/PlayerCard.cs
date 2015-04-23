@@ -5,7 +5,7 @@ using System.Text;
 
 namespace stupvau.Metier
 {
-    class PlayerCard
+    class PlayerCard : Card
     {
 
         private int couleur;

@@ -52,7 +52,12 @@
     </Compile>
     <Compile Include="Metier\AnimalCard.cs" />
     <Compile Include="Metier\Card.cs" />
+    <Compile Include="Metier\Game.cs" />
+    <Compile Include="Metier\IAPlayer.cs" />
+    <Compile Include="Metier\IAStupid.cs" />
+    <Compile Include="Metier\Player.cs" />
     <Compile Include="Metier\PlayerCard.cs" />
+    <Compile Include="Metier\Table.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">

@@ -13,11 +13,11 @@ namespace stupvau.Metier
 
     private IList<PlayerCard> listPlayerCardsOnTable;
     private AnimalCard current;
-    private IList<AnimalCard> stack;
+    private ArrayList stack;
     private ArrayList listPlayer;
 
     public Table(ArrayList listPlayer) {
-        this.listPlayerCardsOnTable = new ArrayList();
+        this.listPlayerCardsOnTable = new List<PlayerCard>();
         this.stack = new ArrayList();
         this.listPlayer = listPlayer;
 

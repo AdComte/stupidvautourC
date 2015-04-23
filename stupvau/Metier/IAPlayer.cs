@@ -24,7 +24,7 @@ private int getMaxValueOnPlayer (int cap)
         {
             while (result<cap && loop)
             {
-                int value = this.getListPlayerCard().get(i).getValue();
+                int value = this.getListPlayerCard()[i].getValue();
                 if( value > cap)
                 {
                     loop=false;

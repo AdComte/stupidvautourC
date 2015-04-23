@@ -36,7 +36,7 @@ private int getMaxValueOnPlayer (int cap)
         } 
         else
         {
-            for(PlayerCard P : base.getListPlayerCard())
+            foreach (PlayerCard P in base.getListPlayerCard())
             {
                 if (P.getValue()>result)
                 {
@@ -51,7 +51,7 @@ private int getMaxValueOnPlayer (int cap)
  * */
     private int getMaxValueOnTable (Table table) {
         int result =0;
-            for (PlayerCard P : table.getListPlayerCardsOnTable()) 
+            foreach (PlayerCard P in table.getListPlayerCardsOnTable()) 
             {
                 if(P.value > result)
                 {
@@ -76,10 +76,10 @@ private int getMaxValueOnPlayer (int cap)
             while(ok==false && max+i<=15)
             {
                 Carte = new PlayerCard(max+i, true, -1);
-                if(this.getListPlayerCard().contains(Carte))
+                if(this.getListPlayerCard().Contains(Carte))
                 {
                     ok=true;
-                    this.getListPlayerCard().remove(Carte);
+                    this.getListPlayerCard().Remove(Carte);
                 }
                i++;
             }
@@ -101,10 +101,10 @@ private int getMaxValueOnPlayer (int cap)
                 while(ok==false && max+i<=15)
                 {
                     Carte = new PlayerCard(max+i, true, -1);
-                    if(this.getListPlayerCard().contains(Carte))
+                    if(this.getListPlayerCard().Contains(Carte))
                     {
                         ok=true;
-                        this.getListPlayerCard().remove(Carte);
+                        this.getListPlayerCard().Remove(Carte);
                     }
                    i++;
                 }
@@ -114,7 +114,7 @@ private int getMaxValueOnPlayer (int cap)
     }
     
     public PlayerCard play() {
-      //  throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        throw new Exception ("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
     }

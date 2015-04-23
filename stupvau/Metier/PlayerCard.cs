@@ -10,7 +10,7 @@ namespace stupvau.Metier
 
         private int couleur;
 
-        public PlayerCard(int number, bool notPlayed, int couleur) : base()
+        public PlayerCard(int number, bool notPlayed, int couleur) : base(number, notPlayed)
         {
            // super(number, notPlayed);
             this.couleur = couleur;

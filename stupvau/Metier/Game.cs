@@ -14,7 +14,7 @@ namespace stupvau.Metier
     private Table table;
     
     public Game(int nbPlayer) {
-        ArrayList listPlayer = new ArrayList();
+        IList<Player> listPlayer = new List<Player>();
         for (int i = 0; i < nbPlayer - 1; i++) {
             listPlayer.Add(new IAStupid(i));
         }
@@ -28,9 +28,9 @@ namespace stupvau.Metier
         int turn = NB_CARDS;
        // this.table.deal(NB_CARDS);
         this.table.melangerAnimalCard();
-                
-        this.table.setCurrent(this.table.getStack().get(0)) ;
-        for (Player p : this.table.getPlayerlist()) {
+        AnimalCard AC = (AnimalCard) this.table.getStack()[0];
+        this.table.setCurrent(AC);
+        foreach (Player p in this.table.getPlayerlist()) {
             p.deal(NB_CARDS);
         }        
         

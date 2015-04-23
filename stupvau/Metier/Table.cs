@@ -98,6 +98,7 @@ namespace stupvau.Metier
         }
         Random j = new Random();
 
+
         IList<AnimalCard> stackMelanger = new List<AnimalCard>();
         while (pioche.Count > 0) {
             int i = j.Next(pioche.Count());

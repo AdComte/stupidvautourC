@@ -61,7 +61,7 @@ private int getMaxValueOnPlayer (int cap)
     return result;
     }
     
-    public PlayerCard play(Table table){
+    public override PlayerCard play(Table table){
         int value = table.getCurrent().getValue(), max=0;
         PlayerCard Carte=null;
         if(table.getCurrent().getAnimal())//Si on est sur un vautour
@@ -111,10 +111,6 @@ private int getMaxValueOnPlayer (int cap)
             }
         }
         return Carte;
-    }
-    
-    public PlayerCard play() {
-        throw new Exception ("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
     }

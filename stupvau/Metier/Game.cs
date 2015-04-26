@@ -3,13 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Collections;
-using System.Object;
 
 namespace stupvau.Metier
 {
     class Game
     {
-    public sealed static int NB_CARDS = 15;
+    public readonly static int NB_CARDS = 15;
     //private int nbPlayer;
     private Table table;
     

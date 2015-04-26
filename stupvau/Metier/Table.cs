@@ -48,7 +48,7 @@ namespace stupvau.Metier
         
   //      System.out.println("************************");        ///////////
         foreach (Player p in this.listPlayer) {
-            PlayerCard a = p.play();
+            PlayerCard a = p.play(this);
  //           System.out.println("Valeur carte joueur :");        ///////////
  //           System.out.println(a.getValue());                   ///////////
             this.listPlayerCardsOnTable.Add(a);
@@ -58,7 +58,7 @@ namespace stupvau.Metier
         while (winnerRound == -1) {
             winnerRound = this.win_round();
         }
-        this.listPlayer.GetRange(this.win_round(), 1).ToArray().[0].setScore(point);
+        this.listPlayer.ElementAt(winnerRound).setScore(point);
   //      System.out.println("Score mis à jour: "); /////////////////
     //    System.out.println(this.listPlayer.get(this.win_round()).getScore()); /////////////
         this.next_round();
@@ -111,7 +111,7 @@ namespace stupvau.Metier
     //TODO : cas d'égalité
     public int win_round() //Renvoie le numéro du joueur gagnant ce coup ci
     {
-        ArrayList listCardGagnantes = new ArrayList();
+        IList<PlayerCard> listCardGagnantes = new List<PlayerCard>();
         int max = 0, min = 15;
         if (this.current.getAnimal()) { //Si c'est un vautour
             foreach (PlayerCard p in this.listPlayerCardsOnTable) {
@@ -138,13 +138,13 @@ namespace stupvau.Metier
         }
         if (listCardGagnantes.Count == 1) {
          //   System.out.println("Le joueur" + listCardGagnantes.get(0).getCouleur() + "gagne le round");
-            return listCardGagnantes.get(0).getCouleur();
+            return listCardGagnantes.ElementAt(0).getCouleur();
         } else if (listCardGagnantes.Count == 0) {
             return -1;
         } else {
 
             while (listCardGagnantes.Count > 0) {
-                this.listPlayerCardsOnTable.Remove(listCardGagnantes.Remove(listCardGagnantes.));
+                this.listPlayerCardsOnTable.RemoveAt(1);
             }
             return this.win_round();
         }
@@ -181,8 +181,8 @@ namespace stupvau.Metier
     // On retourne une nouvelle carte
     public void next_round() {
         this.listPlayerCardsOnTable.Clear();
-        this.current = stack.get(0);
-        this.stack.Remove(0);
+        this.current = stack[0];
+        this.stack.RemoveAt(0);
     }
 
     public AnimalCard getCurrent() {

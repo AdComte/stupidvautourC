@@ -11,7 +11,7 @@ namespace stupvau.Metier
     {
         base.setName("Stupid");
     }
-    public PlayerCard play() {
+    public override PlayerCard play(Table table) {
         Random i = new Random();
         return base.getListPlayerCard()[i.Next(number)];
     }

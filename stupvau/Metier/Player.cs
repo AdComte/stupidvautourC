@@ -6,7 +6,7 @@ using System.Text;
 
 namespace stupvau.Metier
 {
-    class Player
+    abstract class Player
     {
         private String name;
         private IList<PlayerCard> listPlayerCard;
@@ -15,7 +15,7 @@ namespace stupvau.Metier
         private int score;
 
 
-        public abstract PlayerCard play();
+        public abstract PlayerCard play(Table table);
 
         public Player ()
         {

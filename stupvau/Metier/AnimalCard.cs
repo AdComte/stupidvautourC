@@ -10,7 +10,7 @@ namespace stupvau.Metier
         private bool vulture;
         //ee
         public AnimalCard(int number, bool vulture)
-            : base()
+            : base(number)
         {
             //super(number);
             this.vulture = vulture;

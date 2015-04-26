@@ -14,7 +14,7 @@ namespace stupvau.Metier
     
     public Game(int nbPlayer) {
         IList<Player> listPlayer = new List<Player>();
-        for (int i = 0; i < nbPlayer - 1; i++) {
+        for (int i = 0; i < nbPlayer; i++) {
             listPlayer.Add(new IAStupid(i));
         }
       //  listPlayer.add(new Human());
@@ -23,22 +23,49 @@ namespace stupvau.Metier
 
     // Le jeu
     public void GameLoop() {
-        // // System.out.println("***************************** Debut de la partie **************************************");
+        Console.WriteLine("***************************** Debut de la partie **************************************");
         int turn = NB_CARDS;
-       // this.table.deal(NB_CARDS);
+       // this.table.deal();
         this.table.melangerAnimalCard();
         AnimalCard AC = (AnimalCard) this.table.getStack()[0];
+        Console.WriteLine("********************************************");
+        foreach (AnimalCard a in this.table.getStack())
+        {
+            if (a.getAnimal())
+            {
+                Console.WriteLine("Vautour/" + a.getValue());
+            }
+            else
+            {
+                Console.WriteLine("Souris/" + a.getValue());
+            }
+        }
+        Console.WriteLine("****************************************");
         this.table.setCurrent(AC);
+        this.table.getStack().RemoveAt(0);
+        foreach (AnimalCard a in this.table.getStack())
+        {
+            if (a.getAnimal())
+            {
+                Console.WriteLine("Vautour/" + a.getValue());
+            }
+            else
+            {
+                Console.WriteLine("Souris/" + a.getValue());
+            }
+        }
         foreach (Player p in this.table.getPlayerlist()) {
             p.deal(NB_CARDS);
         }        
         
         while (turn > 0) {
-           // System.out.println("Début du tour" + turn);  ////////////////
+            Console.WriteLine("Début du tour" + turn);  ////////////////
             this.table.play();
+            if(turn!=1)
+                this.table.next_round();
             turn--;
         }
-       // System.out.println("Le joueur numéro " + this.table.getPlayerHighestScore() + " a gagné ! Bravo à lui");
+        Console.WriteLine("Le joueur numéro " + this.table.getPlayerHighestScore() + " a gagné ! Bravo à lui");
     }
     }
 }

@@ -25,6 +25,10 @@ namespace stupvau.Metier
         listPlayerCard = new List<PlayerCard>();
         this.couleur = i;
         this.score = 0;
+            //for(int j=1;j<=15;j++)
+            //{
+            //    this.listPlayerCard.Add(new PlayerCard(j,true,this.couleur));
+            //}
     }
 
         public void deal(int nbCard)

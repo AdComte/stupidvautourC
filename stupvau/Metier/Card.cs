@@ -44,10 +44,10 @@ namespace stupvau.Metier
              {
              if(notPlayed)
          *   {
-             System.out.println("Carte "+this.value);}
+             Console.WriteLine("Carte "+this.value);}
              else
          *   {
-                 System.out.println("Carte Inconnue");}
+                 Console.WriteLine("Carte Inconnue");}
              }
              }*/
     }

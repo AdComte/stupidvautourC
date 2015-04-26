@@ -37,20 +37,20 @@ namespace stupvau.Metier
     // Fait jouer chaque joueur et met leur carte sur la table
     // Return : Tous les joueurs ont joué une carte sur la table
     public void play() {
-  /*      System.out.println("Carte du stack : "); /////////////////
-        System.out.println(this.current.getValue());     //////////////
-        System.out.println(this.current.getAnimal());     //////////////*/
+             Console.WriteLine("Carte du stack : "); /////////////////
+              Console.WriteLine(this.current.getValue());     //////////////
+              Console.WriteLine(this.current.getAnimal());     //////////////
         int point = this.getCurrent().getValue();
         if (this.getCurrent().getAnimal()) {
             point = point * -1;
         }
         
         
-  //      System.out.println("************************");        ///////////
+     Console.WriteLine("************************");        ///////////
         foreach (Player p in this.listPlayer) {
             PlayerCard a = p.play(this);
- //           System.out.println("Valeur carte joueur :");        ///////////
- //           System.out.println(a.getValue());                   ///////////
+            Console.WriteLine("Valeur carte joueur"+ p.getCouleur()+" :");        ///////////
+            Console.WriteLine(a.getValue());                   ///////////
             this.listPlayerCardsOnTable.Add(a);
         }
         
@@ -59,9 +59,9 @@ namespace stupvau.Metier
             winnerRound = this.win_round();
         }
         this.listPlayer.ElementAt(winnerRound).setScore(point);
-  //      System.out.println("Score mis à jour: "); /////////////////
-    //    System.out.println(this.listPlayer.get(this.win_round()).getScore()); /////////////
-        this.next_round();
+        Console.WriteLine("Score mis à jour: "); /////////////////
+        Console.WriteLine(this.listPlayer[this.win_round()].getScore()); /////////////
+        //this.next_round();
     }
 
     //Retourne le numéro du joueur au plus haut score
@@ -96,6 +96,7 @@ namespace stupvau.Metier
         for (int i = 1; i < NB_MOUSE + 1; i++) {
             pioche.Add(new AnimalCard(i, false));
         }
+        Console.WriteLine("Au commencement, la pile contient : " + this.stack.Count() + " éléments");
         Random j = new Random();
 
 
@@ -106,6 +107,18 @@ namespace stupvau.Metier
             pioche.Remove(pioche[i]);
         }
         this.stack = stackMelanger;
+
+        foreach(AnimalCard a in this.stack)
+        {
+            if(a.getAnimal())
+            {
+                Console.WriteLine("Vautour/" + a.getValue());
+            }
+            else
+            {
+                Console.WriteLine("Souris/" + a.getValue());
+            }
+        }
     }
 
     //TODO : cas d'égalité
@@ -125,7 +138,7 @@ namespace stupvau.Metier
             }
         } else {    // Sinon si c'est une souris
             foreach (PlayerCard p in this.listPlayerCardsOnTable) {
-               // System.out.println(p.value);
+                Console.WriteLine(p.value);
                 if (p.value > max)//On récupère le max et le joueur auquel il appartient
                 {
                     max = p.value;
@@ -137,16 +150,17 @@ namespace stupvau.Metier
             }
         }
         if (listCardGagnantes.Count == 1) {
-         //   System.out.println("Le joueur" + listCardGagnantes.get(0).getCouleur() + "gagne le round");
+            Console.WriteLine("Le joueur" + listCardGagnantes[0].getCouleur() + "gagne le round");
             return listCardGagnantes.ElementAt(0).getCouleur();
         } else if (listCardGagnantes.Count == 0) {
             return -1;
         } else {
 
-            while (listCardGagnantes.Count > 0) {
-                this.listPlayerCardsOnTable.RemoveAt(1);
-            }
-            return this.win_round();
+            //while (listCardGagnantes.Count > 0) {
+            //    this.listPlayerCardsOnTable.RemoveAt(0);
+            //}
+            return listCardGagnantes[0].getCouleur();
+            //return this.win_round();
         }
     }
 
@@ -165,7 +179,7 @@ namespace stupvau.Metier
 //            }
 //        } else {    // Sinon si c'est une souris
 //            for (PlayerCard p : this.listPlayerCardsOnTable) {
-//                System.out.println(p.value);
+//                Console.WriteLine(p.value);
 //                if (p.value > max)//On récupère le max et le joueur auquel il appartient
 //                {
 //                    max = p.value;
@@ -173,7 +187,7 @@ namespace stupvau.Metier
 //                }
 //            }
 //        }
-//        System.out.println("le joueur" + couleur + "gagne le round");
+//        Console.WriteLine("le joueur" + couleur + "gagne le round");
 //        return couleur;
 //    }
     // Passe au tour suivant

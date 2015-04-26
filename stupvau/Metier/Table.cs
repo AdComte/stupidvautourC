@@ -138,7 +138,7 @@ namespace stupvau.Metier
             }
         } else {    // Sinon si c'est une souris
             foreach (PlayerCard p in this.listPlayerCardsOnTable) {
-                Console.WriteLine(p.value);
+                Console.WriteLine(p.value +" de " + p.getCouleur() +" est sur la table");
                 if (p.value > max)//On récupère le max et le joueur auquel il appartient
                 {
                     max = p.value;

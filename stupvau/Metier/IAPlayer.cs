@@ -75,7 +75,7 @@ private int getMaxValueOnPlayer (int cap)
             int i=1;
             while(ok==false && max+i<=15)
             {
-                Carte = new PlayerCard(max+i, true, -1);
+                Carte = new PlayerCard(max + i, true, this.getCouleur());
                 if(this.getListPlayerCard().Contains(Carte))
                 {
                     ok=true;
@@ -88,19 +88,19 @@ private int getMaxValueOnPlayer (int cap)
             if(value < 4) 
             {                                       //Si la souris rapporte peu de points
                 max = this.getMaxValueOnPlayer(6);    //On joue une carte intermédiaire
-                Carte = new PlayerCard(max, true, -1);
+                Carte = new PlayerCard(max, true, this.getCouleur());
             }
             if(value < 8 && value >=4)      //Si la souris rapporte quelques points
             {                               //Elle vaut le coup de se battre
                 max = this.getMaxValueOnPlayer(11);
-                Carte = new PlayerCard(max, true, -1);
+                Carte = new PlayerCard(max, true, this.getCouleur());
             } else 
             {                               //Sinon on la récupère à tout prix car elle rapporte gros 
                 bool ok=false;           // on joue la carte immédiatement supérieure au max de la carte posée
                 int i=1;
                 while(ok==false && max+i<=15)
                 {
-                    Carte = new PlayerCard(max+i, true, -1);
+                    Carte = new PlayerCard(max+i, true, this.getCouleur());
                     if(this.getListPlayerCard().Contains(Carte))
                     {
                         ok=true;
@@ -110,7 +110,18 @@ private int getMaxValueOnPlayer (int cap)
                 }
             }
         }
-        return Carte;
+        if (Carte != null) {
+            PlayerCard played = Carte;
+            this.getListPlayerCard().Remove(Carte);
+            return played; } else {
+            Console.WriteLine("Le joueur " + this.getCouleur() + "joue au pif !!!");
+            Random i = new Random();
+            int indice = i.Next(this.getListPlayerCard().Count);
+            PlayerCard played = new PlayerCard(indice, false, this.getCouleur());
+            this.getListPlayerCard().RemoveAt(indice);
+            return played;
+        }
+
     }
     
     }

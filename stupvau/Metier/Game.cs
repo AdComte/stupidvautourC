@@ -14,9 +14,12 @@ namespace stupvau.Metier
     
     public Game(int nbPlayer) {
         IList<Player> listPlayer = new List<Player>();
-        for (int i = 0; i < nbPlayer; i++) {
-            listPlayer.Add(new IAStupid(i));
+        int i;
+        for ( i = 0; i < nbPlayer-1; i++) {
+            listPlayer.Add(new IAPlayer(i));
         }
+        listPlayer.Add(new IAPlayer(i));
+        foreach (Player p in listPlayer) { Console.WriteLine("Le joueur " + p.getCouleur() + "Entre dans la partie"); }
       //  listPlayer.add(new Human());
         this.table = new Table(listPlayer);
     }
@@ -28,32 +31,10 @@ namespace stupvau.Metier
        // this.table.deal();
         this.table.melangerAnimalCard();
         AnimalCard AC = (AnimalCard) this.table.getStack()[0];
-        Console.WriteLine("********************************************");
-        foreach (AnimalCard a in this.table.getStack())
-        {
-            if (a.getAnimal())
-            {
-                Console.WriteLine("Vautour/" + a.getValue());
-            }
-            else
-            {
-                Console.WriteLine("Souris/" + a.getValue());
-            }
-        }
-        Console.WriteLine("****************************************");
+
         this.table.setCurrent(AC);
         this.table.getStack().RemoveAt(0);
-        foreach (AnimalCard a in this.table.getStack())
-        {
-            if (a.getAnimal())
-            {
-                Console.WriteLine("Vautour/" + a.getValue());
-            }
-            else
-            {
-                Console.WriteLine("Souris/" + a.getValue());
-            }
-        }
+
         foreach (Player p in this.table.getPlayerlist()) {
             p.deal(NB_CARDS);
         }        

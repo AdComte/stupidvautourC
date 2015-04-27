@@ -12,6 +12,7 @@ namespace stupvau
     public partial class Table : Form
     {
         public bool[] playablecards;
+        public int selectedcard;
 
         public Table()
         {
@@ -20,6 +21,8 @@ namespace stupvau
             {
                 playablecards[i] = true;
             }
+            selectedcard = 0;
+            pb_player.Image = cardsplayer1.Images[0];
         }
 
         private void lockgame() //Rend les toutes cartes in sélectionnables et le bouton incliquable
@@ -48,6 +51,13 @@ namespace stupvau
         {
             //TODO, on valide le coup, redone la main à la boucle de jeu ne pas oublier d'ajouter la carte jouée dans payablecards false
             lockgame();
+        }
+
+        private void pb_click(object sender, EventArgs e)
+        {
+            Control card = (Control)sender;
+            selectedcard = card.TabIndex + 1;
+            pb_player.Image = cardsplayer1.Images[selectedcard];
         }
     }
 }

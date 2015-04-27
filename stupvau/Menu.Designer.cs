@@ -39,21 +39,17 @@
             this.rb_pl2hard = new System.Windows.Forms.RadioButton();
             this.rb_pl2medium = new System.Windows.Forms.RadioButton();
             this.rb_pl2easy = new System.Windows.Forms.RadioButton();
-            this.rb_pl2alea = new System.Windows.Forms.RadioButton();
             this.gb_player3 = new System.Windows.Forms.GroupBox();
             this.rb_pl3hard = new System.Windows.Forms.RadioButton();
             this.rb_pl3easy = new System.Windows.Forms.RadioButton();
             this.rb_pl3medium = new System.Windows.Forms.RadioButton();
-            this.rb_pl3alea = new System.Windows.Forms.RadioButton();
             this.gb_player4 = new System.Windows.Forms.GroupBox();
             this.rb_pl4hard = new System.Windows.Forms.RadioButton();
             this.rb_pl4easy = new System.Windows.Forms.RadioButton();
-            this.rb_pl4alea = new System.Windows.Forms.RadioButton();
             this.rb_pl4medium = new System.Windows.Forms.RadioButton();
             this.gb_player5 = new System.Windows.Forms.GroupBox();
             this.rb_pl5hard = new System.Windows.Forms.RadioButton();
             this.rb_pl5easy = new System.Windows.Forms.RadioButton();
-            this.rb_pl5alea = new System.Windows.Forms.RadioButton();
             this.rb_pl5medium = new System.Windows.Forms.RadioButton();
             this.gb_nbplayers.SuspendLayout();
             this.gb_player2.SuspendLayout();
@@ -148,11 +144,10 @@
             this.gb_player2.Controls.Add(this.rb_pl2hard);
             this.gb_player2.Controls.Add(this.rb_pl2medium);
             this.gb_player2.Controls.Add(this.rb_pl2easy);
-            this.gb_player2.Controls.Add(this.rb_pl2alea);
             this.gb_player2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gb_player2.Location = new System.Drawing.Point(180, 107);
             this.gb_player2.Name = "gb_player2";
-            this.gb_player2.Size = new System.Drawing.Size(95, 130);
+            this.gb_player2.Size = new System.Drawing.Size(95, 100);
             this.gb_player2.TabIndex = 3;
             this.gb_player2.TabStop = false;
             this.gb_player2.Text = "Joueur 2 - IA";
@@ -161,7 +156,7 @@
             // 
             this.rb_pl2hard.AutoSize = true;
             this.rb_pl2hard.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rb_pl2hard.Location = new System.Drawing.Point(6, 99);
+            this.rb_pl2hard.Location = new System.Drawing.Point(6, 73);
             this.rb_pl2hard.Name = "rb_pl2hard";
             this.rb_pl2hard.Size = new System.Drawing.Size(69, 20);
             this.rb_pl2hard.TabIndex = 1;
@@ -172,7 +167,7 @@
             // 
             this.rb_pl2medium.AutoSize = true;
             this.rb_pl2medium.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rb_pl2medium.Location = new System.Drawing.Point(6, 73);
+            this.rb_pl2medium.Location = new System.Drawing.Point(6, 47);
             this.rb_pl2medium.Name = "rb_pl2medium";
             this.rb_pl2medium.Size = new System.Drawing.Size(82, 20);
             this.rb_pl2medium.TabIndex = 1;
@@ -182,36 +177,25 @@
             // rb_pl2easy
             // 
             this.rb_pl2easy.AutoSize = true;
+            this.rb_pl2easy.Checked = true;
             this.rb_pl2easy.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rb_pl2easy.Location = new System.Drawing.Point(6, 47);
+            this.rb_pl2easy.Location = new System.Drawing.Point(6, 21);
             this.rb_pl2easy.Name = "rb_pl2easy";
             this.rb_pl2easy.Size = new System.Drawing.Size(63, 20);
             this.rb_pl2easy.TabIndex = 1;
+            this.rb_pl2easy.TabStop = true;
             this.rb_pl2easy.Text = "Facile";
             this.rb_pl2easy.UseVisualStyleBackColor = true;
-            // 
-            // rb_pl2alea
-            // 
-            this.rb_pl2alea.AutoSize = true;
-            this.rb_pl2alea.Checked = true;
-            this.rb_pl2alea.Location = new System.Drawing.Point(6, 21);
-            this.rb_pl2alea.Name = "rb_pl2alea";
-            this.rb_pl2alea.Size = new System.Drawing.Size(80, 20);
-            this.rb_pl2alea.TabIndex = 0;
-            this.rb_pl2alea.TabStop = true;
-            this.rb_pl2alea.Text = "Aléatoire";
-            this.rb_pl2alea.UseVisualStyleBackColor = true;
             // 
             // gb_player3
             // 
             this.gb_player3.Controls.Add(this.rb_pl3hard);
             this.gb_player3.Controls.Add(this.rb_pl3easy);
             this.gb_player3.Controls.Add(this.rb_pl3medium);
-            this.gb_player3.Controls.Add(this.rb_pl3alea);
             this.gb_player3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gb_player3.Location = new System.Drawing.Point(281, 107);
             this.gb_player3.Name = "gb_player3";
-            this.gb_player3.Size = new System.Drawing.Size(95, 130);
+            this.gb_player3.Size = new System.Drawing.Size(95, 100);
             this.gb_player3.TabIndex = 3;
             this.gb_player3.TabStop = false;
             this.gb_player3.Text = "Joueur 3 - IA";
@@ -220,7 +204,7 @@
             // 
             this.rb_pl3hard.AutoSize = true;
             this.rb_pl3hard.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rb_pl3hard.Location = new System.Drawing.Point(6, 99);
+            this.rb_pl3hard.Location = new System.Drawing.Point(6, 73);
             this.rb_pl3hard.Name = "rb_pl3hard";
             this.rb_pl3hard.Size = new System.Drawing.Size(69, 20);
             this.rb_pl3hard.TabIndex = 1;
@@ -230,10 +214,12 @@
             // rb_pl3easy
             // 
             this.rb_pl3easy.AutoSize = true;
-            this.rb_pl3easy.Location = new System.Drawing.Point(6, 47);
+            this.rb_pl3easy.Checked = true;
+            this.rb_pl3easy.Location = new System.Drawing.Point(6, 21);
             this.rb_pl3easy.Name = "rb_pl3easy";
             this.rb_pl3easy.Size = new System.Drawing.Size(63, 20);
             this.rb_pl3easy.TabIndex = 1;
+            this.rb_pl3easy.TabStop = true;
             this.rb_pl3easy.Text = "Facile";
             this.rb_pl3easy.UseVisualStyleBackColor = true;
             // 
@@ -241,35 +227,22 @@
             // 
             this.rb_pl3medium.AutoSize = true;
             this.rb_pl3medium.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rb_pl3medium.Location = new System.Drawing.Point(6, 73);
+            this.rb_pl3medium.Location = new System.Drawing.Point(6, 47);
             this.rb_pl3medium.Name = "rb_pl3medium";
             this.rb_pl3medium.Size = new System.Drawing.Size(82, 20);
             this.rb_pl3medium.TabIndex = 1;
             this.rb_pl3medium.Text = "Moyenne";
             this.rb_pl3medium.UseVisualStyleBackColor = true;
             // 
-            // rb_pl3alea
-            // 
-            this.rb_pl3alea.AutoSize = true;
-            this.rb_pl3alea.Checked = true;
-            this.rb_pl3alea.Location = new System.Drawing.Point(6, 21);
-            this.rb_pl3alea.Name = "rb_pl3alea";
-            this.rb_pl3alea.Size = new System.Drawing.Size(80, 20);
-            this.rb_pl3alea.TabIndex = 0;
-            this.rb_pl3alea.TabStop = true;
-            this.rb_pl3alea.Text = "Aléatoire";
-            this.rb_pl3alea.UseVisualStyleBackColor = true;
-            // 
             // gb_player4
             // 
             this.gb_player4.Controls.Add(this.rb_pl4hard);
             this.gb_player4.Controls.Add(this.rb_pl4easy);
-            this.gb_player4.Controls.Add(this.rb_pl4alea);
             this.gb_player4.Controls.Add(this.rb_pl4medium);
             this.gb_player4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gb_player4.Location = new System.Drawing.Point(382, 107);
             this.gb_player4.Name = "gb_player4";
-            this.gb_player4.Size = new System.Drawing.Size(95, 130);
+            this.gb_player4.Size = new System.Drawing.Size(95, 100);
             this.gb_player4.TabIndex = 3;
             this.gb_player4.TabStop = false;
             this.gb_player4.Text = "Joueur 4 - IA";
@@ -278,7 +251,7 @@
             // 
             this.rb_pl4hard.AutoSize = true;
             this.rb_pl4hard.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rb_pl4hard.Location = new System.Drawing.Point(6, 99);
+            this.rb_pl4hard.Location = new System.Drawing.Point(6, 73);
             this.rb_pl4hard.Name = "rb_pl4hard";
             this.rb_pl4hard.Size = new System.Drawing.Size(69, 20);
             this.rb_pl4hard.TabIndex = 1;
@@ -288,30 +261,20 @@
             // rb_pl4easy
             // 
             this.rb_pl4easy.AutoSize = true;
-            this.rb_pl4easy.Location = new System.Drawing.Point(6, 47);
+            this.rb_pl4easy.Checked = true;
+            this.rb_pl4easy.Location = new System.Drawing.Point(6, 21);
             this.rb_pl4easy.Name = "rb_pl4easy";
             this.rb_pl4easy.Size = new System.Drawing.Size(63, 20);
             this.rb_pl4easy.TabIndex = 1;
+            this.rb_pl4easy.TabStop = true;
             this.rb_pl4easy.Text = "Facile";
             this.rb_pl4easy.UseVisualStyleBackColor = true;
-            // 
-            // rb_pl4alea
-            // 
-            this.rb_pl4alea.AutoSize = true;
-            this.rb_pl4alea.Checked = true;
-            this.rb_pl4alea.Location = new System.Drawing.Point(6, 21);
-            this.rb_pl4alea.Name = "rb_pl4alea";
-            this.rb_pl4alea.Size = new System.Drawing.Size(80, 20);
-            this.rb_pl4alea.TabIndex = 0;
-            this.rb_pl4alea.TabStop = true;
-            this.rb_pl4alea.Text = "Aléatoire";
-            this.rb_pl4alea.UseVisualStyleBackColor = true;
             // 
             // rb_pl4medium
             // 
             this.rb_pl4medium.AutoSize = true;
             this.rb_pl4medium.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rb_pl4medium.Location = new System.Drawing.Point(6, 73);
+            this.rb_pl4medium.Location = new System.Drawing.Point(6, 47);
             this.rb_pl4medium.Name = "rb_pl4medium";
             this.rb_pl4medium.Size = new System.Drawing.Size(82, 20);
             this.rb_pl4medium.TabIndex = 1;
@@ -322,12 +285,11 @@
             // 
             this.gb_player5.Controls.Add(this.rb_pl5hard);
             this.gb_player5.Controls.Add(this.rb_pl5easy);
-            this.gb_player5.Controls.Add(this.rb_pl5alea);
             this.gb_player5.Controls.Add(this.rb_pl5medium);
             this.gb_player5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gb_player5.Location = new System.Drawing.Point(483, 107);
             this.gb_player5.Name = "gb_player5";
-            this.gb_player5.Size = new System.Drawing.Size(95, 130);
+            this.gb_player5.Size = new System.Drawing.Size(95, 100);
             this.gb_player5.TabIndex = 3;
             this.gb_player5.TabStop = false;
             this.gb_player5.Text = "Joueur 5 - IA";
@@ -336,7 +298,7 @@
             // 
             this.rb_pl5hard.AutoSize = true;
             this.rb_pl5hard.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rb_pl5hard.Location = new System.Drawing.Point(6, 99);
+            this.rb_pl5hard.Location = new System.Drawing.Point(6, 73);
             this.rb_pl5hard.Name = "rb_pl5hard";
             this.rb_pl5hard.Size = new System.Drawing.Size(69, 20);
             this.rb_pl5hard.TabIndex = 1;
@@ -346,30 +308,20 @@
             // rb_pl5easy
             // 
             this.rb_pl5easy.AutoSize = true;
-            this.rb_pl5easy.Location = new System.Drawing.Point(6, 47);
+            this.rb_pl5easy.Checked = true;
+            this.rb_pl5easy.Location = new System.Drawing.Point(6, 21);
             this.rb_pl5easy.Name = "rb_pl5easy";
             this.rb_pl5easy.Size = new System.Drawing.Size(63, 20);
             this.rb_pl5easy.TabIndex = 1;
+            this.rb_pl5easy.TabStop = true;
             this.rb_pl5easy.Text = "Facile";
             this.rb_pl5easy.UseVisualStyleBackColor = true;
-            // 
-            // rb_pl5alea
-            // 
-            this.rb_pl5alea.AutoSize = true;
-            this.rb_pl5alea.Checked = true;
-            this.rb_pl5alea.Location = new System.Drawing.Point(6, 21);
-            this.rb_pl5alea.Name = "rb_pl5alea";
-            this.rb_pl5alea.Size = new System.Drawing.Size(80, 20);
-            this.rb_pl5alea.TabIndex = 0;
-            this.rb_pl5alea.TabStop = true;
-            this.rb_pl5alea.Text = "Aléatoire";
-            this.rb_pl5alea.UseVisualStyleBackColor = true;
             // 
             // rb_pl5medium
             // 
             this.rb_pl5medium.AutoSize = true;
             this.rb_pl5medium.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rb_pl5medium.Location = new System.Drawing.Point(6, 73);
+            this.rb_pl5medium.Location = new System.Drawing.Point(6, 47);
             this.rb_pl5medium.Name = "rb_pl5medium";
             this.rb_pl5medium.Size = new System.Drawing.Size(82, 20);
             this.rb_pl5medium.TabIndex = 1;
@@ -416,22 +368,18 @@
         private System.Windows.Forms.RadioButton rb_4players;
         private System.Windows.Forms.RadioButton rb_5players;
         private System.Windows.Forms.GroupBox gb_player2;
-        private System.Windows.Forms.RadioButton rb_pl2alea;
         private System.Windows.Forms.RadioButton rb_pl2easy;
         private System.Windows.Forms.RadioButton rb_pl2medium;
         private System.Windows.Forms.RadioButton rb_pl2hard;
         private System.Windows.Forms.GroupBox gb_player3;
-        private System.Windows.Forms.RadioButton rb_pl3alea;
         private System.Windows.Forms.RadioButton rb_pl3easy;
         private System.Windows.Forms.RadioButton rb_pl3medium;
         private System.Windows.Forms.RadioButton rb_pl3hard;
         private System.Windows.Forms.GroupBox gb_player4;
-        private System.Windows.Forms.RadioButton rb_pl4alea;
         private System.Windows.Forms.RadioButton rb_pl4easy;
         private System.Windows.Forms.RadioButton rb_pl4medium;
         private System.Windows.Forms.RadioButton rb_pl4hard;
         private System.Windows.Forms.GroupBox gb_player5;
-        private System.Windows.Forms.RadioButton rb_pl5alea;
         private System.Windows.Forms.RadioButton rb_pl5easy;
         private System.Windows.Forms.RadioButton rb_pl5medium;
         private System.Windows.Forms.RadioButton rb_pl5hard;

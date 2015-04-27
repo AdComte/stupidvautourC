@@ -69,7 +69,7 @@
             this.lbl_player4points = new System.Windows.Forms.Label();
             this.lbl_player5name = new System.Windows.Forms.Label();
             this.lbl_player5points = new System.Windows.Forms.Label();
-            this.lbl_etat = new System.Windows.Forms.Label();
+            this.lbl_state = new System.Windows.Forms.Label();
             this.tlp_player.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -588,15 +588,15 @@
             this.lbl_player5points.TabIndex = 17;
             this.lbl_player5points.Text = "points : 00";
             // 
-            // lbl_etat
+            // lbl_state
             // 
-            this.lbl_etat.AutoSize = true;
-            this.lbl_etat.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_etat.Location = new System.Drawing.Point(372, 35);
-            this.lbl_etat.Name = "lbl_etat";
-            this.lbl_etat.Size = new System.Drawing.Size(115, 25);
-            this.lbl_etat.TabIndex = 18;
-            this.lbl_etat.Text = "Etat du jeu";
+            this.lbl_state.AutoSize = true;
+            this.lbl_state.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_state.Location = new System.Drawing.Point(372, 35);
+            this.lbl_state.Name = "lbl_state";
+            this.lbl_state.Size = new System.Drawing.Size(115, 25);
+            this.lbl_state.TabIndex = 18;
+            this.lbl_state.Text = "Etat du jeu";
             // 
             // Table
             // 
@@ -604,7 +604,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLight;
             this.ClientSize = new System.Drawing.Size(834, 612);
-            this.Controls.Add(this.lbl_etat);
+            this.Controls.Add(this.lbl_state);
             this.Controls.Add(this.lbl_player5points);
             this.Controls.Add(this.lbl_player5name);
             this.Controls.Add(this.lbl_player4points);
@@ -693,7 +693,7 @@
         private System.Windows.Forms.Label lbl_player4points;
         private System.Windows.Forms.Label lbl_player5name;
         private System.Windows.Forms.Label lbl_player5points;
-        private System.Windows.Forms.Label lbl_etat;
+        private System.Windows.Forms.Label lbl_state;
     }
 }
 

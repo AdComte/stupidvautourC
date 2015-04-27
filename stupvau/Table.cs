@@ -49,6 +49,10 @@ namespace stupvau
             }
         }
 
+        public void state(String txt) // Permet de gérer le label d'état en haut
+        {
+            lbl_state.Text = txt;
+        }
 
         private void lockgame() //Rend les toutes cartes in sélectionnables et le bouton incliquable
         {

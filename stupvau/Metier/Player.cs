@@ -17,10 +17,6 @@ namespace stupvau.Metier
 
         public abstract PlayerCard play(Table table);
 
-        public Player ()
-        {
-
-        }
         public Player(int i) {
         listPlayerCard = new List<PlayerCard>();
         this.couleur = i;

@@ -18,9 +18,10 @@ namespace stupvau.Metier
         for ( i = 0; i < nbPlayer-1; i++) {
             listPlayer.Add(new IAPlayer(i));
         }
-        listPlayer.Add(new IAPlayer(i));
+        listPlayer.Add(new IAPlayer(i));  // Le nième joueur : un Human ou pas
+        //  listPlayer.add(new Human());
         foreach (Player p in listPlayer) { Console.WriteLine("Le joueur " + p.getCouleur() + "Entre dans la partie"); }
-      //  listPlayer.add(new Human());
+      
         this.table = new Table(listPlayer);
     }
 

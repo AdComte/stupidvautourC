@@ -122,8 +122,14 @@ namespace stupvau.Metier
     }
 
     //TODO : cas d'égalité
-    public int win_round() //Renvoie le numéro du joueur gagnant ce coup ci
+
+    //Renvoie le numéro du joueur gagnant ce coup ci
+    public int win_round() 
     {
+        if (this.listPlayerCardsOnTable.Count == 0)
+        {
+            //
+        }
         IList<PlayerCard> listCardGagnantes = new List<PlayerCard>();
         int max = 0, min = 15;
         if (this.current.getAnimal()) { //Si c'est un vautour
@@ -156,10 +162,12 @@ namespace stupvau.Metier
             return -1;
         } else {
 
-            //while (listCardGagnantes.Count > 0) {
-            //    this.listPlayerCardsOnTable.RemoveAt(0);
-            //}
-            return listCardGagnantes[0].getCouleur();
+            while (listCardGagnantes.Count > 0) {
+                this.listPlayerCardsOnTable.RemoveAt(0);
+            }
+            return this.win_round();
+            
+            //return listCardGagnantes[0].getCouleur();
             //return this.win_round();
         }
     }

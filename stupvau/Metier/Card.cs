@@ -10,27 +10,22 @@ namespace stupvau.Metier
         public int value;
         public bool notPlayed;
 
-        public Card()
-        {
 
-        }
         public Card(int number, bool notPlayed)
         {
             this.value = number;
             this.notPlayed = notPlayed;
-
         }
+
         public Card(int number)
         {
             this.value = number;
             this.notPlayed = true;
         }
-
         public int getValue()
         {
             return this.value;
         }
-
         public bool getVisible()
         {
             return this.notPlayed;

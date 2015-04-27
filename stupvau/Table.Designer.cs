@@ -462,12 +462,14 @@
             // 
             // btn_valid
             // 
+            this.btn_valid.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_valid.Location = new System.Drawing.Point(367, 429);
             this.btn_valid.Name = "btn_valid";
             this.btn_valid.Size = new System.Drawing.Size(120, 23);
             this.btn_valid.TabIndex = 5;
             this.btn_valid.Text = "Valider la carte";
             this.btn_valid.UseVisualStyleBackColor = true;
+            this.btn_valid.Click += new System.EventHandler(this.btn_valid_Click);
             // 
             // label1
             // 
@@ -475,9 +477,9 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(287, 455);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(287, 24);
+            this.label1.Size = new System.Drawing.Size(290, 24);
             this.label1.TabIndex = 3;
-            this.label1.Text = "Vos Cartes (choisissez bien !)";
+            this.label1.Text = "Vos Cartes (Choisissez bien !)";
             // 
             // lbl_playerpoints
             // 

@@ -1,6 +1,6 @@
 ﻿namespace stupvau
 {
-    partial class Form1
+    partial class Table
     {
         /// <summary>
         /// Variable nécessaire au concepteur.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Table));
             this.cardsplayer1 = new System.Windows.Forms.ImageList(this.components);
             this.cardsplayer2 = new System.Windows.Forms.ImageList(this.components);
             this.cardsplayer3 = new System.Windows.Forms.ImageList(this.components);
@@ -53,13 +53,13 @@
             this.pictureBox14 = new System.Windows.Forms.PictureBox();
             this.pictureBox15 = new System.Windows.Forms.PictureBox();
             this.pb_animalcard = new System.Windows.Forms.PictureBox();
-            this.pb_player2 = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.pb_player = new System.Windows.Forms.PictureBox();
-            this.btn_valid = new System.Windows.Forms.Button();
-            this.pb_player5 = new System.Windows.Forms.PictureBox();
+            this.pb_player2 = new System.Windows.Forms.PictureBox();
             this.pb_player3 = new System.Windows.Forms.PictureBox();
             this.pb_player4 = new System.Windows.Forms.PictureBox();
+            this.pb_player5 = new System.Windows.Forms.PictureBox();
+            this.btn_valid = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.lbl_playerpoints = new System.Windows.Forms.Label();
             this.lbl_player2name = new System.Windows.Forms.Label();
             this.lbl_player2points = new System.Windows.Forms.Label();
@@ -87,11 +87,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_animalcard)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_player2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_player)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_player5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_player2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_player3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_player4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_player5)).BeginInit();
             this.SuspendLayout();
             // 
             // cardsplayer1
@@ -420,24 +420,6 @@
             this.pb_animalcard.TabIndex = 1;
             this.pb_animalcard.TabStop = false;
             // 
-            // pb_player2
-            // 
-            this.pb_player2.Location = new System.Drawing.Point(250, 226);
-            this.pb_player2.Name = "pb_player2";
-            this.pb_player2.Size = new System.Drawing.Size(50, 80);
-            this.pb_player2.TabIndex = 2;
-            this.pb_player2.TabStop = false;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(287, 455);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(287, 24);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Vos Cartes (choisissez bien !)";
-            // 
             // pb_player
             // 
             this.pb_player.Location = new System.Drawing.Point(400, 343);
@@ -446,22 +428,13 @@
             this.pb_player.TabIndex = 4;
             this.pb_player.TabStop = false;
             // 
-            // btn_valid
+            // pb_player2
             // 
-            this.btn_valid.Location = new System.Drawing.Point(367, 429);
-            this.btn_valid.Name = "btn_valid";
-            this.btn_valid.Size = new System.Drawing.Size(120, 23);
-            this.btn_valid.TabIndex = 5;
-            this.btn_valid.Text = "Valider la carte";
-            this.btn_valid.UseVisualStyleBackColor = true;
-            // 
-            // pb_player5
-            // 
-            this.pb_player5.Location = new System.Drawing.Point(550, 226);
-            this.pb_player5.Name = "pb_player5";
-            this.pb_player5.Size = new System.Drawing.Size(50, 80);
-            this.pb_player5.TabIndex = 6;
-            this.pb_player5.TabStop = false;
+            this.pb_player2.Location = new System.Drawing.Point(250, 226);
+            this.pb_player2.Name = "pb_player2";
+            this.pb_player2.Size = new System.Drawing.Size(50, 80);
+            this.pb_player2.TabIndex = 2;
+            this.pb_player2.TabStop = false;
             // 
             // pb_player3
             // 
@@ -478,6 +451,33 @@
             this.pb_player4.Size = new System.Drawing.Size(50, 80);
             this.pb_player4.TabIndex = 8;
             this.pb_player4.TabStop = false;
+            // 
+            // pb_player5
+            // 
+            this.pb_player5.Location = new System.Drawing.Point(550, 226);
+            this.pb_player5.Name = "pb_player5";
+            this.pb_player5.Size = new System.Drawing.Size(50, 80);
+            this.pb_player5.TabIndex = 6;
+            this.pb_player5.TabStop = false;
+            // 
+            // btn_valid
+            // 
+            this.btn_valid.Location = new System.Drawing.Point(367, 429);
+            this.btn_valid.Name = "btn_valid";
+            this.btn_valid.Size = new System.Drawing.Size(120, 23);
+            this.btn_valid.TabIndex = 5;
+            this.btn_valid.Text = "Valider la carte";
+            this.btn_valid.UseVisualStyleBackColor = true;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(287, 455);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(287, 24);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Vos Cartes (choisissez bien !)";
             // 
             // lbl_playerpoints
             // 
@@ -581,10 +581,11 @@
             this.lbl_etat.TabIndex = 18;
             this.lbl_etat.Text = "Etat du jeu";
             // 
-            // Form1
+            // Table
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ControlLight;
             this.ClientSize = new System.Drawing.Size(834, 612);
             this.Controls.Add(this.lbl_etat);
             this.Controls.Add(this.lbl_player5points);
@@ -605,7 +606,7 @@
             this.Controls.Add(this.pb_player2);
             this.Controls.Add(this.pb_animalcard);
             this.Controls.Add(this.tlp_player);
-            this.Name = "Form1";
+            this.Name = "Table";
             this.Text = "Stupide Vautour -- By Begou-Comte-Mourier -- Enjoy ! ;)";
             this.tlp_player.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -624,11 +625,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_animalcard)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_player2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_player)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_player5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_player2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_player3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_player4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_player5)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -659,13 +660,13 @@
         private System.Windows.Forms.PictureBox pictureBox13;
         private System.Windows.Forms.PictureBox pictureBox14;
         private System.Windows.Forms.PictureBox pictureBox15;
-        private System.Windows.Forms.PictureBox pb_player2;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pb_player;
-        private System.Windows.Forms.Button btn_valid;
-        private System.Windows.Forms.PictureBox pb_player5;
+        private System.Windows.Forms.PictureBox pb_player2;
         private System.Windows.Forms.PictureBox pb_player3;
         private System.Windows.Forms.PictureBox pb_player4;
+        private System.Windows.Forms.PictureBox pb_player5;
+        private System.Windows.Forms.Button btn_valid;
+        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lbl_playerpoints;
         private System.Windows.Forms.Label lbl_player2name;
         private System.Windows.Forms.Label lbl_player2points;

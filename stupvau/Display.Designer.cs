@@ -1,6 +1,6 @@
 ﻿namespace stupvau
 {
-    partial class Table
+    partial class Display
     {
         /// <summary>
         /// Variable nécessaire au concepteur.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Table));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Display));
             this.cardsplayer1 = new System.Windows.Forms.ImageList(this.components);
             this.cardsplayer2 = new System.Windows.Forms.ImageList(this.components);
             this.cardsplayer3 = new System.Windows.Forms.ImageList(this.components);

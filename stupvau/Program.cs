@@ -12,17 +12,6 @@ namespace stupvau
         /// Point d'entrée principal de l'application.
         /// </summary>
         [STAThread]
-
-		static void Main2_vladi()
-		{
-			IAPlayer iap = new IAPlayer(0);
-			iap.deal(15);
-			iap.affichecartes(iap);
-			iap.removeCard(new PlayerCard(5, true, 0));
-			iap.affichecartes(iap);
-		}
-
-
         static void Main()
         {
             Menu menu = new Menu();
@@ -31,15 +20,24 @@ namespace stupvau
 			if (menu.ready == false) return;
             //A ce stade, on dispose de tout les paramètres pour lancer la partie dans la configuration voulue
 
-			Game game = new Game(menu.nbia + 1, menu.iaplayers);
-			//passer les ia à game
-
-
-
-			Display table = new Display(menu.nbia + 1);
+			Display table = new Display(menu.nbia + 1, menu.iaplayers);
 			Application.Run(table);
+		}
 
-
+//
+//
+//		static void main_debug_vladi()
+//		{
+//			IAPlayer iap = new IAPlayer(0);
+//			iap.deal(15);
+//			iap.affichecartes(iap);
+//			//iap.removeCard(new PlayerCard(5, true, 0));
+//			iap.affichecartes(iap);
+//		}
+//
+//		static void main_console()
+//		{
+//
 //            int pl0=0, pl1=0, pl2=0, pl3=0;
 //            int tour = 0;
 //            for (int i = 0; i < 15; i++)//Cette boucle fait tourner15 jeux et enregistre quel joueur gagne
@@ -65,6 +63,6 @@ namespace stupvau
 //            Console.WriteLine("*************************************************");
 //            Console.WriteLine("************************************************************");
 //            Console.WriteLine("**********************************************************************");
-        }
+//        }
     }
 }

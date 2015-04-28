@@ -9,15 +9,16 @@ using System.Windows.Forms;
 
 namespace stupvau
 {
-    public partial class Table : Form
+    public partial class Display : Form
     {
         public bool[] playablecards;
         public int selectedcard;
         public int nbplayer;
 
-        private Table()
+        private Display()
         {
             InitializeComponent();
+			playablecards = new bool[16];
             for(int i=0; i < 15; i++)
             {
                 playablecards[i] = true;
@@ -26,7 +27,7 @@ namespace stupvau
             pb_player.Image = cardsplayer1.Images[0];
         }
 
-        public Table(int nbplayer) : this()
+        public Display(int nbplayer) : this()
         {
             this.nbplayer = nbplayer;
             if (nbplayer <= 4)
@@ -81,6 +82,11 @@ namespace stupvau
             btn_valid.Enabled = true;
             selectedcard = 0;
             pb_player.Image = cardsplayer1.Images[selectedcard];
+        }
+
+        public void newcard(int animalcard) //permet d'afficher la carte en jeu
+        {
+            pb_animalcard.Image = animalcards.Images[animalcard];
         }
 
         public void affiche(int[] etat) //tableau type {gagnant, points gagnés, nouveau total de points du gagnant, carte jouée par j2, carte jouée par j3, ...}

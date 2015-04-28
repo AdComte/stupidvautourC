@@ -13,19 +13,17 @@ namespace stupvau.Metier
         public static int number = 0;
         private int couleur;
         private int score;
+        private Random random;
 
 
         public abstract PlayerCard play(Table table);
 
         public Player(int i) {
-        listPlayerCard = new List<PlayerCard>();
-        this.couleur = i;
-        this.score = 0;
-            //for(int j=1;j<=15;j++)
-            //{
-            //    this.listPlayerCard.Add(new PlayerCard(j,true,this.couleur));
-            //}
-    }
+            listPlayerCard = new List<PlayerCard>();
+            this.couleur = i;
+            this.score = 0;
+            this.random = new Random();
+        }
 
         
         public void deal(int nbCard)
@@ -64,6 +62,11 @@ namespace stupvau.Metier
         public int getCouleur()
         {
             return couleur;
+        }
+
+        public Random getRandom()
+        {
+            return random;
         }
     }
 }

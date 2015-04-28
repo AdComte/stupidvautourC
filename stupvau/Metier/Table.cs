@@ -21,7 +21,6 @@ namespace stupvau.Metier
         this.listPlayerCardsOnTable = new List<PlayerCard>();
         this.stack = new List<AnimalCard>();
         this.listPlayer = listPlayer;
-
     }
 
     public IList<PlayerCard> getListPlayerCardsOnTable()
@@ -47,7 +46,8 @@ namespace stupvau.Metier
         
         
      Console.WriteLine("************************");        ///////////
-        foreach (Player p in this.listPlayer) {
+     foreach (Player p in this.listPlayer)
+     {
             PlayerCard a = p.play(this);
             Console.WriteLine("Valeur carte joueur"+ p.getCouleur()+" :");        ///////////
             Console.WriteLine(a.getValue());                   ///////////

@@ -16,20 +16,32 @@ namespace stupvau.Metier
         IList<Player> listPlayer = new List<Player>();
         int i;
         for ( i = 0; i < nbPlayer-1; i++) {
-            listPlayer.Add(new IAPlayer(i));
+            listPlayer.Add(new IAStupid(i));
         }
-        listPlayer.Add(new IAPlayer(i));  // Le nième joueur : un Human ou pas
+        listPlayer.Add(new IAStupid(i));  // Le nième joueur : un Human ou pas
         //  listPlayer.add(new Human());
-        foreach (Player p in listPlayer) { Console.WriteLine("Le joueur " + p.getCouleur() + "Entre dans la partie"); }
+        foreach (Player p in listPlayer) { Console.WriteLine("Le joueur " + p.getCouleur() + " entre dans la partie"); }
       
         this.table = new Table(listPlayer);
+
+
+        ////////
+        ///////
+        //////
+        /////
+        int j; Random m = new Random();
+        for (j = 0; j < 15; j++)
+        {
+           
+            int indice = m.Next(10);
+            Console.WriteLine(indice);
+        }
     }
 
     // Le jeu
     public void GameLoop() {
         Console.WriteLine("***************************** Debut de la partie **************************************");
         int turn = NB_CARDS;
-       // this.table.deal();
         this.table.melangerAnimalCard();
         AnimalCard AC = (AnimalCard) this.table.getStack()[0];
 

@@ -14,22 +14,35 @@ namespace stupvau.Metier
     
     public Game(int nbPlayer) {
         IList<Player> listPlayer = new List<Player>();
-        int i;
-        for ( i = 0; i < nbPlayer-1; i++) {
-            listPlayer.Add(new IAPlayer(i));
-        }
-        listPlayer.Add(new IAPlayer(i));  // Le nième joueur : un Human ou pas
-        //  listPlayer.add(new Human());
-        foreach (Player p in listPlayer) { Console.WriteLine("Le joueur " + p.getCouleur() + "Entre dans la partie"); }
+        int i=0;
+        //for ( i = 0; i < nbPlayer-2; i++) {
+        //    listPlayer.Add(new IAStupid(i));
+        //}
+        listPlayer.Add(new IAPlayer(i));
+        listPlayer.Add(new IAMedium(i+1));  // Le nième joueur : un Human ou pas
+      //  listPlayer.add(new Human());
+        foreach (Player p in listPlayer) { Console.WriteLine("Le joueur " + p.getCouleur() + " entre dans la partie"); }
       
         this.table = new Table(listPlayer);
+
+
+        ////////
+        ///////
+        //////
+        /////
+        //int j; Random m = new Random();
+        //for (j = 0; j < 15; j++)
+        //{
+           
+        //    int indice = m.Next(10);
+        //    Console.WriteLine(indice);
+        //}
     }
 
     // Le jeu
-    public void GameLoop() {
+    public int GameLoop() {
         Console.WriteLine("***************************** Debut de la partie **************************************");
         int turn = NB_CARDS;
-       // this.table.deal();
         this.table.melangerAnimalCard();
         AnimalCard AC = (AnimalCard) this.table.getStack()[0];
 
@@ -43,11 +56,15 @@ namespace stupvau.Metier
         while (turn > 0) {
             Console.WriteLine("Début du tour" + turn);  ////////////////
             this.table.play();
-            if(turn!=1)
-                this.table.next_round();
+            if (turn != 1)
+            { this.table.next_round(); Console.WriteLine("******************* Passage au tour suivant *******************"); }
             turn--;
         }
-        Console.WriteLine("Le joueur numéro " + this.table.getPlayerHighestScore() + " a gagné ! Bravo à lui");
+        int score = this.table.getPlayerHighestScore();
+        if (score != -1)
+            Console.WriteLine("Le joueur numéro " + score + " a gagné ! Bravo à lui");
+        else Console.WriteLine("Egalité parfaite à l'issue de la partie !");
+        return score;
     }
     }
 }

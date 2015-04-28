@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Metier\IAMedium.cs" />
     <Compile Include="Table.cs">
       <SubType>Form</SubType>
     </Compile>

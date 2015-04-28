@@ -21,7 +21,6 @@ namespace stupvau.Metier
         this.listPlayerCardsOnTable = new List<PlayerCard>();
         this.stack = new List<AnimalCard>();
         this.listPlayer = listPlayer;
-
     }
 
     public IList<PlayerCard> getListPlayerCardsOnTable()
@@ -47,7 +46,8 @@ namespace stupvau.Metier
         
         
      Console.WriteLine("************************");        ///////////
-        foreach (Player p in this.listPlayer) {
+     foreach (Player p in this.listPlayer)
+     {
             PlayerCard a = p.play(this);
             Console.WriteLine("Valeur carte joueur"+ p.getCouleur()+" :");        ///////////
             Console.WriteLine(a.getValue());                   ///////////
@@ -55,13 +55,11 @@ namespace stupvau.Metier
         }
         
         int winnerRound = this.win_round();
-        while (winnerRound == -1) {
-            winnerRound = this.win_round();
+        if (winnerRound != -1) {
+            this.listPlayer.ElementAt(winnerRound).setScore(point);
+            Console.WriteLine("Score mis à jour: "); /////////////////
+            Console.WriteLine(this.listPlayer[this.win_round()].getScore()); /////////////
         }
-        this.listPlayer.ElementAt(winnerRound).setScore(point);
-        Console.WriteLine("Score mis à jour: "); /////////////////
-        Console.WriteLine(this.listPlayer[this.win_round()].getScore()); /////////////
-        //this.next_round();
     }
 
     //Retourne le numéro du joueur au plus haut score
@@ -85,7 +83,6 @@ namespace stupvau.Metier
         }
     }
 
-    // TODO
     public void melangerAnimalCard() {
 
         IList<AnimalCard> pioche = new List<AnimalCard>();
@@ -122,8 +119,14 @@ namespace stupvau.Metier
     }
 
     //TODO : cas d'égalité
-    public int win_round() //Renvoie le numéro du joueur gagnant ce coup ci
+
+    //Renvoie le numéro du joueur gagnant ce coup ci
+    public int win_round() 
     {
+        if (this.listPlayerCardsOnTable.Count == 0)
+        {
+            return -1;
+        }
         IList<PlayerCard> listCardGagnantes = new List<PlayerCard>();
         int max = 0, min = 15;
         if (this.current.getAnimal()) { //Si c'est un vautour
@@ -155,44 +158,17 @@ namespace stupvau.Metier
         } else if (listCardGagnantes.Count == 0) {
             return -1;
         } else {
-
-            //while (listCardGagnantes.Count > 0) {
-            //    this.listPlayerCardsOnTable.RemoveAt(0);
-            //}
-            return listCardGagnantes[0].getCouleur();
+            int i = 0;
+            while (i < listCardGagnantes.Count) {
+                listPlayerCardsOnTable.Remove(listCardGagnantes.ElementAt(i));
+            }
+            return this.win_round();
+            
+            //return listCardGagnantes[0].getCouleur();
             //return this.win_round();
         }
     }
 
-//    
-//        //TODO : cas d'égalité
-//    public int win_round() //Renvoie le numéro du joueur gagnant ce coup ci
-//    {
-//        int max = 0, min = 15;
-//        int couleur = -1;
-//        if (this.current.getAnimal()) { //Si c'est un vautour
-//            for (PlayerCard p : this.listPlayerCardsOnTable) {
-//                if (p.value < min) {//On enregistre qui a posé la valeur min
-//                    min = p.value;
-//                    couleur = p.couleur;
-//                }
-//            }
-//        } else {    // Sinon si c'est une souris
-//            for (PlayerCard p : this.listPlayerCardsOnTable) {
-//                Console.WriteLine(p.value);
-//                if (p.value > max)//On récupère le max et le joueur auquel il appartient
-//                {
-//                    max = p.value;
-//                    couleur = p.couleur;
-//                }
-//            }
-//        }
-//        Console.WriteLine("le joueur" + couleur + "gagne le round");
-//        return couleur;
-//    }
-    // Passe au tour suivant
-    // On défausse les cartes des joueurs sur le tapis
-    // On retourne une nouvelle carte
     public void next_round() {
         this.listPlayerCardsOnTable.Clear();
         this.current = stack[0];

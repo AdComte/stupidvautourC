@@ -69,7 +69,8 @@
             this.lbl_player4points = new System.Windows.Forms.Label();
             this.lbl_player5name = new System.Windows.Forms.Label();
             this.lbl_player5points = new System.Windows.Forms.Label();
-            this.lbl_etat = new System.Windows.Forms.Label();
+            this.lbl_state = new System.Windows.Forms.Label();
+            this.timer = new System.Windows.Forms.Timer(this.components);
             this.tlp_player.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -270,6 +271,7 @@
             this.pictureBox1.Size = new System.Drawing.Size(50, 80);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pb_click);
             // 
             // pictureBox2
             // 
@@ -280,6 +282,7 @@
             this.pictureBox2.Size = new System.Drawing.Size(50, 80);
             this.pictureBox2.TabIndex = 1;
             this.pictureBox2.TabStop = false;
+            this.pictureBox2.Click += new System.EventHandler(this.pb_click);
             // 
             // pictureBox3
             // 
@@ -290,6 +293,7 @@
             this.pictureBox3.Size = new System.Drawing.Size(50, 80);
             this.pictureBox3.TabIndex = 1;
             this.pictureBox3.TabStop = false;
+            this.pictureBox3.Click += new System.EventHandler(this.pb_click);
             // 
             // pictureBox4
             // 
@@ -300,6 +304,7 @@
             this.pictureBox4.Size = new System.Drawing.Size(50, 80);
             this.pictureBox4.TabIndex = 1;
             this.pictureBox4.TabStop = false;
+            this.pictureBox4.Click += new System.EventHandler(this.pb_click);
             // 
             // pictureBox5
             // 
@@ -310,6 +315,7 @@
             this.pictureBox5.Size = new System.Drawing.Size(50, 80);
             this.pictureBox5.TabIndex = 1;
             this.pictureBox5.TabStop = false;
+            this.pictureBox5.Click += new System.EventHandler(this.pb_click);
             // 
             // pictureBox6
             // 
@@ -320,6 +326,7 @@
             this.pictureBox6.Size = new System.Drawing.Size(50, 80);
             this.pictureBox6.TabIndex = 1;
             this.pictureBox6.TabStop = false;
+            this.pictureBox6.Click += new System.EventHandler(this.pb_click);
             // 
             // pictureBox7
             // 
@@ -330,6 +337,7 @@
             this.pictureBox7.Size = new System.Drawing.Size(50, 80);
             this.pictureBox7.TabIndex = 1;
             this.pictureBox7.TabStop = false;
+            this.pictureBox7.Click += new System.EventHandler(this.pb_click);
             // 
             // pictureBox8
             // 
@@ -340,6 +348,7 @@
             this.pictureBox8.Size = new System.Drawing.Size(50, 80);
             this.pictureBox8.TabIndex = 1;
             this.pictureBox8.TabStop = false;
+            this.pictureBox8.Click += new System.EventHandler(this.pb_click);
             // 
             // pictureBox9
             // 
@@ -350,6 +359,7 @@
             this.pictureBox9.Size = new System.Drawing.Size(50, 80);
             this.pictureBox9.TabIndex = 1;
             this.pictureBox9.TabStop = false;
+            this.pictureBox9.Click += new System.EventHandler(this.pb_click);
             // 
             // pictureBox10
             // 
@@ -360,6 +370,7 @@
             this.pictureBox10.Size = new System.Drawing.Size(50, 80);
             this.pictureBox10.TabIndex = 1;
             this.pictureBox10.TabStop = false;
+            this.pictureBox10.Click += new System.EventHandler(this.pb_click);
             // 
             // pictureBox11
             // 
@@ -370,6 +381,7 @@
             this.pictureBox11.Size = new System.Drawing.Size(50, 80);
             this.pictureBox11.TabIndex = 1;
             this.pictureBox11.TabStop = false;
+            this.pictureBox11.Click += new System.EventHandler(this.pb_click);
             // 
             // pictureBox12
             // 
@@ -380,6 +392,7 @@
             this.pictureBox12.Size = new System.Drawing.Size(50, 80);
             this.pictureBox12.TabIndex = 1;
             this.pictureBox12.TabStop = false;
+            this.pictureBox12.Click += new System.EventHandler(this.pb_click);
             // 
             // pictureBox13
             // 
@@ -390,6 +403,7 @@
             this.pictureBox13.Size = new System.Drawing.Size(50, 80);
             this.pictureBox13.TabIndex = 1;
             this.pictureBox13.TabStop = false;
+            this.pictureBox13.Click += new System.EventHandler(this.pb_click);
             // 
             // pictureBox14
             // 
@@ -400,6 +414,7 @@
             this.pictureBox14.Size = new System.Drawing.Size(50, 80);
             this.pictureBox14.TabIndex = 1;
             this.pictureBox14.TabStop = false;
+            this.pictureBox14.Click += new System.EventHandler(this.pb_click);
             // 
             // pictureBox15
             // 
@@ -410,6 +425,7 @@
             this.pictureBox15.Size = new System.Drawing.Size(50, 80);
             this.pictureBox15.TabIndex = 1;
             this.pictureBox15.TabStop = false;
+            this.pictureBox15.Click += new System.EventHandler(this.pb_click);
             // 
             // pb_animalcard
             // 
@@ -422,6 +438,7 @@
             // 
             // pb_player
             // 
+            this.pb_player.Image = ((System.Drawing.Image)(resources.GetObject("pb_player.Image")));
             this.pb_player.Location = new System.Drawing.Point(400, 343);
             this.pb_player.Name = "pb_player";
             this.pb_player.Size = new System.Drawing.Size(50, 80);
@@ -430,6 +447,7 @@
             // 
             // pb_player2
             // 
+            this.pb_player2.Image = ((System.Drawing.Image)(resources.GetObject("pb_player2.Image")));
             this.pb_player2.Location = new System.Drawing.Point(250, 226);
             this.pb_player2.Name = "pb_player2";
             this.pb_player2.Size = new System.Drawing.Size(50, 80);
@@ -438,6 +456,7 @@
             // 
             // pb_player3
             // 
+            this.pb_player3.Image = ((System.Drawing.Image)(resources.GetObject("pb_player3.Image")));
             this.pb_player3.Location = new System.Drawing.Point(300, 101);
             this.pb_player3.Name = "pb_player3";
             this.pb_player3.Size = new System.Drawing.Size(50, 80);
@@ -446,6 +465,7 @@
             // 
             // pb_player4
             // 
+            this.pb_player4.Image = ((System.Drawing.Image)(resources.GetObject("pb_player4.Image")));
             this.pb_player4.Location = new System.Drawing.Point(500, 101);
             this.pb_player4.Name = "pb_player4";
             this.pb_player4.Size = new System.Drawing.Size(50, 80);
@@ -454,6 +474,7 @@
             // 
             // pb_player5
             // 
+            this.pb_player5.Image = ((System.Drawing.Image)(resources.GetObject("pb_player5.Image")));
             this.pb_player5.Location = new System.Drawing.Point(550, 226);
             this.pb_player5.Name = "pb_player5";
             this.pb_player5.Size = new System.Drawing.Size(50, 80);
@@ -573,15 +594,20 @@
             this.lbl_player5points.TabIndex = 17;
             this.lbl_player5points.Text = "points : 00";
             // 
-            // lbl_etat
+            // lbl_state
             // 
-            this.lbl_etat.AutoSize = true;
-            this.lbl_etat.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_etat.Location = new System.Drawing.Point(372, 35);
-            this.lbl_etat.Name = "lbl_etat";
-            this.lbl_etat.Size = new System.Drawing.Size(115, 25);
-            this.lbl_etat.TabIndex = 18;
-            this.lbl_etat.Text = "Etat du jeu";
+            this.lbl_state.AutoSize = true;
+            this.lbl_state.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_state.Location = new System.Drawing.Point(372, 35);
+            this.lbl_state.Name = "lbl_state";
+            this.lbl_state.Size = new System.Drawing.Size(115, 25);
+            this.lbl_state.TabIndex = 18;
+            this.lbl_state.Text = "Etat du jeu";
+            // 
+            // timer
+            // 
+            this.timer.Interval = 4000;
+            this.timer.Tick += new System.EventHandler(this.timer_Tick);
             // 
             // Table
             // 
@@ -589,7 +615,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLight;
             this.ClientSize = new System.Drawing.Size(834, 612);
-            this.Controls.Add(this.lbl_etat);
+            this.Controls.Add(this.lbl_state);
             this.Controls.Add(this.lbl_player5points);
             this.Controls.Add(this.lbl_player5name);
             this.Controls.Add(this.lbl_player4points);
@@ -678,7 +704,8 @@
         private System.Windows.Forms.Label lbl_player4points;
         private System.Windows.Forms.Label lbl_player5name;
         private System.Windows.Forms.Label lbl_player5points;
-        private System.Windows.Forms.Label lbl_etat;
+        private System.Windows.Forms.Label lbl_state;
+        private System.Windows.Forms.Timer timer;
     }
 }
 

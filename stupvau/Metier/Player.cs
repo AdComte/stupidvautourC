@@ -27,6 +27,7 @@ namespace stupvau.Metier
             //}
     }
 
+        
         public void deal(int nbCard)
         {
             for (int i = 1; i < nbCard + 1; i++)

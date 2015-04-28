@@ -12,6 +12,17 @@ namespace stupvau
         /// Point d'entrée principal de l'application.
         /// </summary>
         [STAThread]
+
+		static void Main2_vladi()
+		{
+			IAPlayer iap = new IAPlayer(0);
+			iap.deal(15);
+			iap.affichecartes(iap);
+			iap.removeCard(new PlayerCard(5, true, 0));
+			iap.affichecartes(iap);
+		}
+
+
         static void Main()
         {
             Menu menu = new Menu();

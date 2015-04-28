@@ -16,10 +16,10 @@ namespace stupvau.Metier
         IList<Player> listPlayer = new List<Player>();
         int i;
         for ( i = 0; i < nbPlayer-1; i++) {
-            listPlayer.Add(new IAStupid(i));
+            listPlayer.Add(new IAPlayer(i));
         }
         listPlayer.Add(new IAStupid(i));  // Le nième joueur : un Human ou pas
-        //  listPlayer.add(new Human());
+      //  listPlayer.add(new Human());
         foreach (Player p in listPlayer) { Console.WriteLine("Le joueur " + p.getCouleur() + " entre dans la partie"); }
       
         this.table = new Table(listPlayer);
@@ -55,8 +55,8 @@ namespace stupvau.Metier
         while (turn > 0) {
             Console.WriteLine("Début du tour" + turn);  ////////////////
             this.table.play();
-            if(turn!=1)
-                this.table.next_round();
+            if (turn != 1)
+            { this.table.next_round(); Console.WriteLine("******************* Passage au tour suivant *******************"); }
             turn--;
         }
         Console.WriteLine("Le joueur numéro " + this.table.getPlayerHighestScore() + " a gagné ! Bravo à lui");

@@ -22,12 +22,14 @@ namespace stupvau.Metier
 
 
         //////////// test :!!!!!!!!!////////////////////
+        Console.WriteLine("--------------TEST---------------");
         int j;
         for (j = 0; j < 15; j++)
         {
             int z = this.getRandom().Next(10);
-            Console.WriteLine(z);
+            Console.Write(z + " | ");
         }
+        Console.WriteLine("--------------FIN-TEST---------------");
         Console.WriteLine("menglon : "+ this.getCouleur());
         /////////
 

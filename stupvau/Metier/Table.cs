@@ -52,14 +52,17 @@ namespace stupvau.Metier
             Console.WriteLine("Valeur carte joueur"+ p.getCouleur()+" :");        ///////////
             Console.WriteLine(a.getValue());                   ///////////
             this.listPlayerCardsOnTable.Add(a);
-        }
-        
-        int winnerRound = this.win_round();
-        if (winnerRound != -1) {
+     }
+
+     int winnerRound = this.win_round();
+        if (winnerRound >= 0) 
+        {
             this.listPlayer.ElementAt(winnerRound).setScore(point);
             Console.WriteLine("Score mis à jour: "); /////////////////
-            Console.WriteLine(this.listPlayer[this.win_round()].getScore()); /////////////
+            Console.WriteLine(this.listPlayer[winnerRound].getScore()); /////////////
         }
+        else if (winnerRound == -1) { Console.WriteLine("ERREUR : Personne n'a gagné ce round, il n'y a pas égalité non plus"); }
+        else if (winnerRound == -2) { Console.WriteLine("Personne n'a gagné ce tour ci, les cartes seront défaussées"); }
     }
 
     //Retourne le numéro du joueur au plus haut score
@@ -125,6 +128,7 @@ namespace stupvau.Metier
     {
         if (this.listPlayerCardsOnTable.Count == 0)
         {
+            Console.WriteLine("Aucune Carte n'a été déposée || Tout le monde est à égalité !");
             return -1;
         }
         IList<PlayerCard> listCardGagnantes = new List<PlayerCard>();
@@ -152,18 +156,24 @@ namespace stupvau.Metier
                 }
             }
         }
+        Console.WriteLine("La table contient : "+ listCardGagnantes.Count + " Cartes gagnantes");
         if (listCardGagnantes.Count == 1) {
             Console.WriteLine("Le joueur" + listCardGagnantes[0].getCouleur() + "gagne le round");
             return listCardGagnantes.ElementAt(0).getCouleur();
         } else if (listCardGagnantes.Count == 0) {
             return -1;
-        } else {
+        }
+        else
+        {
+            Console.WriteLine("On supprime les cartes gagnantes identiques");
             int i = 0;
-            while (i < listCardGagnantes.Count) {
+            while (i < listCardGagnantes.Count)
+            {
                 listPlayerCardsOnTable.Remove(listCardGagnantes.ElementAt(i));
+                listCardGagnantes.RemoveAt(0);
             }
             return this.win_round();
-            
+
             //return listCardGagnantes[0].getCouleur();
             //return this.win_round();
         }

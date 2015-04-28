@@ -12,15 +12,31 @@ namespace stupvau
         /// Point d'entrée principal de l'application.
         /// </summary>
         [STAThread]
-        static void Main()
+        static void Main2()
         {
             IAPlayer iap = new IAPlayer(0);
             iap.deal(15);
             iap.affichecartes(iap);
-            iap.removeCard(new PlayerCard(5, true, 0));
+            iap.removeCard(4);
             iap.affichecartes(iap);
+
+            Console.WriteLine("*************************************************");
+             IAStupid iap2 = new IAStupid(1);
+            iap2.deal(15);
+            iap2.affichecartes(iap2);
+            iap2.removeCard(4);
+            iap2.affichecartes(iap2);
+
+            Console.WriteLine("*************************************************");
+             IAMedium iap3 = new IAMedium(0);
+            iap3.deal(15);
+            iap3.affichecartes(iap3);
+            iap3.removeCard(4);
+            iap3.affichecartes(iap3);
+
+            Console.WriteLine("*************************************************");
         }
-        static void Main2()
+        static void Main()
         {
             int pl0=0, pl1=0, pl2=0, pl3=0;
             int tour = 0;

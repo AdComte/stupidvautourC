@@ -14,9 +14,10 @@ namespace stupvau.Metier
 
     public override PlayerCard play(Table table) {
         Console.WriteLine("Le joueur possède les cartes suivantes :");
-        foreach(PlayerCard p in getListPlayerCard())
+        for (int k = 0; k < 15;k++ )
         {
-            Console.Write(p.getValue() + "|");
+            if(this.listPlayerCard[k,0]!=0)
+             Console.Write(this.listPlayerCard[k,0] + "|");
         }
         Console.WriteLine();
 
@@ -34,11 +35,11 @@ namespace stupvau.Metier
         ///////////
 
 
-        int indice = this.getRandom().Next(this.getListPlayerCard().Count());
+        int indice = this.getRandom().Next(this.nbCartesRestantes);
 
         Console.WriteLine("L'IA_stupid "+ this.getCouleur() + " joue sa carte " + indice);
         PlayerCard played = new PlayerCard(indice, false, this.getCouleur());
-        this.getListPlayerCard().RemoveAt(indice);
+        this.removeCard(indice);
         return played;
     }
 

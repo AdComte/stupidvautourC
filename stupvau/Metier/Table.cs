@@ -51,9 +51,9 @@ namespace stupvau.Metier
      {
          p.affichecartes(p);
             PlayerCard a = p.play(this);
-            if (p.getListPlayerCard().Contains(a))
+         if (p.getListPlayerCard()[a.getValue() - 1, 0] != 0)//Si le joueur n'a pas la carte
             {
-                p.getListPlayerCard().Remove(a);
+                p.removeCard(a.getValue()-1);
             }
             else { MessageBox.Show("La carte jouée n'est pas contenue dans la liste des cartes du joueur"); }
             Console.WriteLine("Valeur carte joueur"+ p.getCouleur()+" :");        ///////////

@@ -34,7 +34,8 @@ namespace stupvau.Metier
                 }
                i++;
             }
-        }else
+        }
+        else
         {                    //Sinon si on est sur une souris
             if(value < 4) 
             {                                       //Si la souris rapporte peu de points

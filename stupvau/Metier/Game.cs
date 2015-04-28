@@ -14,10 +14,10 @@ namespace stupvau.Metier
     
     public Game(int nbPlayer) {
         IList<Player> listPlayer = new List<Player>();
-        int i;
-        for ( i = 0; i < nbPlayer-2; i++) {
-            listPlayer.Add(new IAStupid(i));
-        }
+        int i=0;
+        //for ( i = 0; i < nbPlayer-2; i++) {
+        //    listPlayer.Add(new IAStupid(i));
+        //}
         listPlayer.Add(new IAPlayer(i));
         listPlayer.Add(new IAMedium(i+1));  // Le nième joueur : un Human ou pas
       //  listPlayer.add(new Human());
@@ -30,13 +30,13 @@ namespace stupvau.Metier
         ///////
         //////
         /////
-        int j; Random m = new Random();
-        for (j = 0; j < 15; j++)
-        {
+        //int j; Random m = new Random();
+        //for (j = 0; j < 15; j++)
+        //{
            
-            int indice = m.Next(10);
-            Console.WriteLine(indice);
-        }
+        //    int indice = m.Next(10);
+        //    Console.WriteLine(indice);
+        //}
     }
 
     // Le jeu

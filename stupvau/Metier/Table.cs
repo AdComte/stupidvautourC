@@ -37,8 +37,8 @@ namespace stupvau.Metier
     // Return : Tous les joueurs ont joué une carte sur la table
     public void play() {
              Console.WriteLine("Carte du stack : "); /////////////////
-              Console.WriteLine(this.current.getValue());     //////////////
-              Console.WriteLine(this.current.getAnimal());     //////////////
+              Console.Write(this.current.getValue() + " | ");     //////////////
+              Console.Write(this.current.getAnimal() + " \n");     //////////////
         int point = this.getCurrent().getValue();
         if (this.getCurrent().getAnimal()) {
             point = point * -1;
@@ -49,6 +49,7 @@ namespace stupvau.Metier
      foreach (Player p in this.listPlayer)
      {
             PlayerCard a = p.play(this);
+            p.getListPlayerCard().Remove(a);
             Console.WriteLine("Valeur carte joueur"+ p.getCouleur()+" :");        ///////////
             Console.WriteLine(a.getValue());                   ///////////
             this.listPlayerCardsOnTable.Add(a);
@@ -96,7 +97,7 @@ namespace stupvau.Metier
         for (int i = 1; i < NB_MOUSE + 1; i++) {
             pioche.Add(new AnimalCard(i, false));
         }
-        Console.WriteLine("Au commencement, la pile contient : " + this.stack.Count() + " éléments");
+        //Console.WriteLine("Au commencement, la pile contient : " + this.stack.Count() + " éléments");
         Random j = new Random();
 
 
@@ -108,17 +109,17 @@ namespace stupvau.Metier
         }
         this.stack = stackMelanger;
 
-        foreach(AnimalCard a in this.stack)
-        {
-            if(a.getAnimal())
-            {
-                Console.WriteLine("Vautour/" + a.getValue());
-            }
-            else
-            {
-                Console.WriteLine("Souris/" + a.getValue());
-            }
-        }
+        //foreach(AnimalCard a in this.stack)
+        //{
+        //    if(a.getAnimal())
+        //    {
+        //        Console.WriteLine("Vautour/" + a.getValue());
+        //    }
+        //    else
+        //    {
+        //        Console.WriteLine("Souris/" + a.getValue());
+        //    }
+        //}
     }
 
     //TODO : cas d'égalité

@@ -21,7 +21,7 @@ namespace stupvau
             //Application.Run(new Form1());
             for (int i = 0; i < 15; i++)//Cette boucle fait tourner15 jeux et enregistre quel joueur gagne
             {                           // dans le but de comparer les IAs
-                Game jeu = new Game(3);
+                Game jeu = new Game(2);
                 tour = jeu.GameLoop();
                 if(tour==0)
                 {

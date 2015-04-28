@@ -41,18 +41,33 @@ namespace stupvau.Metier
                 {                                       //Si la souris rapporte peu de points
                     max = this.getMaxValueOnPlayer(6);    //On joue une carte intermédiaire
                     Carte = new PlayerCard(max, true, this.getCouleur());
-                }else if(value <= 9 && value >= 4 )//Si elle est intermédiaire
+                }
+                if(value <= 9 && value >= 4 )//Si elle est intermédiaire
                 {
                     max = this.getMaxValueOnPlayer(15);//On cherche à l'avoir absolument
                     Carte = new PlayerCard(max, true, this.getCouleur());
-                }
-                else
+                } else
                 {
                     max = this.getMaxValueOnPlayer(3); // si c'est un 10 on laisse tomber car trop concurrentiel => poubelle
                     Carte = new PlayerCard(max, true, this.getCouleur());
                 }
             }
-            return Carte;
+            this.getListPlayerCard().Remove(Carte);
+            if (Carte != null)
+            {
+                PlayerCard played = Carte;
+                this.getListPlayerCard().Remove(Carte);
+                return played;
+            }
+            else
+            {
+                Console.WriteLine("Le joueur " + this.getCouleur() + "joue au pif !!!");
+                Random i = new Random();
+                int indice = i.Next(this.getListPlayerCard().Count);
+                PlayerCard played = new PlayerCard(indice, false, this.getCouleur());
+                this.getListPlayerCard().RemoveAt(indice);
+                return played;
+            }
         }
     }
 }

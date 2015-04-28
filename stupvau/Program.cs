@@ -19,7 +19,7 @@ namespace stupvau
             //Application.EnableVisualStyles();
             //Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new Form1());
-            for (int i = 0; i < 15; i++)//Cette boucle fait tourner15 jeux et enregistre quel joueur gagne
+            for (int i = 0; i < 1; i++)//Cette boucle fait tourner15 jeux et enregistre quel joueur gagne
             {                           // dans le but de comparer les IAs
                 Game jeu = new Game(2);
                 tour = jeu.GameLoop();
@@ -36,7 +36,7 @@ namespace stupvau
             Console.WriteLine("*************************************");
             Console.WriteLine("Le joueur 0 a gagné " + pl0 + " fois sur 15");
             Console.WriteLine("Le joueur 1 a gagné " + pl1 + " fois sur 15");
-            Console.WriteLine("Le joueur 2 a gagné " + pl2 + " fois sur 15");
+            //Console.WriteLine("Le joueur 2 a gagné " + pl2 + " fois sur 15");
             //Console.WriteLine("Le joueur 3 a gagné " + pl3 + " fois sur 15");
             Console.WriteLine("*************************************");
             Console.WriteLine("*************************************************");

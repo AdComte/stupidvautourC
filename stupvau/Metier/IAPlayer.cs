@@ -13,6 +13,7 @@ namespace stupvau.Metier
    
 
     public override PlayerCard play(Table table){
+        Console.WriteLine("Cartes du joueur IAPLAYER"); this.affichecartes(this);
         int value = table.getCurrent().getValue(), max=0;
         PlayerCard Carte=null;
         if(table.getCurrent().getAnimal())//Si on est sur un vautour
@@ -21,18 +22,19 @@ namespace stupvau.Metier
             if(value < 4) 
             {                               //on joue une carte intermédiaire
                 max = this.getMaxValueOnPlayer(8);
+                Console.WriteLine("max = " + max);
             }                               //Sinon on joue la carte immédiatement supérieure qu'on a
             bool ok=false;
-            int i=0;
-            while(ok==false && max+i<=15)
+            int i=1;
+            max = this.getMaxValueOnTable(table);
+            while (ok == false && max + i <= 15)
             {
                 Carte = new PlayerCard(max + i, true, this.getCouleur());
-                if(this.getListPlayerCard().Contains(Carte))
+                if (this.getListPlayerCard().Contains(Carte))
                 {
-                    ok=true;
-                    this.getListPlayerCard().Remove(Carte);
+                    ok = true;
                 }
-               i++;
+                i++;
             }
         }
         else
@@ -48,24 +50,29 @@ namespace stupvau.Metier
                 Carte = new PlayerCard(max, true, this.getCouleur());
             } else 
             {                               //Sinon on la récupère à tout prix car elle rapporte gros 
-                bool ok=false;           // on joue la carte immédiatement supérieure au max de la carte posée
-                int i=1;
-                while(ok==false && max+i<=15)
+                bool ok = false;
+                int i = 1;
+                max = this.getMaxValueOnTable(table);
+                while (ok == false && max + i <= 15)
                 {
-                    Carte = new PlayerCard(max+i, true, this.getCouleur());
-                    if(this.getListPlayerCard().Contains(Carte))
+                    Carte = new PlayerCard(max + i, true, this.getCouleur());
+                    if (this.getListPlayerCard().Contains(Carte))
                     {
-                        ok=true;
-                        this.getListPlayerCard().Remove(Carte);
+                        ok = true;
                     }
-                   i++;
+                    i++;
                 }
             }
+            Console.WriteLine("max = " + max);
         }
-        if (Carte != null) {
+        if (Carte != null) 
+        {
             PlayerCard played = Carte;
             this.getListPlayerCard().Remove(Carte);
-            return played; } else {
+            return played; 
+        } 
+        else 
+        {
             Console.WriteLine("Le joueur " + this.getCouleur() + "joue au pif !!!");
             Random i = new Random();
             int indice = i.Next(this.getListPlayerCard().Count);

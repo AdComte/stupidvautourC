@@ -5,74 +5,25 @@ using System.Text;
 
 namespace stupvau.Metier
 {
+    //IAPlayer a été construite selon l'approche suivante : pour gagner il faut à tout prix récupérer les cartes les plus hautes
+    //et éviter les cartes les plus basses
     class IAPlayer : Player
-    {
-        
-    public IAPlayer (int i) : base(i) {
-  //  super(i);
-    }
-/**
- * 
- * @param cap
- * @return 
- */    
-private int getMaxValueOnPlayer (int cap)
-{
-        int i=0, result=0;
-        bool loop = true;
-        if(cap>0)//Si une limite est définie
-        {
-            while (result<cap && loop)
-            {
-                int value = this.getListPlayerCard()[i].getValue();
-                if( value > cap)
-                {
-                    loop=false;
-                } else {
-                    result = value;
-                    i++;
-                }
-            }
-        } 
-        else
-        {
-            foreach (PlayerCard P in base.getListPlayerCard())
-            {
-                if (P.getValue()>result)
-                {
-                    result = P.getValue();
-                }
-            }
-        }    
-        return result;
-}
-/**
- * trouver le max posé par les autres joueurs
- * */
-    private int getMaxValueOnTable (Table table) {
-        int result =0;
-            foreach (PlayerCard P in table.getListPlayerCardsOnTable()) 
-            {
-                if(P.value > result)
-                {
-                    result = P.value;
-                }
-            }
-    return result;
-    }
-    
+    { 
+    public IAPlayer (int i) : base(i) {}
+   
+
     public override PlayerCard play(Table table){
         int value = table.getCurrent().getValue(), max=0;
         PlayerCard Carte=null;
         if(table.getCurrent().getAnimal())//Si on est sur un vautour
         {   
-            max=this.getMaxValueOnTable(table);
+            max= this.getMaxValueOnTable(table);
             if(value < 4) 
             {                               //on joue une carte intermédiaire
                 max = this.getMaxValueOnPlayer(8);
             }                               //Sinon on joue la carte immédiatement supérieure qu'on a
             bool ok=false;
-            int i=1;
+            int i=0;
             while(ok==false && max+i<=15)
             {
                 Carte = new PlayerCard(max + i, true, this.getCouleur());

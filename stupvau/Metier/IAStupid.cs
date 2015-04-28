@@ -21,17 +21,17 @@ namespace stupvau.Metier
         Console.WriteLine();
 
 
-        //////////// test :!!!!!!!!!////////////////////
-        Console.WriteLine("--------------TEST---------------");
-        int j;
-        for (j = 0; j < 15; j++)
-        {
-            int z = this.getRandom().Next(10);
-            Console.Write(z + " | ");
-        }
-        Console.WriteLine("--------------FIN-TEST---------------");
-        Console.WriteLine("menglon : "+ this.getCouleur());
-        /////////
+        ////////////// test :!!!!!!!!!////////////////////
+        //Console.WriteLine("--------------TEST---------------");
+        //int j;
+        //for (j = 0; j < 15; j++)
+        //{
+        //    int z = this.getRandom().Next(10);
+        //    Console.Write(z + " | ");
+        //}
+        //Console.WriteLine("--------------FIN-TEST---------------");
+        //Console.WriteLine("menglon : "+ this.getCouleur());
+        ///////////
 
 
         int indice = this.getRandom().Next(this.getListPlayerCard().Count());

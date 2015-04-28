@@ -14,6 +14,14 @@ namespace stupvau
         [STAThread]
         static void Main()
         {
+            IAPlayer iap = new IAPlayer(0);
+            iap.deal(15);
+            iap.affichecartes(iap);
+            iap.removeCard(new PlayerCard(5, true, 0));
+            iap.affichecartes(iap);
+        }
+        static void Main2()
+        {
             int pl0=0, pl1=0, pl2=0, pl3=0;
             int tour = 0;
             //Application.EnableVisualStyles();

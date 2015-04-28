@@ -56,7 +56,7 @@ namespace stupvau.Metier
                     if(this.getListPlayerCard().Contains(Carte))
                     {
                         ok=true;
-                        this.listPlayerCard().Remove(Carte);
+                        this.getListPlayerCard().Remove(Carte);
                     }
                    i++;
                 }

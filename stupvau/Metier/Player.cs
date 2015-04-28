@@ -17,7 +17,12 @@ namespace stupvau.Metier
 
         public void removeCard(PlayerCard p)
         {
-            
+            this.listPlayerCard.Remove(p);
+            if(this.listPlayerCard.Contains(p))
+            {
+                Console.WriteLine("Echec de la suppression");
+            }
+            affichecartes(this);
         }
         public void removeCard(int indice)
         {
@@ -26,6 +31,7 @@ namespace stupvau.Metier
             if(this.listPlayerCard.Contains(a)){
                 Console.WriteLine("La suppression a échoué");
             }
+            affichecartes(this);
         }
         public abstract PlayerCard play(Table table);
         public void affichecartes(Player p)

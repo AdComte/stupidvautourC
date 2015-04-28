@@ -70,6 +70,7 @@
             this.lbl_player5name = new System.Windows.Forms.Label();
             this.lbl_player5points = new System.Windows.Forms.Label();
             this.lbl_state = new System.Windows.Forms.Label();
+            this.timer = new System.Windows.Forms.Timer(this.components);
             this.tlp_player.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -437,6 +438,7 @@
             // 
             // pb_player
             // 
+            this.pb_player.Image = ((System.Drawing.Image)(resources.GetObject("pb_player.Image")));
             this.pb_player.Location = new System.Drawing.Point(400, 343);
             this.pb_player.Name = "pb_player";
             this.pb_player.Size = new System.Drawing.Size(50, 80);
@@ -445,6 +447,7 @@
             // 
             // pb_player2
             // 
+            this.pb_player2.Image = ((System.Drawing.Image)(resources.GetObject("pb_player2.Image")));
             this.pb_player2.Location = new System.Drawing.Point(250, 226);
             this.pb_player2.Name = "pb_player2";
             this.pb_player2.Size = new System.Drawing.Size(50, 80);
@@ -453,6 +456,7 @@
             // 
             // pb_player3
             // 
+            this.pb_player3.Image = ((System.Drawing.Image)(resources.GetObject("pb_player3.Image")));
             this.pb_player3.Location = new System.Drawing.Point(300, 101);
             this.pb_player3.Name = "pb_player3";
             this.pb_player3.Size = new System.Drawing.Size(50, 80);
@@ -461,6 +465,7 @@
             // 
             // pb_player4
             // 
+            this.pb_player4.Image = ((System.Drawing.Image)(resources.GetObject("pb_player4.Image")));
             this.pb_player4.Location = new System.Drawing.Point(500, 101);
             this.pb_player4.Name = "pb_player4";
             this.pb_player4.Size = new System.Drawing.Size(50, 80);
@@ -469,6 +474,7 @@
             // 
             // pb_player5
             // 
+            this.pb_player5.Image = ((System.Drawing.Image)(resources.GetObject("pb_player5.Image")));
             this.pb_player5.Location = new System.Drawing.Point(550, 226);
             this.pb_player5.Name = "pb_player5";
             this.pb_player5.Size = new System.Drawing.Size(50, 80);
@@ -598,6 +604,11 @@
             this.lbl_state.TabIndex = 18;
             this.lbl_state.Text = "Etat du jeu";
             // 
+            // timer
+            // 
+            this.timer.Interval = 4000;
+            this.timer.Tick += new System.EventHandler(this.timer_Tick);
+            // 
             // Table
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -694,6 +705,7 @@
         private System.Windows.Forms.Label lbl_player5name;
         private System.Windows.Forms.Label lbl_player5points;
         private System.Windows.Forms.Label lbl_state;
+        private System.Windows.Forms.Timer timer;
     }
 }
 

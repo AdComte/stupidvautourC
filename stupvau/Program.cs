@@ -27,12 +27,11 @@ namespace stupvau
         {
             Menu menu = new Menu();
             Application.EnableVisualStyles();
-            //Application.SetCompatibleTextRenderingDefault(false);		//ça plante je sais pas pourquoi
             Application.Run(menu);
 			if (menu.ready == false) return;
             //A ce stade, on dispose de tout les paramètres pour lancer la partie dans la configuration voulue
 
-			Game game = new Game(menu.nbia + 1);
+			Game game = new Game(menu.nbia + 1, menu.iaplayers);
 			//passer les ia à game
 
 

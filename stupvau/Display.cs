@@ -134,7 +134,7 @@ namespace stupvau
         private void pb_click(object sender, EventArgs e)
         {
             Control card = (Control)sender;
-            selectedcard = card.TabIndex;
+			selectedcard = Convert.ToInt32(card.Tag.ToString());
             pb_player.Image = cardsplayer1.Images[selectedcard];
         }
 

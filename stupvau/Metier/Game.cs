@@ -11,7 +11,32 @@ namespace stupvau.Metier
     public readonly static int NB_CARDS = 15;
     //private int nbPlayer;
     private Table table;
-    
+
+
+	public Game(int nbplayers, int[] ialvl)
+	{
+		IList<Player> listPlayer = new List<Player>();
+		for (int i = 1; i < nbplayers; i++)
+		{
+			switch(ialvl[i])
+			{
+				case 1:
+					listPlayer.Add(new IAStupid(i));
+					break;
+				case 2:
+					listPlayer.Add(new IAMedium(i));
+					break;
+				case 3:
+					listPlayer.Add(new IAPlayer(i));
+					break;
+			}
+		}
+	}
+
+
+
+
+
     public Game(int nbPlayer) {
         IList<Player> listPlayer = new List<Player>();
         int i=0;

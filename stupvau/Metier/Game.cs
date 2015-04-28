@@ -16,7 +16,7 @@ namespace stupvau.Metier
         IList<Player> listPlayer = new List<Player>();
         int i;
         for ( i = 0; i < nbPlayer-1; i++) {
-            listPlayer.Add(new IAPlayer(i));
+            listPlayer.Add(new IAStupid(i));
         }
         listPlayer.Add(new IAPlayer(i));
         foreach (Player p in listPlayer) { Console.WriteLine("Le joueur " + p.getCouleur() + "Entre dans la partie"); }

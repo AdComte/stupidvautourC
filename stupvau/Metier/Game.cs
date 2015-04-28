@@ -74,9 +74,9 @@ namespace stupvau.Metier
         this.table.setCurrent(AC);
         this.table.getStack().RemoveAt(0);
 
-        foreach (Player p in this.table.getPlayerlist()) {
-            p.deal(NB_CARDS);
-        }        
+        //foreach (Player p in this.table.getPlayerlist()) {
+        //    p.deal(NB_CARDS);
+        //}        
         
         while (turn > 0) {
             Console.WriteLine("Début du tour" + turn);  ////////////////

@@ -26,14 +26,15 @@ namespace stupvau.Metier
                 {                                //il vaut mieux l'éviter
                     max = this.getMaxValueOnPlayer(9);
                 }
-                else max = this.getMaxValueOnPlayer(15); // Surtout si c'est une forte valeur
+                else max = this.getMaxValueOnTable(table); // Surtout si c'est une forte valeur
                 bool ok = false;
                 int i = 0;
+                if(max!=0)
                 while (ok == false && max - i >0)
                 {
                     Console.WriteLine("/Passage dans le while "+(i+1));
                     Carte = new PlayerCard(max - i, true, this.getCouleur());
-                    if (this.getListPlayerCard().Contains(Carte))
+                    if (this.listPlayerCard[Carte.getValue() - 1, 0] != 0)//Si le joueur n'a pas la carte
                     {
                         ok = true;
                     }
@@ -47,19 +48,33 @@ namespace stupvau.Metier
                 if (value < 4)
                 {                                       //Si la souris rapporte peu de points
                     max = this.getMaxValueOnPlayer(6);    //On joue une carte intermédiaire
-                    Carte = new PlayerCard(max, true, this.getCouleur());
-                }
+                    if (max > 0) { Carte = new PlayerCard(max, true, this.getCouleur()); }
+                } else
                 if(value <= 9 && value >= 4 )//Si elle est intermédiaire
                 {                               //On cherche à l'avoir absolument
-                    if (value == 9)
-                        max = this.getMaxValueOnPlayer(15);
-                    else if (value == 8)
-                        max = this.getMaxValueOnPlayer(14);
-                    else if (value == 7)
-                        max = this.getMaxValueOnPlayer(13);
-                    else if (value == 6)
-                        max = this.getMaxValueOnPlayer(12);
-                    Carte = new PlayerCard(max, true, this.getCouleur());
+                    //if (value == 9)
+                    //    max = this.getMaxValueOnPlayer(15);
+                    //else if (value == 8)
+                    //    max = this.getMaxValueOnPlayer(14);
+                    //else if (value == 7)
+                    //    max = this.getMaxValueOnPlayer(13);
+                    //else if (value == 6)
+                    //    max = this.getMaxValueOnPlayer(12);
+                    //else
+                    //{
+                        bool ok = false;//On fait tout pour l'obtenir
+                        int i = 1;
+                        while (ok == false && max + i <= 15 && max + i > 0)
+                        {
+                            Carte = new PlayerCard(max + i, true, this.getCouleur());
+                            if (this.listPlayerCard[Carte.getValue() - 1, 0] != 0)//Si le joueur n'a pas la carte
+                            {
+                                ok = true;
+                                //this.getListPlayerCard().Remove(Carte);
+                            }
+                            i++;
+                        }
+                    //}
                 } else
                 {
                     max = this.getMaxValueOnPlayer(3); // si c'est un 10 on laisse tomber car trop concurrentiel => poubelle
@@ -68,27 +83,24 @@ namespace stupvau.Metier
                 Console.WriteLine("Cartes disponibles : ");
                 affichecartes(this);
             }
-            if (Carte != null && Carte.getValue() != 0)
+        if (Carte != null && this.nbCartesRestantes != 0 && Carte.getValue() > 0)
             {
                 PlayerCard played = Carte;
-                this.getListPlayerCard().Remove(Carte);
+                this.removeCard(Carte.getValue()-1);
                 Console.WriteLine("Cartes disponibles avant return : ");
                 affichecartes(this);
                 Console.WriteLine("/////////////////////////////////////////////////////////////////////////////////");
                 return played;
             }
-            else
-            {
                 Console.WriteLine("Le joueur " + this.getCouleur() + "joue au pif !!!");
-                Random i = new Random();
-                int indice = i.Next(this.getListPlayerCard().Count);
-                PlayerCard played = new PlayerCard(indice, false, this.getCouleur());
-                this.getListPlayerCard().RemoveAt(indice);
+                Random r = new Random();
+                int indice = r.Next(this.nbCartesRestantes);
+                PlayerCard p = new PlayerCard(indice, false, this.getCouleur());
+                this.removeCard(indice);
                 Console.WriteLine("Cartes disponibles avant return : ");
                 affichecartes(this);
                 Console.WriteLine("/////////////////////////////////////////////////////////////////////////////////");
-                return played;
-            }
+                return p;
         }
     }
 }

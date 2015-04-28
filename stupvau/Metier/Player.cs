@@ -9,53 +9,44 @@ namespace stupvau.Metier
     abstract class Player
     {
         private String name;
-        private IList<PlayerCard> listPlayerCard;
+        protected int[,] listPlayerCard;
+        protected int nbCartesRestantes;
         public static int number = 0;
         private int couleur;
         private int score;
         private Random random;
 
-        public void removeCard(PlayerCard p)
-        {
-            this.listPlayerCard.Remove(p);
-            if(this.listPlayerCard.Contains(p))
-            {
-                Console.WriteLine("Echec de la suppression");
-            }
-            affichecartes(this);
-        }
         public void removeCard(int indice)
         {
-            PlayerCard a =this.listPlayerCard[indice];
-            this.listPlayerCard.RemoveAt(indice);
-            if(this.listPlayerCard.Contains(a)){
-                Console.WriteLine("La suppression a échoué");
-            }
-            affichecartes(this);
+            this.listPlayerCard[indice,0] = 0;
+            --this.nbCartesRestantes;
         }
         public abstract PlayerCard play(Table table);
         public void affichecartes(Player p)
         {
             Console.WriteLine();
-            foreach (PlayerCard a in p.getListPlayerCard())
+            for(int k =0;k<15;k++)
             {
-                Console.Write(a.getValue() + " | ");
+                if(this.listPlayerCard[k,0]!=0)
+                    Console.Write(this.listPlayerCard[k,0] + " | ");
             }
             Console.WriteLine();
         }
         public Player(int i) {
-            listPlayerCard = new List<PlayerCard>();
             this.couleur = i;
+            this.listPlayerCard = new int[,] {{1,i},{2,i},{3,i},{4,i},{5,i},{6,i},{7,i},{8,i},{9,i},{10,i},{11,i},{12,i},{13,i},{14,i},{ 15, i }};
             this.score = 0;
+            this.nbCartesRestantes = 15;
             this.random = new Random();
         }
 
         
         public void deal(int nbCard)
         {
-            for (int i = 1; i < nbCard + 1; i++)
+            for (int j = 0; j < nbCard; j++)
             {
-                this.listPlayerCard.Add(new PlayerCard(i, true, couleur));
+                this.listPlayerCard[j, 0] = j + 1;
+                this.listPlayerCard[j, 1] = this.couleur;
             }
         }
         /**
@@ -69,9 +60,9 @@ namespace stupvau.Metier
             bool loop = true;
             if (cap > 0)//Si une limite est définie
             {
-                while (result < cap && loop && i<this.getListPlayerCard().Count)
+                while (result < cap && loop && i<15)
                 {
-                    int value = this.getListPlayerCard()[i].getValue();
+                    int value = this.listPlayerCard[i,0];
                     if (value > cap)
                     {
                         loop = false;
@@ -85,11 +76,11 @@ namespace stupvau.Metier
             }
             else
             {
-                foreach (PlayerCard P in this.getListPlayerCard())
+                for (int k = 0; k < 15;k++ )
                 {
-                    if (P.getValue() > result)
+                    if (this.listPlayerCard[k,0] > result)
                     {
-                        result = P.getValue();
+                        result = this.listPlayerCard[k, 0];
                     }
                 }
             }
@@ -126,7 +117,7 @@ namespace stupvau.Metier
             return name;
         }
 
-        public IList<PlayerCard> getListPlayerCard()
+        public int[,] getListPlayerCard()
         {
             return listPlayerCard;
         }

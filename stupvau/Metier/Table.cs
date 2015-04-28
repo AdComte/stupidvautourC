@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Collections;
+using System.Windows.Forms;
 
 namespace stupvau.Metier
 {
@@ -48,8 +49,13 @@ namespace stupvau.Metier
      Console.WriteLine("************************");        ///////////
      foreach (Player p in this.listPlayer)
      {
+         p.affichecartes(p);
             PlayerCard a = p.play(this);
-            p.getListPlayerCard().Remove(a);
+            if (p.getListPlayerCard().Contains(a))
+            {
+                p.getListPlayerCard().Remove(a);
+            }
+            else { MessageBox.Show("La carte jouée n'est pas contenue dans la liste des cartes du joueur"); }
             Console.WriteLine("Valeur carte joueur"+ p.getCouleur()+" :");        ///////////
             Console.WriteLine(a.getValue());                   ///////////
             this.listPlayerCardsOnTable.Add(a);

@@ -15,9 +15,34 @@ namespace stupvau.Metier
         private int score;
         private Random random;
 
-
+        public void removeCard(PlayerCard p)
+        {
+            this.listPlayerCard.Remove(p);
+            if(this.listPlayerCard.Contains(p))
+            {
+                Console.WriteLine("Echec de la suppression");
+            }
+            affichecartes(this);
+        }
+        public void removeCard(int indice)
+        {
+            PlayerCard a =this.listPlayerCard[indice];
+            this.listPlayerCard.RemoveAt(indice);
+            if(this.listPlayerCard.Contains(a)){
+                Console.WriteLine("La suppression a échoué");
+            }
+            affichecartes(this);
+        }
         public abstract PlayerCard play(Table table);
-
+        public void affichecartes(Player p)
+        {
+            Console.WriteLine();
+            foreach (PlayerCard a in p.getListPlayerCard())
+            {
+                Console.Write(a.getValue() + " | ");
+            }
+            Console.WriteLine();
+        }
         public Player(int i) {
             listPlayerCard = new List<PlayerCard>();
             this.couleur = i;
@@ -44,7 +69,7 @@ namespace stupvau.Metier
             bool loop = true;
             if (cap > 0)//Si une limite est définie
             {
-                while (result < cap && loop)
+                while (result < cap && loop && i<this.getListPlayerCard().Count)
                 {
                     int value = this.getListPlayerCard()[i].getValue();
                     if (value > cap)

@@ -117,20 +117,20 @@ namespace stupvau
                 state("Le joueur " + indice_winner + " gagne " + this.game.table.getCurrent() + " points");
             }
             //affichage des cartes jouées et MàJ du score gagnant
-            pb_player2.Image = cardsplayer2.Images[this.game.table.getListPlayerCardsOnTable()[1].getValue()];
+            pb_player2.Image = cardsplayer2.Images[this.game.table.getListPlayerCardsOnTable()[0].getValue()];
             if (indice_winner == 1) lbl_player2points.Text = "points : " + this.game.table.getPlayerlist()[indice_winner].getScore();
             {
-                pb_player3.Image = cardsplayer3.Images[this.game.table.getListPlayerCardsOnTable()[2].getValue()];
+                pb_player3.Image = cardsplayer3.Images[this.game.table.getListPlayerCardsOnTable()[1].getValue()];
                 if (indice_winner == 2) lbl_player3points.Text = "points : " + this.game.table.getPlayerlist()[indice_winner].getScore();
             }
             if(nbplayer >=4)
             {
-                pb_player4.Image = cardsplayer4.Images[this.game.table.getListPlayerCardsOnTable()[3].getValue()];
+                pb_player4.Image = cardsplayer4.Images[this.game.table.getListPlayerCardsOnTable()[2].getValue()];
                 if (indice_winner == 3) lbl_player4points.Text = "points : " + this.game.table.getPlayerlist()[indice_winner].getScore();
             }
             if (nbplayer >= 5)
             {
-                pb_player5.Image = cardsplayer5.Images[this.game.table.getListPlayerCardsOnTable()[4].getValue()];
+                pb_player5.Image = cardsplayer5.Images[this.game.table.getListPlayerCardsOnTable()[3].getValue()];
                 if (indice_winner == 4) lbl_player5points.Text = "points : " + this.game.table.getPlayerlist()[indice_winner].getScore(); 
             }
         }

@@ -258,7 +258,7 @@
             this.tlp_player.Controls.Add(this.pictureBox14, 13, 0);
             this.tlp_player.Controls.Add(this.pictureBox15, 14, 0);
             this.tlp_player.Controls.Add(this.pictureBox12, 11, 0);
-            this.tlp_player.Location = new System.Drawing.Point(50, 500);
+            this.tlp_player.Location = new System.Drawing.Point(50, 519);
             this.tlp_player.Margin = new System.Windows.Forms.Padding(0);
             this.tlp_player.Name = "tlp_player";
             this.tlp_player.RowCount = 1;
@@ -458,7 +458,7 @@
             // pb_player
             // 
             this.pb_player.Image = ((System.Drawing.Image)(resources.GetObject("pb_player.Image")));
-            this.pb_player.Location = new System.Drawing.Point(400, 343);
+            this.pb_player.Location = new System.Drawing.Point(400, 362);
             this.pb_player.Name = "pb_player";
             this.pb_player.Size = new System.Drawing.Size(50, 80);
             this.pb_player.TabIndex = 4;
@@ -503,7 +503,7 @@
             // btn_valid
             // 
             this.btn_valid.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_valid.Location = new System.Drawing.Point(367, 429);
+            this.btn_valid.Location = new System.Drawing.Point(367, 448);
             this.btn_valid.Name = "btn_valid";
             this.btn_valid.Size = new System.Drawing.Size(120, 23);
             this.btn_valid.TabIndex = 5;
@@ -515,7 +515,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Tahoma", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(287, 455);
+            this.label1.Location = new System.Drawing.Point(287, 474);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(296, 23);
             this.label1.TabIndex = 3;
@@ -525,7 +525,7 @@
             // 
             this.lbl_playerpoints.AutoSize = true;
             this.lbl_playerpoints.Font = new System.Drawing.Font("Stencil", 15F);
-            this.lbl_playerpoints.Location = new System.Drawing.Point(52, 467);
+            this.lbl_playerpoints.Location = new System.Drawing.Point(52, 486);
             this.lbl_playerpoints.Name = "lbl_playerpoints";
             this.lbl_playerpoints.Size = new System.Drawing.Size(148, 24);
             this.lbl_playerpoints.TabIndex = 9;

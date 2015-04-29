@@ -19,7 +19,9 @@ namespace stupvau.Metier
         public void removeCard(int indice)
         {
             this.listPlayerCard[indice,0] = 0;
-            --this.nbCartesRestantes;
+            if (nbCartesRestantes>0)
+                --this.nbCartesRestantes;
+            
         }
         public abstract PlayerCard play(Table table);
         public void affichecartes(Player p)
@@ -54,7 +56,7 @@ namespace stupvau.Metier
          * @param cap
          * @return 
          */
-        protected int getMaxValueOnPlayer(int cap)
+        public int getMaxValueOnPlayer(int cap)
         {
             int i = 0, result = 0;
             bool loop = true;
@@ -62,7 +64,8 @@ namespace stupvau.Metier
             {
                 while (result < cap && loop && i<15)
                 {
-                    int value = this.listPlayerCard[i,0];
+                   int value = this.listPlayerCard[i,0];
+                   if (value == 0) { i++; } else
                     if (value > cap)
                     {
                         loop = false;

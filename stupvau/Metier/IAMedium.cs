@@ -92,15 +92,17 @@ namespace stupvau.Metier
                 Console.WriteLine("/////////////////////////////////////////////////////////////////////////////////");
                 return played;
             }
-                Console.WriteLine("Le joueur " + this.getCouleur() + "joue au pif !!!");
-                Random r = new Random();
-                int indice = r.Next(this.nbCartesRestantes);
-                PlayerCard p = new PlayerCard(indice, false, this.getCouleur());
-                this.removeCard(indice);
-                Console.WriteLine("Cartes disponibles avant return : ");
-                affichecartes(this);
-                Console.WriteLine("/////////////////////////////////////////////////////////////////////////////////");
-                return p;
+        Console.WriteLine("Le joueur " + this.getCouleur() + "joue au pif !!!");
+        Random r = new Random();
+        IList<int> dispo = new List<int>();
+        for (int i = 0; i < 15; i++)
+        {
+            if (this.listPlayerCard[i, 0] != 0) dispo.Add(i);
+        }
+        int indice2 = dispo.ElementAt(r.Next(this.nbCartesRestantes));
+        PlayerCard p = new PlayerCard(indice2, false, this.getCouleur());
+        this.removeCard(indice2);
+        return p;
         }
     }
 }

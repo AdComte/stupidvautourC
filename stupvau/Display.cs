@@ -6,16 +6,21 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using stupvau.Metier;
 
 namespace stupvau
 {
     public partial class Display : Form
-    {
-        public bool[] playablecards;
+	{
+		#region Attributs
+		public bool[] playablecards;
         public int selectedcard;
         public int nbplayer;
+		Game game;
+		#endregion
 
-        private Display()
+		#region Constructeurs
+		private Display()
         {
             InitializeComponent();
 			playablecards = new bool[16];
@@ -26,8 +31,7 @@ namespace stupvau
             selectedcard = 0;
             pb_player.Image = cardsplayer1.Images[0];
         }
-
-        public Display(int nbplayer) : this()
+        private Display(int nbplayer) : this()
         {
             this.nbplayer = nbplayer;
             if (nbplayer <= 4)
@@ -49,13 +53,21 @@ namespace stupvau
                 lbl_player3points.Visible = false;
             }
         }
-
-        public void state(String txt) // Permet de gérer le label d'état en haut
+		public Display(int nbplayer, int[] ialvl) : this(nbplayer)
+		{
+			game = new Game(nbplayer, ialvl);
+			game.table.melangerAnimalCard();
+			newcard();
+			state("Bon Jeu");
+		}
+		#endregion
+		#region Affichages et etats du jeu RESTE UN TODO
+		public void state(String txt) // Permet de gérer le label d'état en haut
         {
             lbl_state.Text = txt;
         }
 
-        private void lockgame() //Rend les toutes cartes in sélectionnables et le bouton incliquable
+        private void lockgame() //Rend les toutes cartes non sélectionnables et le bouton non cliquable
         {
             foreach (Control c in tlp_player.Controls)
             {
@@ -84,9 +96,11 @@ namespace stupvau
             pb_player.Image = cardsplayer1.Images[selectedcard];
         }
 
-        public void newcard(int animalcard) //permet d'afficher la carte en jeu
+        public void newcard() //permet d'afficher la carte en jeu
         {
-            pb_animalcard.Image = animalcards.Images[animalcard];
+			int indice = game.table.getCurrent().value;
+			if (indice < 0) indice = 10 - indice;
+            pb_animalcard.Image = animalcards.Images[indice];
         }
 
         public void affiche(int[] etat) //tableau type {gagnant, points gagnés, nouveau total de points du gagnant, carte jouée par j2, carte jouée par j3, ...}
@@ -120,21 +134,24 @@ namespace stupvau
                 if (etat[0] == 4)   lbl_player5points.Text = "points : " + etat[10];
             }
         }
-
-        private void btn_valid_Click(object sender, EventArgs e)
+		#endregion
+		#region Evenements RESTE UN TODO
+		private void btn_valid_Click(object sender, EventArgs e)
         {
-            //TODO, transmettre "selectedcard" à la boucle de jeu
             if (selectedcard != 0) //IMPORTANT
             {
                 lockgame();
                 playablecards[selectedcard] = false;
+				Player human = game.table.getPlayerlist()[0];
+				//PlayerCard selectd = human.getListPlayerCard()[selectedcard, 0];
+				//game.table.getListPlayerCardsOnTable().Add(selectedcard);
             }
         }
 
         private void pb_click(object sender, EventArgs e)
         {
             Control card = (Control)sender;
-            selectedcard = card.TabIndex;
+			selectedcard = Convert.ToInt32(card.Tag.ToString());
             pb_player.Image = cardsplayer1.Images[selectedcard];
         }
 
@@ -148,6 +165,8 @@ namespace stupvau
             if (nbplayer >= 5) pb_player5.Image = cardsplayer5.Images[0];
             unlockgame();
             //TODO il faut demander à la boucle de piocher une nouvelle carte ...
-        }
-    }
+		}
+		#endregion
+
+	}
 }

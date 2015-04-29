@@ -25,7 +25,7 @@ namespace stupvau
 			ready = false;
         }
 
-        private void btn_begin_Click(object sender, EventArgs e)    //set le nombre d'ia, et leur niveau. easy->0 medium->1 hard->2
+        private void btn_begin_Click(object sender, EventArgs e)    //set le nombre d'ia, et leur niveau. easy->1 medium->2 hard->3
         {
             if (rb_2players.Checked == true) nbia = 1;
             if (rb_3players.Checked == true) nbia = 2;
@@ -33,29 +33,7 @@ namespace stupvau
             if (rb_5players.Checked == true) nbia = 4;
             for(int i = 1; i < nbia; i++)
             {
-                switch(i)
-                {
-                    case 1:
-                        if (rb_pl2easy.Checked == true) iaplayers[2] = 0;
-                        if (rb_pl2medium.Checked == true) iaplayers[2] = 1;
-                        if (rb_pl2hard.Checked == true) iaplayers[2] = 2;
-                        break;
-                    case 2:
-                        if (rb_pl3easy.Checked == true) iaplayers[3] = 0;
-                        if (rb_pl3medium.Checked == true) iaplayers[3] = 1;
-                        if (rb_pl3hard.Checked == true) iaplayers[3] = 2;
-                        break;
-                    case 3:
-                        if (rb_pl4easy.Checked == true) iaplayers[4] = 0;
-                        if (rb_pl4medium.Checked == true) iaplayers[4] = 1;
-                        if (rb_pl4hard.Checked == true) iaplayers[4] = 2;
-                        break;
-                    case 4:
-                        if (rb_pl5easy.Checked == true) iaplayers[5] = 0;
-                        if (rb_pl5medium.Checked == true) iaplayers[5] = 1;
-                        if (rb_pl5hard.Checked == true) iaplayers[5] = 2;
-                        break;
-                }
+				iaplayers[i] = niv_ia(i);
             }
 			ready = true;
 			this.Close();
@@ -69,15 +47,15 @@ namespace stupvau
                     if (rb_pl2easy.Checked == true) return 1;
                     if (rb_pl2medium.Checked == true) return 2;
                     return 3;
-                case 3:
+                case 2:
                     if (rb_pl3easy.Checked == true) return 1;
                     if (rb_pl3medium.Checked == true) return 2;
                     return 3;
-                case 4:
+                case 3:
                     if (rb_pl4easy.Checked == true) return 1;
                     if (rb_pl4medium.Checked == true) return 2;
                     return 3;
-                case 5:
+                case 4:
                     if (rb_pl5easy.Checked == true) return 1;
                     if (rb_pl5medium.Checked == true) return 2;
                     return 3;

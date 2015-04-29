@@ -52,16 +52,16 @@ namespace stupvau.Metier
                 } else
                 if(value <= 9 && value >= 4 )//Si elle est intermédiaire
                 {                               //On cherche à l'avoir absolument
-                    //if (value == 9)
-                    //    max = this.getMaxValueOnPlayer(15);
-                    //else if (value == 8)
-                    //    max = this.getMaxValueOnPlayer(14);
-                    //else if (value == 7)
-                    //    max = this.getMaxValueOnPlayer(13);
-                    //else if (value == 6)
-                    //    max = this.getMaxValueOnPlayer(12);
-                    //else
-                    //{
+                    if (value == 9)
+                        max = this.getMaxValueOnPlayer(15);
+                    else if (value == 8)
+                        max = this.getMaxValueOnPlayer(14);
+                    else if (value == 7)
+                        max = this.getMaxValueOnPlayer(13);
+                    else if (value == 6)
+                        max = this.getMaxValueOnPlayer(12);
+                    else
+                    {
                         bool ok = false;//On fait tout pour l'obtenir
                         int i = 1;
                         while (ok == false && max + i <= 15 && max + i > 0)
@@ -74,7 +74,7 @@ namespace stupvau.Metier
                             }
                             i++;
                         }
-                    //}
+                    }
                 } else
                 {
                     max = this.getMaxValueOnPlayer(3); // si c'est un 10 on laisse tomber car trop concurrentiel => poubelle

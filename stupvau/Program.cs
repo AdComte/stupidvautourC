@@ -12,7 +12,7 @@ namespace stupvau
         /// Point d'entrée principal de l'application.
         /// </summary>
         [STAThread]
-        static void Main2()
+        static void Main()
         {
             Menu menu = new Menu();
             Application.EnableVisualStyles();
@@ -35,14 +35,14 @@ namespace stupvau
         //    Table table = new Table(liste);
         //}
 //
-        static void Main()
+        static void Main22()
         {
 
             int pl0 = 0, pl1 = 0, pl2 = 0, pl3 = 0;
             int tour = 0;
-            for (int i = 0; i < 15; i++)//Cette boucle fait tourner15 jeux et enregistre quel joueur gagne
+            for (int i = 0; i < 25; i++)//Cette boucle fait tourner15 jeux et enregistre quel joueur gagne
             {                           // dans le but de comparer les IAs
-                Game jeu = new Game(2);
+                Game jeu = new Game(3);
                 tour = jeu.GameLoop();
                 if (tour == 0)
                 {
@@ -56,9 +56,9 @@ namespace stupvau
             Console.WriteLine("************************************************************");
             Console.WriteLine("*************************************************");
             Console.WriteLine("*************************************");
-            Console.WriteLine("Le joueur 0 a gagné " + pl0 + " fois sur 15");
-            Console.WriteLine("Le joueur 1 a gagné " + pl1 + " fois sur 15");
-            //Console.WriteLine("Le joueur 2 a gagné " + pl2 + " fois sur 15");
+            Console.WriteLine("Le joueur 0 a gagné " + pl0 + " fois sur 25");
+            Console.WriteLine("Le joueur 1 a gagné " + pl1 + " fois sur 25");
+            Console.WriteLine("Le joueur 2 a gagné " + pl2 + " fois sur 25");
             //Console.WriteLine("Le joueur 3 a gagné " + pl3 + " fois sur 15");
             Console.WriteLine("*************************************");
             Console.WriteLine("*************************************************");

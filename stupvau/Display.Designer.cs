@@ -642,10 +642,11 @@
             // 
             // pictureBox17
             // 
+            this.pictureBox17.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox17.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox17.Image")));
-            this.pictureBox17.Location = new System.Drawing.Point(12, 274);
+            this.pictureBox17.Location = new System.Drawing.Point(12, 298);
             this.pictureBox17.Name = "pictureBox17";
-            this.pictureBox17.Size = new System.Drawing.Size(184, 181);
+            this.pictureBox17.Size = new System.Drawing.Size(188, 173);
             this.pictureBox17.TabIndex = 20;
             this.pictureBox17.TabStop = false;
             // 
@@ -654,6 +655,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Peru;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(834, 612);
             this.Controls.Add(this.pictureBox17);
             this.Controls.Add(this.pictureBox16);

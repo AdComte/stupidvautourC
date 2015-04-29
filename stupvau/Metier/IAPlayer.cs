@@ -27,8 +27,7 @@ namespace stupvau.Metier
             if(max!=0)
             while(ok==false && max+i<=15 && max+i>0)
             {
-                if(max+i>0)
-                         indice = max+i;
+                if (max + i > 0) { indice = max + i; }
                 Carte = new PlayerCard(max + i, true, this.getCouleur());
                 if(this.listPlayerCard[indice-1,0] != 0)//Si le joueur n'a pas la carte
                 {
@@ -65,14 +64,20 @@ namespace stupvau.Metier
                 }
             }
         }
-        if (Carte != null && this.nbCartesRestantes != 0 && Carte.getValue() != 0) {
+        if (Carte != null && this.nbCartesRestantes >= 0 && Carte.getValue() != 0) 
+        {
             PlayerCard played = Carte;
             this.removeCard(Carte.getValue()-1);
             return played; 
         }
             Console.WriteLine("Le joueur " + this.getCouleur() + "joue au pif !!!");
             Random r = new Random();
-            int indice2 = r.Next(this.nbCartesRestantes);
+            IList<int> dispo = new List<int>();
+            for (int i = 0; i < 15; i++)
+            {
+                if (this.listPlayerCard[i, 0] != 0) dispo.Add(i);
+            }
+            int indice2 = dispo.ElementAt(r.Next(this.nbCartesRestantes)); 
             PlayerCard p = new PlayerCard(indice2, false, this.getCouleur());
             this.removeCard(indice2);
             return p;

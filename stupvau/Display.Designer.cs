@@ -396,19 +396,19 @@
             this.pictureBox11.TabIndex = 1;
             this.pictureBox11.TabStop = false;
             this.pictureBox11.Tag = "11";
-			this.pictureBox11.Click += new System.EventHandler(this.pb_click);
-			// 
-			// pictureBox12
-			// 
-			this.pictureBox12.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox12.BackgroundImage")));
-			this.pictureBox12.Location = new System.Drawing.Point(550, 0);
-			this.pictureBox12.Margin = new System.Windows.Forms.Padding(0);
-			this.pictureBox12.Name = "pictureBox12";
-			this.pictureBox12.Size = new System.Drawing.Size(50, 80);
-			this.pictureBox12.TabIndex = 1;
-			this.pictureBox12.TabStop = false;
-			this.pictureBox12.Tag = "12";
-			this.pictureBox12.Click += new System.EventHandler(this.pb_click);
+            this.pictureBox11.Click += new System.EventHandler(this.pb_click);
+            // 
+            // pictureBox12
+            // 
+            this.pictureBox12.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox12.BackgroundImage")));
+            this.pictureBox12.Location = new System.Drawing.Point(550, 0);
+            this.pictureBox12.Margin = new System.Windows.Forms.Padding(0);
+            this.pictureBox12.Name = "pictureBox12";
+            this.pictureBox12.Size = new System.Drawing.Size(50, 80);
+            this.pictureBox12.TabIndex = 1;
+            this.pictureBox12.TabStop = false;
+            this.pictureBox12.Tag = "12";
+            this.pictureBox12.Click += new System.EventHandler(this.pb_click);
             // 
             // pictureBox13
             // 
@@ -617,7 +617,7 @@
             // 
             this.lbl_state.AutoSize = true;
             this.lbl_state.Font = new System.Drawing.Font("Stencil", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_state.Location = new System.Drawing.Point(328, 25);
+            this.lbl_state.Location = new System.Drawing.Point(271, 25);
             this.lbl_state.Name = "lbl_state";
             this.lbl_state.Size = new System.Drawing.Size(222, 40);
             this.lbl_state.TabIndex = 18;

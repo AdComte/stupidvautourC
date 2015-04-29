@@ -61,6 +61,7 @@ namespace stupvau
 			state("Bon Jeu");
 		}
 		#endregion
+
 		#region Affichages et etats du jeu RESTE UN TODO
 		public void state(String txt) // Permet de gérer le label d'état en haut
         {
@@ -168,5 +169,7 @@ namespace stupvau
 		}
 		#endregion
 
-	}
+
+
+    }
 }

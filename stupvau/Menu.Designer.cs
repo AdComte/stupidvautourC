@@ -61,19 +61,19 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(133, 40);
+            this.label1.Font = new System.Drawing.Font("Playbill", 60F, System.Drawing.FontStyle.Underline);
+            this.label1.Location = new System.Drawing.Point(60, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(318, 31);
+            this.label1.Size = new System.Drawing.Size(483, 81);
             this.label1.TabIndex = 2;
             this.label1.Text = "Jeu du Stupide Vautour";
             // 
             // btn_begin
             // 
             this.btn_begin.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_begin.Location = new System.Drawing.Point(74, 229);
+            this.btn_begin.Location = new System.Drawing.Point(370, 228);
             this.btn_begin.Name = "btn_begin";
-            this.btn_begin.Size = new System.Drawing.Size(100, 60);
+            this.btn_begin.Size = new System.Drawing.Size(201, 60);
             this.btn_begin.TabIndex = 4;
             this.btn_begin.Text = "Lancer la Partie";
             this.btn_begin.UseVisualStyleBackColor = true;
@@ -332,7 +332,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.BackColor = System.Drawing.Color.Peru;
             this.ClientSize = new System.Drawing.Size(584, 312);
             this.Controls.Add(this.btn_begin);
             this.Controls.Add(this.gb_player3);

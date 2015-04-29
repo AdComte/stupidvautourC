@@ -18,7 +18,7 @@ namespace stupvau
 			IAPlayer iap = new IAPlayer(0);
 			iap.deal(15);
 			iap.affichecartes(iap);
-			iap.removeCard(new PlayerCard(5, true, 0));
+			iap.removeCard(4);
 			iap.affichecartes(iap);
 		}
 

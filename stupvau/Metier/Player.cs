@@ -24,6 +24,7 @@ namespace stupvau.Metier
             
         }
         public abstract PlayerCard play(Table table);
+		public abstract PlayerCard play(int selected);
         public void affichecartes(Player p)
         {
             Console.WriteLine();

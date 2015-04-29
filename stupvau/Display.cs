@@ -16,7 +16,7 @@ namespace stupvau
 		public bool[] playablecards;
         public int selectedcard;
         public int nbplayer;
-		private int manches = 15;
+		private int turn = 15;
 		Game game;
 		#endregion
 
@@ -142,46 +142,46 @@ namespace stupvau
             if (selectedcard != 0) //IMPORTANT
             {
                 lockgame();
-                playablecards[selectedcard] = false;
+                playablecards[selectedcard-1] = false;
+
+				game.table.play(selectedcard);
+
+
+
 				//int[] card = {selectedcard, 0};
 
-				PlayerCard human = new PlayerCard(selectedcard, false, 0);
+				//PlayerCard human = new PlayerCard(selectedcard, false, 0);
+				//game.table.getListPlayerCardsOnTable().Add(human);	//On ajoute la carte de l'humain
+
+				//game.GameLoop(selectedcard);
 
 
+				//int[] chosed = { played.value, played.getCouleur() };
+				//int[] lap = new int[11];
+				//lap[0] = game.table.win_round();
+				//lap[1] = game.table.getCurrent().value;
+				//lap[2] = game.table.getPlayerlist().ElementAt(lap[0]).getScore();
+				//lap[3] = game.table.getListPlayerCardsOnTable().ElementAt(1).getValue();
+				//lap[4] = game.table.getPlayerlist().ElementAt(1).getScore();
+				//if (nbplayer >= 3)
+				//{
+				//	lap[5] = game.table.getListPlayerCardsOnTable().ElementAt(2).getValue();
+				//	lap[6] = game.table.getPlayerlist().ElementAt(2).getScore();
+				//}
+				//if (nbplayer >= 4)
+				//{
+				//	lap[7] = game.table.getListPlayerCardsOnTable().ElementAt(3).getValue();
+				//	lap[8] = game.table.getPlayerlist().ElementAt(3).getScore();
+				//}
+				//if (nbplayer == 5)
+				//{
+				//	lap[9] = game.table.getListPlayerCardsOnTable().ElementAt(4).getValue();
+				//	lap[10] = game.table.getPlayerlist().ElementAt(4).getScore();
+				//}
+				//
+				//affiche(lap);
 
-				game.table.getListPlayerCardsOnTable().Add(human);	//On ajoute la carte de l'humain
-				game.table.play();
-				Player temp = game.table.getPlayerlist().ElementAt(0);
-
-				PlayerCard played = new PlayerCard(selectedcard, false, temp.getCouleur());
-
-
-				int[] chosed = { played.value, played.getCouleur() };
-				int[] lap = new int[11];
-				lap[0] = game.table.win_round();
-				lap[1] = game.table.getCurrent().value;
-				lap[2] = game.table.getPlayerlist().ElementAt(lap[0]).getScore();
-				lap[3] = game.table.getListPlayerCardsOnTable().ElementAt(1).getValue();
-				lap[4] = game.table.getPlayerlist().ElementAt(1).getScore();
-				if (nbplayer >= 3)
-				{
-					lap[5] = game.table.getListPlayerCardsOnTable().ElementAt(2).getValue();
-					lap[6] = game.table.getPlayerlist().ElementAt(2).getScore();
-				}
-				if (nbplayer >= 4)
-				{
-					lap[7] = game.table.getListPlayerCardsOnTable().ElementAt(3).getValue();
-					lap[8] = game.table.getPlayerlist().ElementAt(3).getScore();
-				}
-				if (nbplayer == 5)
-				{
-					lap[9] = game.table.getListPlayerCardsOnTable().ElementAt(4).getValue();
-					lap[10] = game.table.getPlayerlist().ElementAt(4).getScore();
-				}
-
-				affiche(lap);
-
-				if(manches == 0)
+				if(turn == 0)
 				{
 					Close();
 				}

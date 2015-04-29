@@ -48,10 +48,10 @@
             this.pictureBox9 = new System.Windows.Forms.PictureBox();
             this.pictureBox10 = new System.Windows.Forms.PictureBox();
             this.pictureBox11 = new System.Windows.Forms.PictureBox();
+            this.pictureBox12 = new System.Windows.Forms.PictureBox();
             this.pictureBox13 = new System.Windows.Forms.PictureBox();
             this.pictureBox14 = new System.Windows.Forms.PictureBox();
             this.pictureBox15 = new System.Windows.Forms.PictureBox();
-            this.pictureBox12 = new System.Windows.Forms.PictureBox();
             this.pb_animalcard = new System.Windows.Forms.PictureBox();
             this.pb_player = new System.Windows.Forms.PictureBox();
             this.pb_player2 = new System.Windows.Forms.PictureBox();
@@ -85,10 +85,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_animalcard)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_player)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_player2)).BeginInit();
@@ -254,10 +254,10 @@
             this.tlp_player.Controls.Add(this.pictureBox9, 8, 0);
             this.tlp_player.Controls.Add(this.pictureBox10, 9, 0);
             this.tlp_player.Controls.Add(this.pictureBox11, 10, 0);
+            this.tlp_player.Controls.Add(this.pictureBox12, 11, 0);
             this.tlp_player.Controls.Add(this.pictureBox13, 12, 0);
             this.tlp_player.Controls.Add(this.pictureBox14, 13, 0);
             this.tlp_player.Controls.Add(this.pictureBox15, 14, 0);
-            this.tlp_player.Controls.Add(this.pictureBox12, 11, 0);
             this.tlp_player.Location = new System.Drawing.Point(50, 519);
             this.tlp_player.Margin = new System.Windows.Forms.Padding(0);
             this.tlp_player.Name = "tlp_player";
@@ -396,7 +396,19 @@
             this.pictureBox11.TabIndex = 1;
             this.pictureBox11.TabStop = false;
             this.pictureBox11.Tag = "11";
-            this.pictureBox11.Click += new System.EventHandler(this.pb_click);
+			this.pictureBox11.Click += new System.EventHandler(this.pb_click);
+			// 
+			// pictureBox12
+			// 
+			this.pictureBox12.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox12.BackgroundImage")));
+			this.pictureBox12.Location = new System.Drawing.Point(550, 0);
+			this.pictureBox12.Margin = new System.Windows.Forms.Padding(0);
+			this.pictureBox12.Name = "pictureBox12";
+			this.pictureBox12.Size = new System.Drawing.Size(50, 80);
+			this.pictureBox12.TabIndex = 1;
+			this.pictureBox12.TabStop = false;
+			this.pictureBox12.Tag = "12";
+			this.pictureBox12.Click += new System.EventHandler(this.pb_click);
             // 
             // pictureBox13
             // 
@@ -433,18 +445,6 @@
             this.pictureBox15.TabStop = false;
             this.pictureBox15.Tag = "15";
             this.pictureBox15.Click += new System.EventHandler(this.pb_click);
-            // 
-            // pictureBox12
-            // 
-            this.pictureBox12.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox12.BackgroundImage")));
-            this.pictureBox12.Location = new System.Drawing.Point(550, 0);
-            this.pictureBox12.Margin = new System.Windows.Forms.Padding(0);
-            this.pictureBox12.Name = "pictureBox12";
-            this.pictureBox12.Size = new System.Drawing.Size(50, 80);
-            this.pictureBox12.TabIndex = 1;
-            this.pictureBox12.TabStop = false;
-            this.pictureBox12.Tag = "12";
-            this.pictureBox12.Click += new System.EventHandler(this.pb_click);
             // 
             // pb_animalcard
             // 
@@ -690,10 +690,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_animalcard)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_player)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_player2)).EndInit();

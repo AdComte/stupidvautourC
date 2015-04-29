@@ -36,36 +36,36 @@ namespace stupvau.Metier
 
 		// Fait jouer chaque joueur et met leur carte sur la table
 		// Return : Tous les joueurs ont joué une carte sur la table
-		public void play() {
-            Console.WriteLine("Carte du stack : "); /////////////////
-            Console.Write(this.current.getValue() + " | ");     //////////////
-            Console.Write(this.current.getAnimal() + " \n");     //////////////
-			int point = this.getCurrent().getValue();
-			if (this.getCurrent().getAnimal()) {
-            point = point * -1;
-        }
-        
-        
-		 Console.WriteLine("************************");        ///////////
-		 foreach (Player p in this.listPlayer)
-		 {
-			 p.affichecartes(p);
-				PlayerCard a = p.play(this);
-				Console.WriteLine("Valeur carte joueur"+ p.getCouleur()+" :");        ///////////
-				Console.WriteLine(a.getValue());                   ///////////
-				//this.listPlayerCardsOnTable.Add(a);
-		 }
-
-		 int winnerRound = this.win_round();
-			if (winnerRound >= 0) 
-			{
-				this.listPlayer.ElementAt(winnerRound).setScore(point);
-				Console.WriteLine("Score mis à jour: "); /////////////////
-				Console.WriteLine(this.listPlayer[winnerRound].getScore()); /////////////
-			}
-			else if (winnerRound == -1) { Console.WriteLine("ERREUR : Personne n'a gagné ce round, il n'y a pas égalité non plus"); }
-			else if (winnerRound == -2) { Console.WriteLine("Personne n'a gagné ce tour ci, les cartes seront défaussées"); }
-		}
+		//public void play() {
+        //    Console.WriteLine("Carte du stack : "); /////////////////
+        //    Console.Write(this.current.getValue() + " | ");     //////////////
+        //    Console.Write(this.current.getAnimal() + " \n");     //////////////
+		//	int point = this.getCurrent().getValue();
+		//	if (this.getCurrent().getAnimal()) {
+        //    point = point * -1;
+		//	}
+        //
+        //
+		//	 Console.WriteLine("************************");        ///////////
+		//	 foreach (Player p in this.listPlayer)
+		//	 {
+		//		 p.affichecartes(p);
+		//			PlayerCard a = p.play(this);
+		//			Console.WriteLine("Valeur carte joueur"+ p.getCouleur()+" :");        ///////////
+		//			Console.WriteLine(a.getValue());                   ///////////
+		//			//this.listPlayerCardsOnTable.Add(a);
+		//	 }
+		//
+		//	 int winnerRound = this.win_round();
+		//		if (winnerRound >= 0) 
+		//		{
+		//			this.listPlayer.ElementAt(winnerRound).setScore(point);
+		//			Console.WriteLine("Score mis à jour: "); /////////////////
+		//			Console.WriteLine(this.listPlayer[winnerRound].getScore()); /////////////
+		//		}
+		//		else if (winnerRound == -1) { Console.WriteLine("ERREUR : Personne n'a gagné ce round, il n'y a pas égalité non plus"); }
+		//		else if (winnerRound == -2) { Console.WriteLine("Personne n'a gagné ce tour ci, les cartes seront défaussées"); }
+		//}
 
 		//Retourne le numéro du joueur au plus haut score
 		public int getPlayerHighestScore() {
@@ -212,14 +212,24 @@ namespace stupvau.Metier
 			this.current = current;
 		}
 
-		//public void play()
-		//{
-		//	for(int i = 1; i < listPlayer.Count; i++)
-		//	{
-		//		Player temp = listPlayer.ElementAt(i);
-		//		PlayerCard played = temp.play(this);
-		//		listPlayerCardsOnTable.Add(played);
-		//	}
-		//}
+		public void play(int hum)
+		{
+			//Human human = listPlayer.ElementAt(0);
+			//human.play(hum);
+			for(int i = 1; i < listPlayer.Count; i++)
+			{
+				Player temp = listPlayer.ElementAt(i);
+				PlayerCard played=null;
+				if (temp.GetType() != new Human(100).GetType())
+				{
+					 played = temp.play(this);
+				}
+				else
+				{
+					 played = temp.play(hum);
+				}
+				if(played!=null) listPlayerCardsOnTable.Add(played);
+			}
+		}
     }
 }

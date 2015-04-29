@@ -33,7 +33,6 @@ namespace stupvau.Metier
 						break;
 				}
 			}
-			listPlayer.Add(new IAStupid(4));
 			table = new Table(listPlayer);
 		}
 
@@ -70,22 +69,22 @@ namespace stupvau.Metier
 		}
 
 		// Le jeu
-		public int GameLoop() {
+		public int GameLoop(int played) {
 			Console.WriteLine("***************************** Debut de la partie **************************************");
 			int turn = NB_CARDS;
 			this.table.melangerAnimalCard();
 			AnimalCard AC = (AnimalCard) this.table.getStack()[0];
-
+		
 			this.table.setCurrent(AC);
 			this.table.getStack().RemoveAt(0);
-
+		
 			//foreach (Player p in this.table.getPlayerlist()) {
 			//    p.deal(NB_CARDS);
 			//}        
         
 			while (turn > 0) {
 				Console.WriteLine("Début du tour" + turn);  ////////////////
-				this.table.play();
+				table.play(played);
 				if (turn != 1)
 				{ this.table.next_round(); Console.WriteLine("******************* Passage au tour suivant *******************"); }
 				turn--;

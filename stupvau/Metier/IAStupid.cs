@@ -11,6 +11,10 @@ namespace stupvau.Metier
     {
         base.setName("Stupid");
     }
+	 public override PlayerCard play(int selected)
+	{
+		return null;
+	}
 
     public override PlayerCard play(Table table) {
         Console.WriteLine("Le joueur possède les cartes suivantes :");

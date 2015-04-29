@@ -8,8 +8,12 @@ namespace stupvau.Metier
     //IAPlayer a été construite selon l'approche suivante : pour gagner il faut à tout prix récupérer les cartes les plus hautes
     //et éviter les cartes les plus basses
     class IAPlayer : Player
-    { 
-    public IAPlayer (int i) : base(i) {}
+    {
+		public IAPlayer(int i) : base(i) { }
+		public override PlayerCard play(int selected)
+		{
+			return null;
+		}
    
 
     public override PlayerCard play(Table table){

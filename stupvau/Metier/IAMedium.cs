@@ -10,7 +10,11 @@ namespace stupvau.Metier
     class IAMedium : Player
     {
 
-        public IAMedium (int i) : base(i){}
+		public IAMedium(int i) : base(i) { }
+		public override PlayerCard play(int selected)
+		{
+			return null;
+		}
 
         public override PlayerCard play(Table table)
         {

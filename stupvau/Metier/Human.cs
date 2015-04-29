@@ -9,6 +9,10 @@ namespace stupvau.Metier
     {
         public Human(int i) : base(i){}
 
+        public override PlayerCard play(Table table)
+        {
+            throw new Exception();
+        }
 
     }
 }

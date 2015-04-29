@@ -31,7 +31,7 @@ namespace stupvau
             if (rb_3players.Checked == true) nbia = 2;
             if (rb_4players.Checked == true) nbia = 3;
             if (rb_5players.Checked == true) nbia = 4;
-            for(int i = 1; i < nbia; i++)
+            for(int i = 1; i <= nbia; i++)
             {
 				iaplayers[i] = niv_ia(i);
             }

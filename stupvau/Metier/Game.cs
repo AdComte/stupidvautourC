@@ -17,7 +17,7 @@ namespace stupvau.Metier
 		{
 			this.nbPlayer = nbPlayer;
 			IList<Player> listPlayer = new List<Player>();
-			listPlayer.Add(new IAPlayer(0));
+			listPlayer.Add(new IAStupid(0));
 			for (int i = 1; i < nbPlayer; i++)
 			{
 				switch(ialvl[i])
@@ -33,7 +33,6 @@ namespace stupvau.Metier
 						break;
 				}
 			}
-			listPlayer.Add(new IAStupid(4));
 			table = new Table(listPlayer);
 		}
 

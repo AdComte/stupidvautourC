@@ -229,6 +229,20 @@ namespace stupvau.Metier
 					played = temp.play(hum);
 				}
 				if(played!=null) listPlayerCardsOnTable.Add(played);
+                int winnerRound = this.win_round();
+                int point = this.getCurrent().getValue();
+                if (this.getCurrent().getAnimal())
+                {
+                    point = point * -1;
+                }
+                if (winnerRound >= 0)
+                {
+                    this.listPlayer.ElementAt(winnerRound).setScore(point);
+                    //Console.WriteLine("Score mis à jour: "); /////////////////
+                    Console.WriteLine(this.listPlayer[winnerRound].getScore()); /////////////
+                }
+                //else if (winnerRound == -1) { Console.WriteLine("ERREUR : Personne n'a gagné ce round, il n'y a pas égalité non plus"); }
+                //else if (winnerRound == -2) { Console.WriteLine("Personne n'a gagné ce tour ci, les cartes seront défaussées"); }
 			}
 		}
     }

@@ -12,6 +12,10 @@ namespace stupvau.Metier
 		private int nbPlayer;
 		public Table table;
 
+        public Table getTable()
+        {
+            return this.table;
+        }
 
 		public Game(int nbPlayer, int[] ialvl)
 		{

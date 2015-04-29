@@ -104,37 +104,34 @@ namespace stupvau
             pb_animalcard.Image = animalcards.Images[indice];
         }
 
-        public void affiche(int[] etat) //tableau type {gagnant, points gagnés, nouveau total de points du gagnant, carte jouée par j2, carte jouée par j3, ...}
+        public void affiche ()
         {
             timer.Enabled = true;
-            if (etat[0] == 0) //le gagnant est l'humain, le texte est adapté, MàJ score
+            int indice_winner = this.game.table.win_round();
+            if (indice_winner == 0) //le gagnant est l'humain, le texte est adapté, MàJ score
             {
-                state("Vous gagnez " + etat[1] + " points");
-                lbl_playerpoints.Text = "Vos points : " + etat[3];
+                lbl_playerpoints.Text = "Vos points : " + this.game.table.getPlayerlist()[this.game.table.getPlayerHighestScore()].getScore();
             }
             else //gagnant ia, texte standard
             {
-                state("Le joueur " + etat[0] + 1 + " gagne " + etat[1] + " points");
+                state("Le joueur " + indice_winner + " gagne " + this.game.table.getCurrent() + " points");
             }
-
             //affichage des cartes jouées et MàJ du score gagnant
-            pb_player2.Image = cardsplayer2.Images[etat[3]];
-            if (etat[0] == 1) lbl_player2points.Text = "points : " + etat[3];
-
-            if(nbplayer >=3)
+            pb_player2.Image = cardsplayer2.Images[this.game.table.getListPlayerCardsOnTable()[1].getValue()];
+            if (indice_winner == 1) lbl_player2points.Text = "points : " + this.game.table.getPlayerlist()[indice_winner].getScore();
             {
-                pb_player3.Image = cardsplayer3.Images[etat[4]];
-                if (etat[0] == 2)   lbl_player3points.Text = "points : " + etat[3];
+                pb_player3.Image = cardsplayer3.Images[this.game.table.getListPlayerCardsOnTable()[2].getValue()];
+                if (indice_winner == 2) lbl_player3points.Text = "points : " + this.game.table.getPlayerlist()[indice_winner].getScore();
             }
             if(nbplayer >=4)
             {
-                pb_player4.Image = cardsplayer4.Images[etat[5]];
-                if (etat[0] == 3)   lbl_player4points.Text = "points : " + etat[3];
+                pb_player4.Image = cardsplayer4.Images[this.game.table.getListPlayerCardsOnTable()[3].getValue()];
+                if (indice_winner == 3) lbl_player4points.Text = "points : " + this.game.table.getPlayerlist()[indice_winner].getScore();
             }
             if (nbplayer >= 5)
             {
-                pb_player5.Image = cardsplayer5.Images[etat[6]];
-                if (etat[0] == 4)   lbl_player5points.Text = "points : " + etat[3];
+                pb_player5.Image = cardsplayer5.Images[this.game.table.getListPlayerCardsOnTable()[4].getValue()];
+                if (indice_winner == 4) lbl_player5points.Text = "points : " + this.game.table.getPlayerlist()[indice_winner].getScore(); 
             }
         }
 		#endregion
@@ -146,30 +143,42 @@ namespace stupvau
                 lockgame();
                 playablecards[selectedcard-1] = false;
 
-				game.table.play(selectedcard);	//La carte de l'humain est validée et les ia jouent à tour de role
+				game.table.play(selectedcard);
 
 
 
-				int[] lap = new int[11];
-				lap[0] = game.table.win_round();		//celui qui gagne
-				lap[1] = game.table.getCurrent().value;	//les points qui sont gagnés
-				lap[2] = game.table.getPlayerlist().ElementAt(lap[0]).getScore();	//points du gagnant
+				//int[] card = {selectedcard, 0};
 
-				lap[3] = game.table.getListPlayerCardsOnTable().ElementAt(1).getValue();
-				if (nbplayer >= 3)
-				{
-					lap[4] = game.table.getListPlayerCardsOnTable().ElementAt(2).getValue();
-				}
-				if (nbplayer >= 4)
-				{
-					lap[5] = game.table.getListPlayerCardsOnTable().ElementAt(3).getValue();
-				}
-				if (nbplayer == 5)
-				{
-					lap[6] = game.table.getListPlayerCardsOnTable().ElementAt(4).getValue();
-				}
+				//PlayerCard human = new PlayerCard(selectedcard, false, 0);
+				//game.table.getListPlayerCardsOnTable().Add(human);	//On ajoute la carte de l'humain
 
-				affiche(lap);
+				//game.GameLoop(selectedcard);
+
+
+				//int[] chosed = { played.value, played.getCouleur() };
+				//int[] lap = new int[11];
+				//lap[0] = game.table.win_round();
+				//lap[1] = game.table.getCurrent().value;
+				//lap[2] = game.table.getPlayerlist().ElementAt(lap[0]).getScore();
+				//lap[3] = game.table.getListPlayerCardsOnTable().ElementAt(1).getValue();
+				//lap[4] = game.table.getPlayerlist().ElementAt(1).getScore();
+				//if (nbplayer >= 3)
+				//{
+				//	lap[5] = game.table.getListPlayerCardsOnTable().ElementAt(2).getValue();
+				//	lap[6] = game.table.getPlayerlist().ElementAt(2).getScore();
+				//}
+				//if (nbplayer >= 4)
+				//{
+				//	lap[7] = game.table.getListPlayerCardsOnTable().ElementAt(3).getValue();
+				//	lap[8] = game.table.getPlayerlist().ElementAt(3).getScore();
+				//}
+				//if (nbplayer == 5)
+				//{
+				//	lap[9] = game.table.getListPlayerCardsOnTable().ElementAt(4).getValue();
+				//	lap[10] = game.table.getPlayerlist().ElementAt(4).getScore();
+				//}
+				//
+                affiche();
 
 				if(turn == 0)
 				{

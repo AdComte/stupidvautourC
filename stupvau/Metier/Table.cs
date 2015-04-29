@@ -214,12 +214,11 @@ namespace stupvau.Metier
 
 		public void play(int hum)
 		{
-			//Human human = listPlayer.ElementAt(0);
-			//human.play(hum);
 			for(int i = 1; i < listPlayer.Count; i++)
 			{
 				Player temp = listPlayer.ElementAt(i);
-				PlayerCard played=null;
+				PlayerCard played = null;
+
 				if (temp.GetType() != new Human(100).GetType())
 				{
 					 played = temp.play(this);

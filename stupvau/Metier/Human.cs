@@ -16,7 +16,10 @@ namespace stupvau.Metier
 
 		public override PlayerCard play(int selected)
 		{
-			return new PlayerCard(selected, false, getCouleur());
+			Console.WriteLine("L'humain " + this.getCouleur() + " joue sa carte " + selected);
+			PlayerCard played = new PlayerCard(selected, false, getCouleur());
+			this.removeCard(selected);
+			return played;
 		}
     }
 }

@@ -62,7 +62,7 @@ namespace stupvau
 			state("Bon Jeu");
 		}
 		#endregion
-		#region Affichages et etats du jeu RESTE UN TODO
+		#region Affichages et etats du jeu
 		public void state(String txt) // Permet de gérer le label d'état en haut
         {
             lbl_state.Text = txt;
@@ -100,7 +100,7 @@ namespace stupvau
         public void newcard() //permet d'afficher la carte en jeu
         {
 			int indice = game.table.getCurrent().value;
-			if (indice < 0) indice = 10 - indice;
+			if (game.table.getCurrent().getAnimal()) indice += 10;
             pb_animalcard.Image = animalcards.Images[indice];
         }
 
@@ -143,20 +143,41 @@ namespace stupvau
             {
                 lockgame();
                 playablecards[selectedcard] = false;
-				int[] card = {selectedcard, 0};
-				game.table.getListPlayerCardsOnTable().Add(card);	//On ajoute la carte de l'humain
+				//int[] card = {selectedcard, 0};
+
+				PlayerCard human = new PlayerCard(selectedcard, false, 0);
+
+
+
+				game.table.getListPlayerCardsOnTable().Add(human);	//On ajoute la carte de l'humain
 				game.table.play();
-				int[] lap = new int[7];
+				Player temp = game.table.getPlayerlist().ElementAt(0);
+
+				PlayerCard played = new PlayerCard(selectedcard, false, temp.getCouleur());
+
+
+				int[] chosed = { played.value, played.getCouleur() };
+				int[] lap = new int[11];
 				lap[0] = game.table.win_round();
 				lap[1] = game.table.getCurrent().value;
 				lap[2] = game.table.getPlayerlist().ElementAt(lap[0]).getScore();
-				lap[3] = game.table.getListPlayerCardsOnTable().ElementAt(1)[0];
+				lap[3] = game.table.getListPlayerCardsOnTable().ElementAt(1).getValue();
+				lap[4] = game.table.getPlayerlist().ElementAt(1).getScore();
 				if (nbplayer >= 3)
-				{ lap[4] = game.table.getListPlayerCardsOnTable().ElementAt(2)[0]; }
+				{
+					lap[5] = game.table.getListPlayerCardsOnTable().ElementAt(2).getValue();
+					lap[6] = game.table.getPlayerlist().ElementAt(2).getScore();
+				}
 				if (nbplayer >= 4)
-				{ lap[5] = game.table.getListPlayerCardsOnTable().ElementAt(3)[0]; }
+				{
+					lap[7] = game.table.getListPlayerCardsOnTable().ElementAt(3).getValue();
+					lap[8] = game.table.getPlayerlist().ElementAt(3).getScore();
+				}
 				if (nbplayer == 5)
-				{ lap[6] = game.table.getListPlayerCardsOnTable().ElementAt(4)[0]; }
+				{
+					lap[9] = game.table.getListPlayerCardsOnTable().ElementAt(4).getValue();
+					lap[10] = game.table.getPlayerlist().ElementAt(4).getScore();
+				}
 
 				affiche(lap);
 
@@ -188,6 +209,5 @@ namespace stupvau
             unlockgame();
 		}
 		#endregion
-
 	}
 }

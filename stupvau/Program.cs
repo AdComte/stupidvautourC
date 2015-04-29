@@ -18,7 +18,7 @@ namespace stupvau
             Application.EnableVisualStyles();
             Application.Run(menu);
 			if (menu.ready == false) return;
-            //A ce stade, on dispose de tout les paramètres pour lancer la partie dans la configuration voulue
+            //A ce stade, on dispose de tout les paramètres pour lancer la partie dans la configuration souhaitee
 
 			Display table = new Display(menu.nbia + 1, menu.iaplayers);
 			Application.Run(table);

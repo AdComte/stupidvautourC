@@ -92,13 +92,13 @@ namespace stupvau.Metier
         protected int getMaxValueOnTable(Table table)
         {
             int result = 0;
-            foreach (PlayerCard P in table.getListPlayerCardsOnTable())
-            {
-                if (P.value > result)
-                {
-                    result = P.value;
-                }
-            }
+       //     foreach (PlayerCard P in table.getListPlayerCardsOnTable())
+       //     {
+       //         if (P.value > result)
+       //         {
+       //             result = P.value;
+       //         }
+       //     }
             return result;
         }
     
@@ -106,7 +106,7 @@ namespace stupvau.Metier
         {
             this.score = this.score + points;
         }
-
+		
         public int getScore()
         {
             return score;

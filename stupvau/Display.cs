@@ -16,6 +16,7 @@ namespace stupvau
 		public bool[] playablecards;
         public int selectedcard;
         public int nbplayer;
+		private int manches = 15;
 		Game game;
 		#endregion
 
@@ -142,9 +143,28 @@ namespace stupvau
             {
                 lockgame();
                 playablecards[selectedcard] = false;
-				Player human = game.table.getPlayerlist()[0];
-				//PlayerCard selectd = human.getListPlayerCard()[selectedcard, 0];
-				//game.table.getListPlayerCardsOnTable().Add(selectedcard);
+				int[] card = {selectedcard, 0};
+				game.table.getListPlayerCardsOnTable().Add(card);	//On ajoute la carte de l'humain
+				game.table.play();
+				int[] lap = new int[7];
+				lap[0] = game.table.win_round();
+				lap[1] = game.table.getCurrent().value;
+				lap[2] = game.table.getPlayerlist().ElementAt(lap[0]).getScore();
+				lap[3] = game.table.getListPlayerCardsOnTable().ElementAt(1)[0];
+				if (nbplayer >= 3)
+				{ lap[4] = game.table.getListPlayerCardsOnTable().ElementAt(2)[0]; }
+				if (nbplayer >= 4)
+				{ lap[5] = game.table.getListPlayerCardsOnTable().ElementAt(3)[0]; }
+				if (nbplayer == 5)
+				{ lap[6] = game.table.getListPlayerCardsOnTable().ElementAt(4)[0]; }
+
+				affiche(lap);
+
+				if(manches == 0)
+				{
+					Close();
+				}
+				timer.Enabled = true;
             }
         }
 
@@ -163,8 +183,9 @@ namespace stupvau
             if (nbplayer >= 3) pb_player3.Image = cardsplayer3.Images[0];
             if (nbplayer >= 4) pb_player4.Image = cardsplayer4.Images[0];
             if (nbplayer >= 5) pb_player5.Image = cardsplayer5.Images[0];
+			game.table.next_round();
+			newcard();
             unlockgame();
-            //TODO il faut demander à la boucle de piocher une nouvelle carte ...
 		}
 		#endregion
 

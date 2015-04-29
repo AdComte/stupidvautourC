@@ -21,7 +21,7 @@ namespace stupvau.Metier
 		{
 			this.nbPlayer = nbPlayer;
 			IList<Player> listPlayer = new List<Player>();
-			listPlayer.Add(new IAStupid(0));
+			listPlayer.Add(new Human(0));
 			for (int i = 1; i < nbPlayer; i++)
 			{
 				switch(ialvl[i])

@@ -214,18 +214,19 @@ namespace stupvau.Metier
 
 		public void play(int hum)
 		{
-			for(int i = 1; i < listPlayer.Count; i++)
+			for(int i = 0; i < listPlayer.Count; i++)
 			{
 				Player temp = listPlayer.ElementAt(i);
 				PlayerCard played = null;
 
-				if (temp.GetType() != new Human(100).GetType())
+				if (temp.getCouleur() != 0)
 				{
 					 played = temp.play(this);
 				}
 				else
 				{
-					 played = temp.play(hum);
+					Console.WriteLine("BOUCLE ELSE, ON JOUE EN TANT QU'HUMAIN\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+					played = temp.play(hum);
 				}
 				if(played!=null) listPlayerCardsOnTable.Add(played);
 			}

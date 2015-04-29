@@ -41,10 +41,16 @@ namespace stupvau.Metier
 
         int indice = this.getRandom().Next(1, this.nbCartesRestantes);
 
-        Console.WriteLine("L'IA_stupid "+ this.getCouleur() + " joue sa carte " + indice);
-        PlayerCard played = new PlayerCard(indice, false, this.getCouleur());
-        this.removeCard(indice);
-        return played;
+		Random r = new Random();
+		IList<int> dispo = new List<int>();
+		for (int i = 0; i < 15; i++)
+		{
+			if (this.listPlayerCard[i, 0] != 0) dispo.Add(i);
+		}
+		int indice2 = dispo.ElementAt(r.Next(this.nbCartesRestantes));
+		PlayerCard p = new PlayerCard(indice2, false, this.getCouleur());
+		this.removeCard(indice2);
+		return p;
     }
 
     }

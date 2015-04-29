@@ -104,35 +104,34 @@ namespace stupvau
             pb_animalcard.Image = animalcards.Images[indice];
         }
 
-        public void affiche(int[] etat) //tableau type {gagnant, points gagnés, nouveau total de points du gagnant, carte jouée par j2, carte jouée par j3, ...}
+        public void affiche ()
         {
             timer.Enabled = true;
-            if (etat[0] == 0) //le gagnant est l'humain, le texte est adapté, MàJ score
+            int indice_winner = this.game.table.win_round();
+            if (indice_winner == 0) //le gagnant est l'humain, le texte est adapté, MàJ score
             {
-                state("Vous gagnez " + etat[1] + " points");
-                lbl_playerpoints.Text = "Vos points : " + etat[3];
+                lbl_playerpoints.Text = "Vos points : " + this.game.table.getPlayerlist()[this.game.table.getPlayerHighestScore()].getScore();
             }
             else //gagnant ia, texte standard
             {
-                state("Le joueur " + etat[0] + 1 + " gagne " + etat[1] + " points");
+                state("Le joueur " + indice_winner + " gagne " + this.game.table.getCurrent() + " points");
             }
             //affichage des cartes jouées et MàJ du score gagnant
-            pb_player2.Image = cardsplayer2.Images[etat[3]];
-            if (etat[0] == 1) lbl_player2points.Text = "points : " + etat[4];
-            if(nbplayer >=3)
+            pb_player2.Image = cardsplayer2.Images[this.game.table.getListPlayerCardsOnTable()[1].getValue()];
+            if (indice_winner == 1) lbl_player2points.Text = "points : " + this.game.table.getPlayerlist()[indice_winner].getScore();
             {
-                pb_player3.Image = cardsplayer3.Images[etat[5]];
-                if (etat[0] == 2)   lbl_player3points.Text = "points : " + etat[6];
+                pb_player3.Image = cardsplayer3.Images[this.game.table.getListPlayerCardsOnTable()[2].getValue()];
+                if (indice_winner == 2) lbl_player3points.Text = "points : " + this.game.table.getPlayerlist()[indice_winner].getScore();
             }
             if(nbplayer >=4)
             {
-                pb_player4.Image = cardsplayer4.Images[etat[7]];
-                if (etat[0] == 3)   lbl_player4points.Text = "points : " + etat[8];
+                pb_player4.Image = cardsplayer4.Images[this.game.table.getListPlayerCardsOnTable()[3].getValue()];
+                if (indice_winner == 3) lbl_player4points.Text = "points : " + this.game.table.getPlayerlist()[indice_winner].getScore();
             }
             if (nbplayer >= 5)
             {
-                pb_player5.Image = cardsplayer5.Images[etat[9]];
-                if (etat[0] == 4)   lbl_player5points.Text = "points : " + etat[10];
+                pb_player5.Image = cardsplayer5.Images[this.game.table.getListPlayerCardsOnTable()[4].getValue()];
+                if (indice_winner == 4) lbl_player5points.Text = "points : " + this.game.table.getPlayerlist()[indice_winner].getScore(); 
             }
         }
 		#endregion
@@ -179,7 +178,7 @@ namespace stupvau
 				//	lap[10] = game.table.getPlayerlist().ElementAt(4).getScore();
 				//}
 				//
-				//affiche(lap);
+                affiche();
 
 				if(turn == 0)
 				{

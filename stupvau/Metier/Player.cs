@@ -18,7 +18,7 @@ namespace stupvau.Metier
 
         public void removeCard(int indice)
         {
-            this.listPlayerCard[indice,0] = 0;
+            this.listPlayerCard[indice - 1,0] = 0;
             if (nbCartesRestantes>0)
                 --this.nbCartesRestantes;
             

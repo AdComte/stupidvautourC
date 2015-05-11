@@ -129,7 +129,9 @@ namespace stupvau.Metier
 		//Renvoie le numéro du joueur gagnant ce coup ci
 		public int win_round()
 		{
-			if (this.listPlayerCardsOnTable.Count == 0)
+			IList<PlayerCard> temp = new List<PlayerCard>(listPlayerCardsOnTable);
+
+			if (temp.Count == 0)
 			{
 				Console.WriteLine("Aucune Carte n'a été déposée || Tout le monde est à égalité !");
 				return -1;
@@ -137,7 +139,7 @@ namespace stupvau.Metier
 			IList<PlayerCard> listCardGagnantes = new List<PlayerCard>();
 			int max = 0, min = 15, i = 0;
 			if (this.current.getAnimal()) { //Si c'est un vautour
-				foreach (PlayerCard p in this.listPlayerCardsOnTable)
+				foreach (PlayerCard p in temp)
 				{
 					if (p.value < min)
 					{//On enregistre qui a posé la valeur min
@@ -153,7 +155,7 @@ namespace stupvau.Metier
 				}
 			} else {    // Sinon si c'est une souris
 				i = 0;
-				foreach (PlayerCard p in this.listPlayerCardsOnTable)
+				foreach (PlayerCard p in temp)
 				{
 					Console.WriteLine(p.value + " de " + p.getCouleur() + " est sur la table");
 					if (p.value > max)//On récupère le max et le joueur auquel il appartient
@@ -182,7 +184,7 @@ namespace stupvau.Metier
 				i = 0;
 				while (i < listCardGagnantes.Count)
 				{
-					listPlayerCardsOnTable.Remove(listCardGagnantes.ElementAt(i));
+					temp.Remove(listCardGagnantes.ElementAt(i));
 					listCardGagnantes.RemoveAt(0);
 				}
 				return this.win_round();
@@ -225,25 +227,26 @@ namespace stupvau.Metier
 				}
 				else
 				{
-					Console.WriteLine("BOUCLE ELSE, ON JOUE EN TANT QU'HUMAIN\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+					Console.WriteLine("BOUCLE ELSE, ON JOUE EN TANT QU'HUMAIN\n\n\n\n\n\n\n\n\n");
 					played = temp.play(hum);
 				}
 				if(played!=null) listPlayerCardsOnTable.Add(played);
-                int winnerRound = this.win_round();
-                int point = this.getCurrent().getValue();
-                if (this.getCurrent().getAnimal())
-                {
-                    point = point * -1;
-                }
-                if (winnerRound >= 0)
-                {
-                    this.listPlayer.ElementAt(winnerRound).setScore(point);
-                    //Console.WriteLine("Score mis à jour: "); /////////////////
-                    Console.WriteLine(this.listPlayer[winnerRound].getScore()); /////////////
-                }
-                //else if (winnerRound == -1) { Console.WriteLine("ERREUR : Personne n'a gagné ce round, il n'y a pas égalité non plus"); }
-                //else if (winnerRound == -2) { Console.WriteLine("Personne n'a gagné ce tour ci, les cartes seront défaussées"); }
 			}
+
+			int winnerRound = this.win_round();
+			int point = this.getCurrent().getValue();
+			if (this.getCurrent().getAnimal())
+			{
+				point = point * -1;
+			}
+			if (winnerRound >= 0)
+			{
+				this.listPlayer.ElementAt(winnerRound).setScore(point);
+				//Console.WriteLine("Score mis à jour: "); /////////////////
+				Console.WriteLine(this.listPlayer[winnerRound].getScore()); /////////////
+			}
+			//else if (winnerRound == -1) { Console.WriteLine("ERREUR : Personne n'a gagné ce round, il n'y a pas égalité non plus"); }
+			//else if (winnerRound == -2) { Console.WriteLine("Personne n'a gagné ce tour ci, les cartes seront défaussées"); }
 		}
     }
 }

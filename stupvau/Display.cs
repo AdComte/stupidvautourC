@@ -154,8 +154,11 @@ namespace stupvau
 				lap[0] = game.table.win_round();		//celui qui gagne
 				lap[1] = game.table.getCurrent().value;	//les points qui sont gagnés
 				lap[2] = game.table.getPlayerlist().ElementAt(lap[0]).getScore();	//points du gagnant
-
-				lap[3] = game.table.getListPlayerCardsOnTable().ElementAt(1).getValue();
+                try
+                {
+                    lap[3] = game.table.getListPlayerCardsOnTable().ElementAt(1).getValue();
+                }
+                catch (Exception ex) { lap[3]=game.table.getListPlayerCardsOnTable().ElementAt(0).getValue(); }
 				if (nbplayer >= 3)
 				{
 					lap[4] = game.table.getListPlayerCardsOnTable().ElementAt(2).getValue();
@@ -199,6 +202,7 @@ namespace stupvau
             unlockgame();
 		}
 		#endregion
-	}
+
+    }
 }
 

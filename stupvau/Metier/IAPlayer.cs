@@ -21,7 +21,6 @@ namespace stupvau.Metier
         PlayerCard Carte=null;
         if(table.getCurrent().getAnimal())//Si on est sur un vautour
         {   
-            max= this.getMaxValueOnTable(table);
             if(value < 4) 
             {                               //on joue une carte intermédiaire
                 max = this.getMaxValueOnPlayer(8);
@@ -52,10 +51,12 @@ namespace stupvau.Metier
             {                               //Elle vaut le coup de se battre
                 max = this.getMaxValueOnPlayer(11);
                 if (max != 0) { Carte = new PlayerCard(max, true, this.getCouleur()); }
-            } else 
-            {                               //Sinon on la récupère à tout prix car elle rapporte gros 
+            } else
+            {
+                max = this.getMaxValueOnTable(table);
+                //Sinon on la récupère à tout prix car elle rapporte gros 
                 bool ok=false;           // on joue la carte immédiatement supérieure au max de la carte posée
-                int i=1;
+                int i=0;
                 while(ok==false && max+i<=15 && max+i>0)
                 {
                     Carte = new PlayerCard(max+i, true, this.getCouleur());

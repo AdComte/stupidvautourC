@@ -73,7 +73,6 @@ namespace stupvau.Metier
             stack.RemoveAt(0);
 		}
 
-		//TODO : cas d'égalité
 
 		//Renvoie le numéro du joueur gagnant ce coup ci
 		public int win_round()
@@ -138,9 +137,6 @@ namespace stupvau.Metier
 					listCardGagnantes.RemoveAt(0);
 				}
 				return this.win_round();
-
-				//return listCardGagnantes[0].getCouleur();
-				//return this.win_round();
 			}
 		}
 

@@ -678,6 +678,9 @@
 			this.Controls.Add(this.pb_player2);
 			this.Controls.Add(this.pb_animalcard);
 			this.Controls.Add(this.tlp_player);
+			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+			this.MaximumSize = new System.Drawing.Size(850, 650);
+			this.MinimumSize = new System.Drawing.Size(850, 650);
 			this.Name = "Display";
 			this.Text = "Stupide Vautour -- By Begou-Comte-Mourier -- Enjoy ! ;)";
 			this.tlp_player.ResumeLayout(false);

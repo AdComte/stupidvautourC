@@ -16,6 +16,7 @@ namespace stupvau.Metier
 		private AnimalCard current;
 		private IList<AnimalCard> stack;
 		private IList<Player> listPlayer;
+		private IList<PlayerCard> temp; //sert à la gestion des cas de victoire sans alterer la liste réelle de carte sur la table
 
 		public Table(IList<Player> listPlayer)
 		{
@@ -77,7 +78,8 @@ namespace stupvau.Metier
 		//Renvoie le numéro du joueur gagnant ce coup ci
 		public int win_round()
 		{
-			if (this.listPlayerCardsOnTable.Count == 0)
+			temp = new List<PlayerCard>(listPlayerCardsOnTable);
+			if (temp.Count == 0)
 			{
 				Console.WriteLine("Aucune Carte n'a été déposée || Tout le monde est à égalité !");
 				return -1;
@@ -85,7 +87,7 @@ namespace stupvau.Metier
 			IList<PlayerCard> listCardGagnantes = new List<PlayerCard>();
 			int max = 0, min = 15, i = 0;
 			if (this.current.getAnimal()) { //Si c'est un vautour
-				foreach (PlayerCard p in this.listPlayerCardsOnTable)
+				foreach (PlayerCard p in temp)
 				{
 					if (p.value < min)
 					{//On enregistre qui a posé la valeur min
@@ -101,7 +103,7 @@ namespace stupvau.Metier
 				}
 			} else {    // Sinon si c'est une souris
 				i = 0;
-				foreach (PlayerCard p in this.listPlayerCardsOnTable)
+				foreach (PlayerCard p in temp)
 				{
 					Console.WriteLine(p.value + " de " + p.getCouleur() + " est sur la table");
 					if (p.value > max)//On récupère le max et le joueur auquel il appartient
@@ -122,7 +124,8 @@ namespace stupvau.Metier
 				Console.WriteLine("Le joueur" + listCardGagnantes[0].getCouleur() + "gagne le round");
                 Console.WriteLine(this.getStack().Count); Console.WriteLine("MENGLON !!!");
 				return listCardGagnantes.ElementAt(0).getCouleur();
-			} else if (listCardGagnantes.Count == 0) {
+			} else if (listCardGagnantes.Count == 0) //Egalite parfaite
+			{
 				return -1;
 			}
 			else
@@ -131,7 +134,7 @@ namespace stupvau.Metier
 				i = 0;
 				while (i < listCardGagnantes.Count)
 				{
-					listPlayerCardsOnTable.Remove(listCardGagnantes.ElementAt(i));
+					temp.Remove(listCardGagnantes.ElementAt(i));
 					listCardGagnantes.RemoveAt(0);
 				}
 				return this.win_round();

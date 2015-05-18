@@ -107,6 +107,10 @@ namespace stupvau
         public void affiche(int[] etat) //tableau type {gagnant, points gagnés, nouveau total de points du gagnant, carte jouée par j2, carte jouée par j3, ...}
         {
             timer.Enabled = true;
+			if (etat[0] == -1)
+			{
+				state("Egalite sur la manche");
+			}
             if (etat[0] == 0) //le gagnant est l'humain, le texte est adapté, MàJ score
             {
                 state("Vous gagnez " + etat[1] + " points");
@@ -114,7 +118,7 @@ namespace stupvau
             }
             else //gagnant ia, texte standard
             {
-                state("Le joueur " + etat[0] + 1 + " gagne " + etat[1] + " points");
+                state("Le joueur " + etat[0] + " gagne " + etat[1] + " points");
             }
 
             //affichage des cartes jouées et MàJ du score gagnant
@@ -156,28 +160,23 @@ namespace stupvau
 				lap[2] = game.table.getPlayerlist().ElementAt(lap[0]).getScore();	//points du gagnant
                 try
                 {
-                    lap[3] = game.table.getListPlayerCardsOnTable().ElementAt(1).getValue();
+                    lap[3] = game.table.getListPlayerCardsOnTable().ElementAt(1).getValue()+1;
                 }
-                catch (Exception ex) { lap[3]=game.table.getListPlayerCardsOnTable().ElementAt(0).getValue(); }
+                catch (Exception ex) { lap[3]=game.table.getListPlayerCardsOnTable().ElementAt(0).getValue()+1; }
 				if (nbplayer >= 3)
 				{
-					lap[4] = game.table.getListPlayerCardsOnTable().ElementAt(2).getValue();
+					lap[4] = game.table.getListPlayerCardsOnTable().ElementAt(2).getValue()+1;
 				}
 				if (nbplayer >= 4)
 				{
-					lap[5] = game.table.getListPlayerCardsOnTable().ElementAt(3).getValue();
+					lap[5] = game.table.getListPlayerCardsOnTable().ElementAt(3).getValue()+1;
 				}
 				if (nbplayer == 5)
 				{
-					lap[6] = game.table.getListPlayerCardsOnTable().ElementAt(4).getValue();
+					lap[6] = game.table.getListPlayerCardsOnTable().ElementAt(4).getValue()+1;
 				}
 
 				affiche(lap);
-
-				if(turn == 0)
-				{
-					Close();
-				}
 				timer.Enabled = true;
             }
         }
@@ -192,14 +191,22 @@ namespace stupvau
         private void timer_Tick(object sender, EventArgs e)
         {
             timer.Enabled = false;
-            state("Nouveau tour, à vous de jouer");
+			turn--;
             pb_player2.Image = cardsplayer2.Images[0];
             if (nbplayer >= 3) pb_player3.Image = cardsplayer3.Images[0];
             if (nbplayer >= 4) pb_player4.Image = cardsplayer4.Images[0];
             if (nbplayer >= 5) pb_player5.Image = cardsplayer5.Images[0];
-			game.table.next_round();
-			newcard();
-            unlockgame();
+			if (turn != 0)
+			{
+				state("Nouveau tour, à vous de jouer");
+				game.table.next_round();
+				newcard();
+				unlockgame();
+			}
+			else
+			{
+				state("Partie terminée");
+			}
 		}
 		#endregion
 

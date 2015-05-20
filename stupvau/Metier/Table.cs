@@ -185,17 +185,18 @@ namespace stupvau.Metier
                 //else if (winnerRound == -2) { Console.WriteLine("Personne n'a gagné ce tour ci, les cartes seront défaussées"); }
 			}
             int winnerRound= this.last_winner = this.win_round(this.getListPlayerCardsOnTable());
-            int point = this.getCurrent().getValue();
-            if (this.getCurrent().getAnimal())
-            {
-                point = point * -1;
-            }
-            if (winnerRound >= 0)
-            {
-                this.listPlayer.ElementAt(winnerRound).setScore(point);
-                //Console.WriteLine("Score mis à jour: "); /////////////////
-                //Console.WriteLine(this.listPlayer[winnerRound].getScore()); /////////////
-            }
+                int point = this.getCurrent().getValue();
+                if (this.getCurrent().getAnimal())
+                {
+                    point = point * -1;
+                }
+                if (winnerRound >= 0)
+                {
+                    this.listPlayer.ElementAt(winnerRound).setScore(point);
+                    //Console.WriteLine("Score mis à jour: "); /////////////////
+                    //Console.WriteLine(this.listPlayer[winnerRound].getScore()); /////////////
+                }
+                else { this.listPlayer[0].setScore(0); }
 		}
     }
 }

@@ -123,23 +123,26 @@ namespace stupvau
             }
 
             //affichage des cartes jouées et MàJ du score gagnant
-            pb_player2.Image = cardsplayer2.Images[etat[3]];
-            if (etat[0] == 1) lbl_player2points.Text = "points : " + etat[2];
+            if (etat[0] != -1)
+            {
+                pb_player2.Image = cardsplayer2.Images[etat[3]];
+                if (etat[0] == 1) lbl_player2points.Text = "points : " + etat[2];
 
-            if(nbplayer >=3)
-            {
-                pb_player3.Image = cardsplayer3.Images[etat[4]];
-                if (etat[0] == 2)   lbl_player3points.Text = "points : " + etat[2];
-            }
-            if(nbplayer >=4)
-            {
-                pb_player4.Image = cardsplayer4.Images[etat[5]];
-                if (etat[0] == 3)   lbl_player4points.Text = "points : " + etat[2];
-            }
-            if (nbplayer >= 5)
-            {
-                pb_player5.Image = cardsplayer5.Images[etat[6]];
-                if (etat[0] == 4)   lbl_player5points.Text = "points : " + etat[2];
+                if (nbplayer >= 3)
+                {
+                    pb_player3.Image = cardsplayer3.Images[etat[4]];
+                    if (etat[0] == 2) lbl_player3points.Text = "points : " + etat[2];
+                }
+                if (nbplayer >= 4)
+                {
+                    pb_player4.Image = cardsplayer4.Images[etat[5]];
+                    if (etat[0] == 3) lbl_player4points.Text = "points : " + etat[2];
+                }
+                if (nbplayer >= 5)
+                {
+                    pb_player5.Image = cardsplayer5.Images[etat[6]];
+                    if (etat[0] == 4) lbl_player5points.Text = "points : " + etat[2];
+                }
             }
         }
 		#endregion

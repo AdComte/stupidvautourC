@@ -114,12 +114,14 @@ namespace stupvau
 			}
             if (etat[0] == 0) //le gagnant est l'humain, le texte est adapté, MàJ score
             {
-                state("Vous gagnez " + etat[1] + " points");
+				if(etat[1] > 0)	state("Vous gagnez " + etat[1] + " points");
+				else { state("Vous perdez " + etat[1] + " points"); }
                 lbl_playerpoints.Text = "Vos points : " + etat[2];
             }
             else //gagnant ia, texte standard
             {
-                state("Le joueur " + etat[0] + " gagne " + etat[1] + " points");
+				if (etat[1] > 0) state("Le joueur " + etat[0] + " gagne " + etat[1] + " points");
+				else { state("Le joueur " + etat[0] + " perd " + etat[1] + " points"); }
             }
 
             //affichage des cartes jouées et MàJ du score gagnant
@@ -146,7 +148,7 @@ namespace stupvau
             }
         }
 		#endregion
-		#region Evenements RESTE UN TODO
+		#region Evenements
 		private void btn_valid_Click(object sender, EventArgs e)
         {
             if (selectedcard != 0) //IMPORTANT
@@ -161,6 +163,7 @@ namespace stupvau
 				int[] lap = new int[11];
 				winner = lap[0] = game.table.win_round(this.game.table.getListPlayerCardsOnTable());		//celui qui gagne
 				lap[1] = game.table.getCurrent().value;	//les points qui sont gagnés
+				if (game.table.getCurrent().getAnimal()) lap[1] *= -1;
                 if (lap[0] != -1)
                 {
                     lap[2] = game.table.getPlayerlist().ElementAt(lap[0]).getScore();	//points du gagnant

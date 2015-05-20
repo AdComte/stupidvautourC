@@ -17,6 +17,7 @@ namespace stupvau
         public int selectedcard;
         public int nbplayer;
 		private int turn = 15;
+        private int winner;
 		Game game;
 		#endregion
 
@@ -155,25 +156,28 @@ namespace stupvau
 
 
 				int[] lap = new int[11];
-				lap[0] = game.table.win_round();		//celui qui gagne
+				winner = lap[0] = game.table.win_round(this.game.table.getListPlayerCardsOnTable());		//celui qui gagne
 				lap[1] = game.table.getCurrent().value;	//les points qui sont gagnés
-				lap[2] = game.table.getPlayerlist().ElementAt(lap[0]).getScore();	//points du gagnant
+                if (lap[0] != -1)
+                {
+                    lap[2] = game.table.getPlayerlist().ElementAt(lap[0]).getScore();	//points du gagnant
+                }
                 try
                 {
-                    lap[3] = game.table.getListPlayerCardsOnTable().ElementAt(1).getValue()+1;
+                    lap[3] = game.table.getListPlayerCardsOnTable().ElementAt(1).getValue();
                 }
-                catch (Exception ex) { lap[3]=game.table.getListPlayerCardsOnTable().ElementAt(0).getValue()+1; }
+                catch (Exception ex) { lap[3]=game.table.getListPlayerCardsOnTable().ElementAt(0).getValue(); }
 				if (nbplayer >= 3)
 				{
-					lap[4] = game.table.getListPlayerCardsOnTable().ElementAt(2).getValue()+1;
+					lap[4] = game.table.getListPlayerCardsOnTable().ElementAt(2).getValue();
 				}
 				if (nbplayer >= 4)
 				{
-					lap[5] = game.table.getListPlayerCardsOnTable().ElementAt(3).getValue()+1;
+					lap[5] = game.table.getListPlayerCardsOnTable().ElementAt(3).getValue();
 				}
 				if (nbplayer == 5)
 				{
-					lap[6] = game.table.getListPlayerCardsOnTable().ElementAt(4).getValue()+1;
+					lap[6] = game.table.getListPlayerCardsOnTable().ElementAt(4).getValue();
 				}
 
 				affiche(lap);
@@ -196,7 +200,7 @@ namespace stupvau
             if (nbplayer >= 3) pb_player3.Image = cardsplayer3.Images[0];
             if (nbplayer >= 4) pb_player4.Image = cardsplayer4.Images[0];
             if (nbplayer >= 5) pb_player5.Image = cardsplayer5.Images[0];
-			if (turn != 0)
+			if (turn != 0 || this.winner==-1 || this.game.table.last_winner==-1)
 			{
 				state("Nouveau tour, à vous de jouer");
 				game.table.next_round();

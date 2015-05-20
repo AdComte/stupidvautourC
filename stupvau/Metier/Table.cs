@@ -11,7 +11,7 @@ namespace stupvau.Metier
     {
 		public readonly static int NB_VULTURE = 5;
 		public readonly static int NB_MOUSE = 10;
-
+        public int last_winner;
 		private IList<PlayerCard> listPlayerCardsOnTable;
 		private AnimalCard current;
 		private IList<AnimalCard> stack;
@@ -75,9 +75,10 @@ namespace stupvau.Metier
 
 
 		//Renvoie le numéro du joueur gagnant ce coup ci
-		public int win_round()
+		public int win_round(IList<PlayerCard> listPlayerCardsOT)
 		{
-			temp = new List<PlayerCard>(listPlayerCardsOnTable);
+            //int[] gagnants=new int[5];
+			temp = new List<PlayerCard>(listPlayerCardsOT);
 			if (temp.Count == 0)
 			{
 				Console.WriteLine("Aucune Carte n'a été déposée || Tout le monde est à égalité !");
@@ -133,10 +134,12 @@ namespace stupvau.Metier
 				i = 0;
 				while (i < listCardGagnantes.Count)
 				{
-					temp.Remove(listCardGagnantes.ElementAt(i));
+                    Console.WriteLine("i = " + i);
+					temp.Remove(listCardGagnantes.ElementAt(0));
 					listCardGagnantes.RemoveAt(0);
+                    i++;
 				}
-				return this.win_round();
+				return this.win_round(temp);
 			}
 		}
 
@@ -181,7 +184,7 @@ namespace stupvau.Metier
                 //else if (winnerRound == -1) { Console.WriteLine("ERREUR : Personne n'a gagné ce round, il n'y a pas égalité non plus"); }
                 //else if (winnerRound == -2) { Console.WriteLine("Personne n'a gagné ce tour ci, les cartes seront défaussées"); }
 			}
-            int winnerRound = this.win_round();
+            int winnerRound= this.last_winner = this.win_round(this.getListPlayerCardsOnTable());
             int point = this.getCurrent().getValue();
             if (this.getCurrent().getAnimal())
             {
